@@ -1,0 +1,35 @@
+/*Font style imports*/
+
+/*Kalam to be used for recipe book instructions*/
+@import url('https://fonts.googleapis.com/css?family=Kalam:400,700');
+
+/*Roboto to be used for titles, navbarand all other non recipe areas of the site*/
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+
+/*Site overall styles*/
+
+* {
+    margin: 0;
+    font-family: "Rototo", sans-serif;
+}
+
+/*Navbar*/
+
+/*Footer*/
+
+/*Larger screen sizes*/
+
+/*tablet screens*/
+@media(min-width: 768px) {
+    
+}
+
+/*Large tablet and small laptop screens*/
+@media(min-width: 992px) {
+    
+}
+
+/*Larger laptop and desktop screens*/
+@media(min-width: 1224px) {
+    
+}
