@@ -5,13 +5,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Find the best recipes to suit you, created by like minded people">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Recipes</title>
+    <title>theRecipeStore | Find great recipes</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" />
 </head>
 
+<!--This html page will have the navbar and footer that will be used on every one of the pages-->
 <body>
     
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo-label">
+            	<!--Logo will link back to the home page-->
+                <div class="navbar-logo">
+                    <a href="#">theRecipeStore</a>
+                </div>
+                <!--Navbar burger icon created so that effect can take place on mobile view-->
+                <div id="navbar-dropdown" class="navbar-dropdown">
+					<span class="line line1"></span>
+					<span class="line line2"></span>
+					<span class="line line3"></span>
+                </div>
+            </div>
+            <div class="navbar-links">
+            	<!--Link to the home page-->
+                <div class="navbar-link">
+	                <a id="home-link" class="dropdown-content-button" href="#">Home</a>
+	            </div>
+	            <!--Allow user to search for menu by most popular or most recent type-->
+                <div class="navbar-link">
+	                <a id="search-link" class="dropdown-content-button" href="#">Search</a>
+	                <div id="search-link-dropdown" class="dropdown-content">
+	                	<a class="dropdown-content-link" href="#">Most Popular</a>
+	                	<a class="dropdown-content-link" href="#">Most Recent</a>
+	                </div>
+	            </div>
+	            <!--Allow user to search for menu by what they want-->
+	            <div class="navbar-link">
+	                <a id="meal-type" class="dropdown-content-button" href="#">Meal Types</a>
+	                <div id="meal-type-dropdown" class="dropdown-content">
+	                	<a class="dropdown-content-link" href="#">Snacks</a>
+	                	<a class="dropdown-content-link" href="#">Light Bites</a>
+	                	<a class="dropdown-content-link" href="#">Main Meals</a>
+	                	<a class="dropdown-content-link" href="#">Desserts</a>
+	                </div>
+	            </div>
+	            <!--Allow user to search for menu by allergen preference-->
+	            <div class="navbar-link">             
+                	<a id="allergens" class="dropdown-content-button" href="#">Allergens</a>
+                	<div id="allergens-dropdown" class="dropdown-content">
+	                	<a class="dropdown-content-link" href="#">Vegetarian</a>
+	                	<a class="dropdown-content-link" href="#">Nut Free</a>
+	                	<a class="dropdown-content-link" href="#">Lactose Free</a>
+	                	<a class="dropdown-content-link" href="#">Gluten Free</a>
+	                </div>
+                </div> 
+                <!--Buttons that link to pages allowing the user to sign up or login to their membership area-->
+                <div class="navbar-link-buttons"> 
+	                <div class="sign-up-login-button" id="sign-up">Sign Up</div>
+	                <div class="sign-up-login-button" id="login">Login</div>
+	            </div>
+	            
+	            <!--The following lines will only appear in mobile views-->
+	            <div class="horizontal-rule-divider">
+	            	<div class="navbar-contents-seperate"></div>
+	            </div>
+	            <!--Social links in destop views wil be attached to the side of the page-->
+	            <div class="navbar-link"> 
+	                <div id="social" class="dropdown-content">
+	                	<a class="social-link" href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+	                	<a class="social-link" href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+	                	<a class="social-link" href="#" target="_blank"><i class="fa fa-instagram"></i></a>
+	                	<a class="social-link" href="#" target="_blank"><i class="fa fa-pinterest"></i></a>
+	                </div>
+	            </div>
+	            <!--Contact and about page-->
+	            <div class="contact-about-navbar">
+	            	<div class="contact-about-navbar-links"> 
+		                <a id="about-navbar" class="contact-about-link" href="#">About</a>
+		                <a id="contact-navbar" class="contact-about-link" href="#">Contact</a>
+		                <span class="contact-about-link">&#169; 2019 theRecipeStore</span>
+		            </div>
+	            </div>
+            </div>           
+        </div>
+    </nav>
+    
+    {% block content %}
+    {% endblock %}
+    
+    <footer>
+        
+    </footer>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src="../static/js/navbar.js"></script>
+    <script src="../static/js/navbar-contents.js"></script>
 </body>
 
 </html>
