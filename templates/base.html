@@ -79,6 +79,7 @@
 	                	<a class="social-link" href="#" target="_blank"><i class="fa fa-instagram"></i></a>
 	                	<a class="social-link" href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
 	                	<a class="social-link" href="#" target="_blank"><i class="fa fa-pinterest"></i></a>
+	                	<a class="social-link" href="#" target="_blank"><i class="fa fa-youtube"></i></a>
 	                </div>
 	            </div>
 	            <!--Contact and about page-->
@@ -96,13 +97,74 @@
     {% block content %}
     {% endblock %}
     
-    <footer>
-        
-    </footer>
+    <footer class="footer">
+		<div class="footer-container">
+			<!--Social links at the top of the footer-->
+			<div class="footer-social">
+                <ul class="social-links">
+                    <li class="social"><a class="dropdown-content-link social-link" href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                    <li class="social"><a class="dropdown-content-link social-link" href="https://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                    <li class="social"><a class="dropdown-content-link social-link" href="https://www.instagram.com/?hl=en" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                    <li class="social"><a class="dropdown-content-link social-link" href="https://www.linkedin.com/?hl=en" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                    <li class="social"><a class="dropdown-content-link social-link" href="https://www.pinterest.com/?hl=en" target="_blank"><i class="fa fa-pinterest"></i></a></li>
+                    <li class="social"><a class="dropdown-content-link social-link" href="https://www.youtube.com/?hl=en" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                </ul>
+            </div>
+            <!--Links at the top of the footer section-->
+			<div class="footer-top-primary-links">
+				<!--Allow the user to select the pages that show the most recent and the most popular recipes-->
+				<div class="footer-section">
+					<div class="search-footer-links footer-list-title" id="search-footer-dropdown">Search Recipes:</div>
+					<ul class="search-subject-links footer-list" id="search-list">
+						<li class="footer-list-item"><a class="footer-list-link" href="#">Most Popular</a></li>
+						<li class="footer-list-item"><a class="footer-list-link" href="#">Most Recent</a></li>
+					</ul>
+				</div>
+				<!--Select the recipes by meal type-->
+				<div class="footer-section">
+					<div class="meal-types-footer-links footer-list-title" id="meal-types-footer-dropdown">Meal Types:</div>
+					<ul class="meal-types-subject-links footer-list" id="meal-types-list">
+						<li class="footer-list-item"><a class="footer-list-link" href="#">Snacks</a></li>
+						<li class="footer-list-item"><a class="footer-list-link" href="#">Light Bites</a></li>
+						<li class="footer-list-item"><a class="footer-list-link" href="#">Main Meals</a></li>
+						<li class="footer-list-item"><a class="footer-list-link" href="#">Desserts</a></li>
+					</ul>
+				</div>
+				<!--Select recipes by allergen requirements-->
+				<div class="footer-section">
+					<div class="allergens-footer-links footer-list-title" id="allergens-footer-dropdown">Allergens:</div>
+					<ul class="allergens-subject-links footer-list" id="allergens-list">
+						<li class="footer-list-item"><a class="footer-list-link" href="#">Vegetarian</a></li>
+						<li class="footer-list-item"><a class="footer-list-link" href="#">Nut Free</a></li>
+						<li class="footer-list-item"><a class="footer-list-link" href="#">Lactose Free</a></li>
+						<li class="footer-list-item"><a class="footer-list-link" href="#">Gluten Free</a></li>
+					</ul>
+				</div>
+			</div>
+			<!--Horizontal rule between the top section of the footer and the bottom statements-->
+			<div class="horizontal-rule-footer">
+	          	<div class="footer-contents-separate"></div>
+	        </div>
+	        <!--Bottom section of the footer-->
+            <div class="footer-statement">
+            	<!--Copyright statement-->
+            	<p class="statement">&#169; theRecipeStore</p>
+            	<div class="footer-contact-about">
+					<p class="footer-contact-about-links">
+						<!--Links to the contact and about pages-->
+						<span class="footer-contact-about-links-span"><a id="about-footer" class="terms-about-link" href="#">About</a></span><span class="footer-contact-about-links-divider">|</span>
+			            <span class="footer-contact-about-links-span"><a id="contact-footer" class="terms-about-link" href="#">Contact</a></span>
+			        </p>
+				</div>
+            </div>
+		</div>
+	</footer>
     
+    <!--Scripts to run-->
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <script src="../static/js/navbar.js"></script>
     <script src="../static/js/navbar-contents.js"></script>
+    
 </body>
 
 </html>

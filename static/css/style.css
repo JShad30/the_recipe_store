@@ -327,16 +327,204 @@ light blue - 80C0B8
 
 
 
+/*----------Placeholder section while base.html being built----------*/
+.placeholder {
+    height: 200px;
+}
 
 
-/*----------Footer*-----------/
+/*----------Footer*-----------*/
+.footer {
+	width: 100%;
+    height: auto;
+    background-image: linear-gradient(#193632, #36736B);
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+}
+
+.footer-container {
+    margin: 0 10px;
+    width: 90%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+}
+
+/*Social links at the top of the footer*/
+.footer-social {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50px;
+    margin-top: 20px;
+}
+
+.social-links {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.social {
+    margin: 0 10px;
+}
+
+.social-links li a {
+    text-decoration: none;
+}
+
+.social-links li a i {
+    font-size: 1.8em;
+    display: flex;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    color: #FFFFFF;
+}
+
+.social-links li a i:hover {
+    transition-property: color;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    color: #80C0B8;
+}
+
+/*Footer top section links*/
+.footer-top-primary-links {
+    margin: 20px 0;
+}
+
+.footer-section {
+    margin: 20px 0 40px 0;
+}
+
+.footer-list-title {
+    font-family: "Kalam", cursive;
+    font-size: 1.2em;
+}
+
+.footer-list {
+    display: block;
+    padding: 0 5px;
+    list-style-type: none;
+    margin: 10px 0;
+}
+
+.footer-list-item {
+    line-height: 1.6em;
+}
+
+.footer-list-item a {
+    font-family: "Kalam", cursive;
+    font-size: 1em;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: 100;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.3s;
+}
+
+.footer-list-item a:hover {
+    transition-property: color;
+    color: #80C0B8;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.3s;
+}
+
+/* Links to the contact and about pages */
+.footer-contact-about {
+    min-height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.footer-contact-about-links {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+}
+
+.footer-contact-about-links-divider {
+    display: none;
+}
+
+.footer-contact-about-links span a {
+    font-family: "Roboto", serif;
+    font-size: .7em;
+    color: #FFFFFF;
+    transition-property: color;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    text-decoration: none;
+}
+
+.footer-contact-about-links span a:hover {
+    font-size: .7em;
+    transition-property: color;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    color: #80C0B8;
+}
+
+/*Horizontal line that seperates the main links from the about and contact links*/
+.horizontal-rule-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.footer-contents-separate {
+    border: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #FFFFFF;
+}
+
+/* Footer copyright statement */
+.footer-statement {
+    height: 100px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.statement {
+    font-family: "Roboto", serif;
+    font-size: .7em;
+    color: #FFFFFF;
+    text-align: center;
+    width: 100%;
+    margin: 20px;
+}
+
 /*----------End of Footer in mobile view----------*/
+
+
+
+
+
+
+
+
 
 /*Larger screen sizes*/
 
 /*tablet screens*/
 @media(min-width: 768px) {
-    
     /*----------Navbar----------*/
     
     /*Increasing the size of the margin between the contacts about page and the contents above*/
@@ -344,13 +532,57 @@ light blue - 80C0B8
         margin-top: 50px;
     }
     /*----------End of Navbar in tablet views-----------*/
+    
+    
+    
+    /*----------Footer----------*/
+    .footer-top-primary-links {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 30px 0;
+    }
+
+    .footer-section {
+        margin: 0;
+    }
+
+    .footer-list {
+        padding: 0;
+    }
+
+    .footer-statement {
+        flex-direction: row;
+    }
+
+    .footer-contact-about-links {
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+    .footer-contact-about-links-divider {
+        display: block;
+    }
+
+    .footer-contact-about-links-span {
+        margin: 0 5px;
+    }
+
+    .statement {
+        text-align: left;
+        margin: 0;
+    }
+
+    .footer-social {
+        margin: 20px 0;
+    }
+    /*----------End of Footer in tablet views-----------*/    
 }
 
 /*Large tablet and small laptop screens*/
 @media(min-width: 992px) {
     
     /*----------Navbar----------*/
-    
 	.navbar {
 		height: 60px;
 	}
@@ -440,5 +672,5 @@ light blue - 80C0B8
 
 /*Larger laptop and desktop screens*/
 @media(min-width: 1224px) {
-    /*Navbar*/
+
 }
