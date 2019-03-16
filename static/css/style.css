@@ -26,22 +26,23 @@ light blue - 80C0B8
 
 /*---------Navbar----------*/
 .navbar {
+    position: sticky;
+    top: 0;
 	width: 100%;
     background-image: linear-gradient(#193632, #36736B);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 1;
-    position: fixed;
-    box-shadow: 0px 8px 10px 0px rgba(0,0,0,0.3);
+    z-index: 3;
+    box-shadow: 0px 8px 10px 0px rgba(0,0,0,0.7);
 }
 
 .navbar-container {
     margin: 0 10px;
-    width: 100%;
+    width: 90%;
+    max-width: 1000px;
     height: 100%;
-    max-width: 1400px;
     display: flex;
     flex-direction: column;
     align-items: space-between;
@@ -49,7 +50,6 @@ light blue - 80C0B8
 
 .navbar-logo-label {
 	height: 60px;
-    margin: 0 10px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -64,7 +64,6 @@ light blue - 80C0B8
 	font-weight: 700;
 	color: #FFFFFF;
 	text-decoration: none;
-	margin-left: 5px;
 }
 
 /*Navbar burger icon*/
@@ -74,7 +73,6 @@ light blue - 80C0B8
     display: flex;
     justify-content: flex-end;
     cursor: pointer;
-    margin-right: 10px;
 }
 
 .line {
@@ -112,10 +110,8 @@ light blue - 80C0B8
 
 /*Navbar dropdown links*/
 .navbar-links {
-	height: 100vh;
 	display: none;
-    padding: 0 10px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .navbar-links div a {
@@ -183,7 +179,7 @@ light blue - 80C0B8
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin: 40px 0 20px 0
+    margin: 20px 0 10px 0;
 }
 
 .sign-up-login-button {
@@ -271,7 +267,7 @@ light blue - 80C0B8
     align-items: center;
     width: 100%;
     padding: 0;
-    margin: 30px 0 60px 0;
+    margin: 20px 0 30px 0;
 }
 
 .navbar-link div a i {
@@ -314,7 +310,7 @@ light blue - 80C0B8
     transition-property: color;
     transition-duration: 0.3s;
     transition-timing-function: ease-in-out;
-    line-height: 2em;
+    line-height: 1.5em;
 }
 
 .contact-about-navbar div a:hover {
@@ -327,10 +323,9 @@ light blue - 80C0B8
 
 
 
-/*----------Placeholder section while base.html being built----------*/
-.placeholder {
-    height: 200px;
-}
+
+
+
 
 
 /*----------Footer*-----------*/
@@ -343,7 +338,6 @@ light blue - 80C0B8
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: fixed;
 }
 
 .footer-container {
@@ -519,6 +513,238 @@ light blue - 80C0B8
 
 
 
+/*----------Home -----------*/
+
+/*Image slideshow at the top of the home page*/
+.header-images {
+    width: 100%;
+    height: 70vh;
+}
+
+#header-slideshow div {
+    position: absolute;
+}
+
+#header-slideshow div:nth-of-type(1) {
+    animation-name: image-fade;
+    animation-delay: 7s;
+    animation-duration: 1s;
+    z-index: 2;
+}
+
+#header-slideshow div:nth-of-type(2){
+    z-index: 1;
+}
+
+#header-slideshow div:nth-of-type(n+3) {
+    display: none;
+}
+
+#header-slideshow div::after {
+    width: 90%;
+    position: absolute;
+    left: 11px;
+    bottom: 11px;
+    padding: 20px 20px;
+    text-align: left;
+    font-family: "Kalam", cursive;
+    font-size: 1.3em;
+    line-height: 1.3em;
+    border-radius: 10px;
+    color: #FFFFFF;
+}
+
+/*Change the image opacity from full to zero*/
+@keyframes image-fade {
+    from { 
+        opacity: 1.0; 
+    }
+    to   { 
+        opacity: 0.0; 
+    }
+}
+
+/*Images*/
+.slideshow-image {
+    height: 70vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-one {
+    background-image: url("../images/completed-dish.jpg");
+}
+
+.image-two {
+    background-image: url("../images/pasta-veg-on-table.jpg");
+}
+
+.image-three {
+    background-image: url("../images/recipe-book.jpg");
+}
+
+.image-four {
+    background-image: url("../images/spoon-meal-on-table.jpg");
+}
+
+/*Text within the images*/
+.image-container {
+    background: rgba(0,0,0,0.7);
+    width: 80%;
+    height: 40%;
+}
+
+/*End of the home page image scroll styles*/
+
+
+
+
+
+
+
+/*----------Meal type home page grid----------*/
+.meal-type {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #FAFAFA;
+}
+
+.meal-type-intro {
+    width: 80%;
+}
+
+.meal-type-intro-heading {
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: "Kalam", cursive;
+    font-size: 2em;
+    color: #193632;
+}
+
+.meal-type-intro-paragraph {
+    margin: 10px 0 40px 0;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+}
+
+.meal-type-container {
+    width: 80%;
+    max-width: 600px;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-auto-rows: 250px;
+}
+
+.meal-type-image {
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; 
+    overflow: hidden;
+}
+
+#light-bites {
+    background-image: url("../images/sandwich.jpg");
+}
+
+#snacks {
+    background-image: url("../images/snack.jpg");
+}
+
+#main-meals {
+    background-image: url("../images/dinner.jpg");
+}
+
+#desserts {
+    background-image: url("../images/cake.jpg");
+}
+
+.meal-type-description-area {
+    background-color: #000000;
+    opacity: 0.7;
+    height: 20%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+}
+
+.meal-type-image:hover .meal-type-description-area {
+    transition-property: height, opacity;
+    height: 100%;
+    opacity: 0.9;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    cursor: pointer;
+} 
+
+.meal-type-heading {
+    font-family: "Kalam", cursive;
+    font-size: 1.6em;
+    color: #FAFAFA;
+    margin: 10px;
+}
+
+.meal-type-paragraph {
+    display: none;
+    font-family: "Roboto", sans-serif;
+    width: 90%;
+    font-size: 1em;
+    line-height: 1.5em;
+    margin: 10px 0;
+    color: #FAFAFA;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    opacity: 0;
+    text-align: center;
+}
+
+.meal-type-image:hover .meal-type-description-area .meal-type-paragraph {
+    transition-property: opacity;
+    display: flex;
+    opacity: 1;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+}
+
+.meal-type-image .meal-type-description-area a {
+    display: none;
+    text-decoration: none;
+    background-color: #193632;
+    padding: 5px 10px;
+    margin: 20px 0;
+    font-family: "Kalam", cursive;
+    font-size: 1.5em;
+    font-weight: 400;
+    color: #FAFAFA;
+    border-radius: 10px;
+}
+
+.meal-type-image:hover .meal-type-description-area a {
+    display: flex;
+}
+
+/*----------End of meal type grid----------*/
+
+
+
+
 
 
 /*Larger screen sizes*/
@@ -583,21 +809,18 @@ light blue - 80C0B8
 @media(min-width: 992px) {
     
     /*----------Navbar----------*/
+    
 	.navbar {
 		height: 60px;
 	}
 	
 	.navbar-container {
-        width: 100%;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
     }
 	
 	/*Setting the margin between the left of the page and the logo*/
-    .navbar-logo-label {
-        margin: 0 30px;
-    }
     
     .navbar-links {
         display: flex;
@@ -605,7 +828,6 @@ light blue - 80C0B8
         justify-content: flex-end;
         align-items: center;
         height: 60px;
-        margin-right: 30px;
         margin-top: 0;
     }
     
@@ -630,7 +852,7 @@ light blue - 80C0B8
     }
 
     .dropdown-content .dropdown-content-link {
-        line-height: 1.4em;
+        line-height: 1.2em;
         font-size: 0.9em;
         margin: 3px 0 3px 5px;
     }
@@ -668,9 +890,19 @@ light blue - 80C0B8
         margin: 0 4px;
     }
     /*----------End of Navbar in laptop and desktop views-----------*/
+    
+    
+    
+    
+    
+    
+    
+    /*----------Social Icons attached to the side of the page----------*/
+    /*End of the styles of the social icons*/
+
 }
 
 /*Larger laptop and desktop screens*/
 @media(min-width: 1224px) {
-
+    /*Navbar*/
 }

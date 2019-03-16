@@ -2,12 +2,18 @@
 <html lang="en">
     
 <head>
+	
+	<!--Meta descriptions-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="Find the best recipes to suit you, created by like minded people">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!--Website title and description-->
     <title>theRecipeStore | Find great recipes</title>
+    
+    <!--Links to font awesome used for social icons and the css file-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" />
 </head>
 
@@ -19,7 +25,7 @@
             <div class="navbar-logo-label">
             	<!--Logo will link back to the home page-->
                 <div class="navbar-logo">
-                    <a href="#">theRecipeStore</a>
+                    <a href="{{ url_for('index') }}">theRecipeStore</a>
                 </div>
                 <!--Navbar burger icon created so that effect can take place on mobile view-->
                 <div id="navbar-dropdown" class="navbar-dropdown">
@@ -31,7 +37,7 @@
             <div class="navbar-links">
             	<!--Link to the home page-->
                 <div class="navbar-link">
-	                <a id="home-link" class="dropdown-content-button" href="#">Home</a>
+	                <a id="home-link" class="dropdown-content-button" href="{{ url_for('index') }}">Home</a>
 	            </div>
 	            <!--Allow user to search for menu by most popular or most recent type-->
                 <div class="navbar-link">
@@ -93,10 +99,10 @@
             </div>           
         </div>
     </nav>
-    
+
     {% block content %}
     {% endblock %}
-    
+
     <footer class="footer">
 		<div class="footer-container">
 			<!--Social links at the top of the footer-->
@@ -164,6 +170,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <script src="../static/js/navbar.js"></script>
     <script src="../static/js/navbar-contents.js"></script>
+    <script src="../static/js/header-image-scroll.js"></script>
     
 </body>
 
