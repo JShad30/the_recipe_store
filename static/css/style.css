@@ -681,7 +681,7 @@ light blue - 80C0B8
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition-duration: 0.3s;
+    transition-duration: 0.1s;
     transition-timing-function: ease-in-out;
 }
 
@@ -689,7 +689,7 @@ light blue - 80C0B8
     transition-property: height, opacity;
     height: 100%;
     opacity: 0.9;
-    transition-duration: 0.3s;
+    transition-duration: 0.1s;
     transition-timing-function: ease-in-out;
     cursor: pointer;
 } 
@@ -704,7 +704,7 @@ light blue - 80C0B8
 .meal-type-paragraph {
     display: none;
     font-family: "Roboto", sans-serif;
-    width: 90%;
+    width: 80%;
     font-size: 1em;
     line-height: 1.5em;
     margin: 10px 0;
@@ -739,8 +739,19 @@ light blue - 80C0B8
 .meal-type-image:hover .meal-type-description-area a {
     display: flex;
 }
-
 /*----------End of meal type grid----------*/
+
+
+
+
+
+
+
+
+/*----------Login and sign in pages-----------*/
+/*----------End of the login and sign in pages ----------*/
+
+
 
 
 

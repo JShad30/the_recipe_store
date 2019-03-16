@@ -10,7 +10,13 @@ Every page has the same Navbar and Footer, which are styled depending on the scr
 
 ### Example uses of site
 
+A user can use theRecipeStore to look for recipes for different meal types. These are recipes that have been uploaded by other users. Recipes can only be uploaded by users that have become a member of the site, and they can do this by signing up for an account (accessible from the home page by clicking either the sign up or login buttons in the navbar). Logging or signing in takes the user to their personal page, from where they can upload the recipes.
+
 ### Home Page
+
+The homepage has a large scrolling image at the top of the page. This contains an intro message to the site. Underneath there is a grid showing different meal types. When the user selects one of these, they are taken to the page of that particular meal type. Underneath this, also in a grid form, but in the structure of postit notes are a list of recipes that have been uploaded.
+
+### Sign in and Log in pages
 
 ## Features
 
@@ -50,3 +56,5 @@ The images used on the front page are taken from Pixabay.
 Throughout the project I received support from the mentor and the tutors. For individual coding tips, I would search online. Examples of these include:
 
 UX Rating Youtube Channel, https://www.youtube.com/watch?v=z05L-y6GAAY - Hamburger menu to a cross in the navbar when selected in mobile views.
+
+Slideshow on the homepage https://www.the-art-of-web.com/css/fading-slideshow-no-jquery/
