@@ -123,12 +123,11 @@ light blue - 80C0B8
     color: #FFFFFF;
     font-size: 1.2em;
     line-height: 1.4em;
-    font-family: "Kalam", cursive;
     transition-duration: 0.1s;
     transition-timing-function: ease-in-out;
 }
 
-.navbar-links div a:hover {
+.navbar-links .navbar-link a:hover {
     transition-property: color;
     color: #80C0B8;
     transition-timing-function: ease-in-out;
@@ -154,7 +153,7 @@ light blue - 80C0B8
 /*Controlling the dropdown content*/
 
 .dropdown-content .dropdown-content-link {
-	font-family: "Kalam", cursive;
+	font-family: "Roboto", sans-serif;
     line-height: 1.4em;
 	font-size: 1em;
 	transition-property: color;
@@ -188,13 +187,13 @@ light blue - 80C0B8
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 10px;
     cursor: pointer;
     border-radius: 10px;
     text-transform: uppercase;
     color: #FFFFFF;
+    margin: 0 10px;
     font-family: "Kalam", cursive;
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-weight: 700;
 }
 
@@ -202,6 +201,7 @@ light blue - 80C0B8
     background-color: #C09380;
     transition-timing-function: ease-in-out;
     transition-duration: 0.1s;
+    color: #FAFAFA;
 }
 
 #sign-up:hover {
@@ -222,6 +222,15 @@ light blue - 80C0B8
     transition-property: background-color;
     transition-timing-function: ease-in-out;
     transition-duration: 0.1s;
+}
+
+.sign-up-login-button a {
+    height: inherit;
+    width: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: inherit;
 }
 
 /*Search for section active and non active states for navbar-contents.js*/
@@ -402,7 +411,7 @@ light blue - 80C0B8
 }
 
 .footer-list-title {
-    font-family: "Kalam", cursive;
+    font-family: "Roboto", sans-serif;
     font-size: 1.2em;
 }
 
@@ -418,7 +427,7 @@ light blue - 80C0B8
 }
 
 .footer-list-item a {
-    font-family: "Kalam", cursive;
+    font-family: "Roboto", sans-serif;
     font-size: 1em;
     text-decoration: none;
     color: #FFFFFF;
@@ -491,8 +500,7 @@ light blue - 80C0B8
 .footer-statement {
     height: 100px;
     display: flex;
-    flex-direction: column-reverse;
-    justify-content: space-between;
+    flex-direction: row;
     align-items: center;
 }
 
@@ -500,9 +508,22 @@ light blue - 80C0B8
     font-family: "Roboto", serif;
     font-size: .7em;
     color: #FFFFFF;
-    text-align: center;
+    text-align: left;
     width: 100%;
-    margin: 20px;
+    margin: 0;
+}
+
+.footer-contact-about-links {
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.footer-contact-about-links-divider {
+    display: block;
+}
+
+.footer-contact-about-links-span {
+    margin: 0 5px;
 }
 
 /*----------End of Footer in mobile view----------*/
@@ -574,6 +595,7 @@ light blue - 80C0B8
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0px 8px 10px 0px rgba(0,0,0,0.3);
 }
 
 .image-one {
@@ -596,6 +618,7 @@ light blue - 80C0B8
 .image-container {
     background: rgba(0,0,0,0.7);
     width: 80%;
+    max-width: 600px;
     height: 40%;
 }
 
@@ -635,6 +658,8 @@ light blue - 80C0B8
     margin: 10px 0 40px 0;
     text-align: center;
     font-family: "Roboto", sans-serif;
+    font-size: 1em;
+    font-weight: 100;
 }
 
 .meal-type-container {
@@ -681,7 +706,7 @@ light blue - 80C0B8
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition-duration: 0.1s;
+    transition-duration: 0.3s;
     transition-timing-function: ease-in-out;
 }
 
@@ -689,9 +714,8 @@ light blue - 80C0B8
     transition-property: height, opacity;
     height: 100%;
     opacity: 0.9;
-    transition-duration: 0.1s;
+    transition-duration: 0.3s;
     transition-timing-function: ease-in-out;
-    cursor: pointer;
 } 
 
 .meal-type-heading {
@@ -730,14 +754,25 @@ light blue - 80C0B8
     padding: 5px 10px;
     margin: 20px 0;
     font-family: "Kalam", cursive;
-    font-size: 1.5em;
-    font-weight: 400;
+    font-size: 1.2em;
+    font-weight: 700;
     color: #FAFAFA;
     border-radius: 10px;
+    text-transform: uppercase;
 }
 
 .meal-type-image:hover .meal-type-description-area a {
     display: flex;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
+}
+
+.meal-type-image .meal-type-description-area a:hover {
+    transition-property: background-color;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
+    background-color: #36736B; 
+    cursor: pointer;
 }
 /*----------End of meal type grid----------*/
 
@@ -748,8 +783,116 @@ light blue - 80C0B8
 
 
 
-/*----------Login and sign in pages-----------*/
-/*----------End of the login and sign in pages ----------*/
+/*----------Login and sign up pages-----------*/
+.login-form-section,
+.signup-form-section {
+    height: 92vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form-container,
+.signup-form-container {
+    width: 80%;
+    max-width: 500px;
+    height: auto;
+}
+
+/*Log in form*/
+.login-title,
+.signup-title {
+    font-family: "Kalam", cursive;
+    text-align: center;
+    font-size: 1.8em;
+    color: #36736B;
+    margin: 20px;
+}
+
+.login-form,
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#login-textbox,
+#signup-textbox-firstname,
+#signup-textbox-lastname,
+#signup-textbox-username {
+    height: 40px;
+    width: 96%;
+    font-size: 1em;
+    border-radius: 10px;
+    border: solid 1px #80C0B8;
+    padding-left: 10px;
+    margin-top: 10px;
+}
+
+.login-button,
+.signup-button {
+    margin: 20px;
+    width: 100%;
+    height: 50px;
+    border: 0;
+    border-radius: 10px;
+    color: #FAFAFA;
+    font-family: "Roboto", cursive;
+    font-size: 1.7em;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.1s;
+}
+
+.login-button {
+    background-color: #80C0B8;
+}
+
+.signup-button {
+    background-color: #C09380;
+}
+
+.login-button:hover {
+    transition-property: background-color;
+    cursor: pointer;
+    background-color: #4E7570;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.1s;
+}
+
+.signup-button:hover {
+    transition-property: background-color;
+    cursor: pointer;
+    background-color: #614437;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.1s;
+}
+
+.login-form-message,
+.signup-form-message {
+    text-align: center;
+    font-size: 0.9em;
+    margin: 20px;
+}
+
+.login-form-message a,
+.signup-form-message a{
+    text-decoration: none;
+    color: #193632;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+}
+
+.login-form-message a:hover,
+.signup-form-message a:hover {
+    transition-property: color;
+    color: #80C0B8;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
+}
+
+/*----------End of the login and sign up pages ----------*/
 
 
 
@@ -760,19 +903,13 @@ light blue - 80C0B8
 
 /*Larger screen sizes*/
 
-/*tablet screens*/
-@media(min-width: 768px) {
-    /*----------Navbar----------*/
-    
-    /*Increasing the size of the margin between the contacts about page and the contents above*/
-    .contact-about-navbar-links {
-        margin-top: 50px;
-    }
-    /*----------End of Navbar in tablet views-----------*/
-    
-    
-    
+/*Horizontal mobile screens*/
+@media(min-width: 500px) {
     /*----------Footer----------*/
+    .footer-social {
+        margin: 20px 0;
+    }
+    
     .footer-top-primary-links {
         display: flex;
         flex-direction: row;
@@ -787,33 +924,18 @@ light blue - 80C0B8
     .footer-list {
         padding: 0;
     }
+    /*----------End of Footer in tablet views-----------*/ 
+}
 
-    .footer-statement {
-        flex-direction: row;
+/*tablet screens*/
+@media(min-width: 768px) {
+    /*----------Navbar----------*/
+    
+    /*Increasing the size of the margin between the contacts about page and the contents above*/
+    .contact-about-navbar-links {
+        margin-top: 50px;
     }
-
-    .footer-contact-about-links {
-        flex-direction: row;
-        justify-content: flex-end;
-    }
-
-    .footer-contact-about-links-divider {
-        display: block;
-    }
-
-    .footer-contact-about-links-span {
-        margin: 0 5px;
-    }
-
-    .statement {
-        text-align: left;
-        margin: 0;
-    }
-
-    .footer-social {
-        margin: 20px 0;
-    }
-    /*----------End of Footer in tablet views-----------*/    
+    /*----------End of Navbar in tablet views-----------*/
 }
 
 /*Large tablet and small laptop screens*/
