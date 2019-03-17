@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section class="signup-form-section">
+    
+    <!--Section that contains the form-->
+    <div class="signup-form-container">
+        
+        <!--Introduction to the form-->
+        <h3 class="signup-title">Sign Up</h3>
+        <p class="signup-form-message">Signup to be able to add recipes to the website, and have them viewed and shared by others.</p>
+        
+        <!--Form-->
+        <form class="signup-form">
+            <!--Textbox for the user to fill in their firstname-->
+            <input id="signup-textbox-firstname" type="text" name="firstname" placeholder="type firstname"/>
+            <!--Textbox for the user to fill in their lastname-->
+            <input id="signup-textbox-lastname" type="text" name="lastname" placeholder="type lastname"/>
+            <!--Textbox for the user to fill in a username-->
+            <input id="signup-textbox-username" type="text" name="username" placeholder="type username"/>
+            <!--Submit button-->
+            <input class="signup-button" type="submit" value="Submit"/>
+        </form>
+        
+        <!--If the user is already a member this link gives them the option to go the login page-->
+        <p class="signup-form-message">Already a member? Click <a href="{{ url_for('login') }}">here</a> to go to the log in page.</p>
+    </div>
+</section>
+
+{% endblock %}

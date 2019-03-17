@@ -69,8 +69,8 @@
                 </div> 
                 <!--Buttons that link to pages allowing the user to sign up or login to their membership area-->
                 <div class="navbar-link-buttons"> 
-	                <div class="sign-up-login-button" id="sign-up">Sign Up</div>
-	                <div class="sign-up-login-button" id="login">Login</div>
+	                <div class="sign-up-login-button" id="sign-up"><a href="{{ url_for('signup') }}" class="navbar-link-button">Sign Up</a></div>
+	                <div class="sign-up-login-button" id="login"><a href="{{ url_for('login') }}" class="navbar-link-button">Log In</a></div>
 	            </div>
 	            
 	            <!--The following lines will only appear in mobile views-->
@@ -170,7 +170,6 @@
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <script src="../static/js/navbar.js"></script>
     <script src="../static/js/navbar-contents.js"></script>
-    <script src="../static/js/header-image-scroll.js"></script>
     
 </body>
 
