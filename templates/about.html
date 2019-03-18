@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section class="about-us-section">
+    
+    <!--Container for the content in the about section-->
+    <div class="about-us-container">
+        
+        <!--Heading-->
+        <h3 class="about-us-title">About Us</h3>
+        
+        <!--Content paragraphs-->
+        <p class="about-us-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo repellat sit mollitia similique excepturi quas animi, consectetur voluptas tenetur. Alias esse quam nostrum culpa odio laboriosam magni, quidem porro debitis.</p>
+        <p class="about-us-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem odio porro mollitia, fugiat voluptate, eveniet repellat, quis sapiente dignissimos cupiditate necessitatibus. Iure iste aliquam error, blanditiis culpa perferendis? Nihil nulla laudantium voluptatum nemo recusandae ex eligendi, vitae beatae qui unde.</p>
+        <p class="about-us-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quia libero, voluptatem corporis fugit cupiditate error temporibus sunt fugiat architecto expedita fuga dolorem consequuntur dolore consectetur. Eius eaque expedita sed.</p>
+        
+        <!--Content paragraphs including links to the contact and signup pages-->
+        <p class="about-us-paragraph">If there is any more information you would like to know about our site, leave us a message on our <a href="{{ url_for('contact') }}">contact</a> page, and we do our best to respond. If you are convinced you would like to become a member then be sure to <a href="{{ url_for('signup') }}">sign up</a> and start uploading your recipes now!</p>
+    </div>
+    
+</section>
+
+{% endblock %}
