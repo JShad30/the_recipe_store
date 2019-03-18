@@ -18,6 +18,12 @@ The homepage has a large scrolling image at the top of the page. This contains a
 
 ### Sign in and Log in pages
 
+This website gives the user the option to become a member. They can sign up for this by going to the 'Sign Up' page. This can be accessed throughout the site from the navbar. They are then asked to submit their first name, last name, and their chosen username to create the account. From then on, if they revisit the site they will be able to go to the 'Log in' page and supply their username to be taken into their account. This will enable them to upload their own recipes.
+
+### About and Contact pages
+
+In the bottom right of the footer on every page, you will find links to the 'About' and 'Contact' pages. If the user has any questions about the site or their account, they are able to visit the 'Contact' page and send a message. The 'About' page has been created for those users that would like more information about the site, maybe before they create and account. In the text, they are able to find links to the 'Contact' and 'Sing Up' pages.
+
 ## Features
 
 ## Technology Used
@@ -28,7 +34,9 @@ This project was built using different languages, libraries and frameworks.
 
 The template pages have been written with HTML5 (http://www.html5.com/) and styled with CSS3 (www.css3.com) in the style.css file. CSS3 was used to create the mobile responsiveness seen across the whole site. It has also been used to create the hover effects for the buttons and icons. On each of the pages, you will find the jinja template engine used. A 'base.html' page has been created to contain the HTML code that is to be used on each of the pages i.e. the head, header and the footer.
 
-jQuery (https://jquery.com/) has been used in the navbar to control the dropdown menus. Javascrpt was used to control the image scroll on the homepage and the contact section.
+jQuery (https://jquery.com/) has been used in the navbar to control the dropdown menus. Javascrpt (https://www.javascript.com/) was used to control the image scroll on the homepage and the contact section.
+
+The contact form on the 'contact.html' page was created using HTML forms. An account and template for the data submitted was created on Emailjs, and this was connected with Javascrpt in the 'contact.js' file.
 
 ### Python
 
@@ -36,12 +44,15 @@ The site has been built using the Python based Flask framework (http://flask.poc
 
 ### Data Storage
 
-
 ### Version Control
 
 Git was used throughout the project for version control.
 
 ## Testing
+
+### Contact
+
+A number of test emails were sent from the contact page to check that the form was set up correctly. 
 
 ## Deployment
 
