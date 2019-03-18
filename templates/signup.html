@@ -12,18 +12,16 @@
         
         <!--Form-->
         <form class="signup-form">
-            <!--Textbox for the user to fill in their firstname-->
+            <!--Textboxes for the user to fill in their firstname, lastname and username-->
             <input id="signup-textbox-firstname" type="text" name="firstname" placeholder="type firstname"/>
-            <!--Textbox for the user to fill in their lastname-->
             <input id="signup-textbox-lastname" type="text" name="lastname" placeholder="type lastname"/>
-            <!--Textbox for the user to fill in a username-->
             <input id="signup-textbox-username" type="text" name="username" placeholder="type username"/>
             <!--Submit button-->
             <input class="signup-button" type="submit" value="Submit"/>
         </form>
         
         <!--If the user is already a member this link gives them the option to go the login page-->
-        <p class="signup-form-message">Already a member? Click <a href="{{ url_for('login') }}">here</a> to go to the log in page.</p>
+        <p class="signup-form-message">Already a member? Go to the <a href="{{ url_for('login') }}">log in</a> page.</p>
     </div>
 </section>
 

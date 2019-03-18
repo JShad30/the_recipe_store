@@ -12,6 +12,15 @@
     <!--Website title and description-->
     <title>theRecipeStore | Find great recipes</title>
     
+    <!--Javascript for the email-->
+	<script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+	<script type="text/javascript">
+	var emailjs;
+	   (function(){
+	      emailjs.init("user_nVgsbi1Gg5ntFv9PDjPuz");
+	   })();
+	</script>
+    
     <!--Links to font awesome used for social icons and the css file-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" />
@@ -91,8 +100,8 @@
 	            <!--Contact and about page-->
 	            <div class="contact-about-navbar">
 	            	<div class="contact-about-navbar-links"> 
-		                <a id="about-navbar" class="contact-about-link" href="#">About</a>
-		                <a id="contact-navbar" class="contact-about-link" href="#">Contact</a>
+		                <a id="about-navbar" class="contact-about-link" href="{{ url_for('about') }}">About</a>
+		                <a id="contact-navbar" class="contact-about-link" href="{{ url_for('contact') }}">Contact</a>
 		                <span class="contact-about-link">&#169; 2019 theRecipeStore</span>
 		            </div>
 	            </div>
@@ -158,8 +167,8 @@
             	<div class="footer-contact-about">
 					<p class="footer-contact-about-links">
 						<!--Links to the contact and about pages-->
-						<span class="footer-contact-about-links-span"><a id="about-footer" class="terms-about-link" href="#">About</a></span><span class="footer-contact-about-links-divider">|</span>
-			            <span class="footer-contact-about-links-span"><a id="contact-footer" class="terms-about-link" href="#">Contact</a></span>
+						<span class="footer-contact-about-links-span"><a id="about-footer" class="terms-about-link" href="{{ url_for('about') }}">About</a></span><span class="footer-contact-about-links-divider">|</span>
+			            <span class="footer-contact-about-links-span"><a id="contact-footer" class="terms-about-link" href="{{ url_for('contact') }}">Contact</a></span>
 			        </p>
 				</div>
             </div>
@@ -170,6 +179,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <script src="../static/js/navbar.js"></script>
     <script src="../static/js/navbar-contents.js"></script>
+    <script src="../static/js/contact.js"></script>
     
 </body>
 

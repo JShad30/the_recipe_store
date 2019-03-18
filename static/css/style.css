@@ -595,7 +595,6 @@ light blue - 80C0B8
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0px 8px 10px 0px rgba(0,0,0,0.3);
 }
 
 .image-one {
@@ -785,8 +784,16 @@ light blue - 80C0B8
 
 /*----------Login and sign up pages-----------*/
 .login-form-section,
-.signup-form-section {
-    height: 92vh;
+.signup-form-section,
+.contact-form-section {
+    min-height: 92vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-us-section {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -794,15 +801,20 @@ light blue - 80C0B8
 }
 
 .login-form-container,
-.signup-form-container {
+.signup-form-container,
+.contact-form-container,
+.about-us-container {
     width: 80%;
     max-width: 500px;
     height: auto;
+    margin-top: 50px;
+    margin-bottom: 150px;
 }
 
 /*Log in form*/
 .login-title,
-.signup-title {
+.signup-title,
+.contact-title {
     font-family: "Kalam", cursive;
     text-align: center;
     font-size: 1.8em;
@@ -810,8 +822,36 @@ light blue - 80C0B8
     margin: 20px;
 }
 
+.about-us-title {
+    font-family: "Kalam", cursive;
+    text-align: left;
+    font-size: 1.8em;
+    color: #36736B;
+    margin: 20px 0;
+}
+
+.about-us-paragraph {
+    margin: 20px 0;
+    font-size: 1em;
+}
+
+.about-us-paragraph a {
+    text-decoration: underline;
+    color: #193632;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+}
+
+.about-us-paragraph a:hover {
+    transition-property: color;
+    color: #80C0B8;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
+}
+
 .login-form,
-.signup-form {
+.signup-form,
+.contact-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -821,9 +861,13 @@ light blue - 80C0B8
 #login-textbox,
 #signup-textbox-firstname,
 #signup-textbox-lastname,
-#signup-textbox-username {
-    height: 40px;
-    width: 96%;
+#signup-textbox-username,
+#firstname,
+#lastname,
+#email {
+    height: 45px;
+    width: 100%;
+    box-sizing: border-box;
     font-size: 1em;
     border-radius: 10px;
     border: solid 1px #80C0B8;
@@ -832,7 +876,8 @@ light blue - 80C0B8
 }
 
 .login-button,
-.signup-button {
+.signup-button,
+.contact-button {
     margin: 20px;
     width: 100%;
     height: 50px;
@@ -845,7 +890,8 @@ light blue - 80C0B8
     transition-duration: 0.1s;
 }
 
-.login-button {
+.login-button,
+.contact-button {
     background-color: #80C0B8;
 }
 
@@ -853,7 +899,8 @@ light blue - 80C0B8
     background-color: #C09380;
 }
 
-.login-button:hover {
+.login-button:hover,
+.contact-button:hover {
     transition-property: background-color;
     cursor: pointer;
     background-color: #4E7570;
@@ -878,7 +925,7 @@ light blue - 80C0B8
 
 .login-form-message a,
 .signup-form-message a{
-    text-decoration: none;
+    text-decoration: underline;
     color: #193632;
     transition-duration: 0.3s;
     transition-timing-function: ease-in-out;
@@ -890,6 +937,23 @@ light blue - 80C0B8
     color: #80C0B8;
     transition-duration: 0.1s;
     transition-timing-function: ease-in-out;
+}
+
+.contact-form-message {
+    margin: 20px 0;
+    text-align: center;
+}
+
+#contact-textarea-message {
+    height: 200px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1em;
+    border-radius: 10px;
+    border: solid 1px #80C0B8;
+    padding-top: 10px;
+    padding-left: 10px;
+    margin-top: 10px
 }
 
 /*----------End of the login and sign up pages ----------*/
