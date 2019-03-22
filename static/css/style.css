@@ -542,83 +542,58 @@ light blue - 80C0B8
     height: 70vh;
 }
 
-#header-slideshow div {
-    position: absolute;
-}
-
-#header-slideshow div:nth-of-type(1) {
-    animation-name: image-fade;
-    animation-delay: 7s;
-    animation-duration: 1s;
-    z-index: 2;
-}
-
-#header-slideshow div:nth-of-type(2){
-    z-index: 1;
-}
-
-#header-slideshow div:nth-of-type(n+3) {
-    display: none;
-}
-
-#header-slideshow div::after {
-    width: 90%;
-    position: absolute;
-    left: 11px;
-    bottom: 11px;
-    padding: 20px 20px;
-    text-align: left;
-    font-family: "Kalam", cursive;
-    font-size: 1.3em;
-    line-height: 1.3em;
-    border-radius: 10px;
-    color: #FFFFFF;
-}
-
-/*Change the image opacity from full to zero*/
-@keyframes image-fade {
-    from { 
-        opacity: 1.0; 
-    }
-    to   { 
-        opacity: 0.0; 
-    }
-}
-
-/*Images*/
 .slideshow-image {
-    height: 70vh;
+    height: 100%;
     width: 100%;
+    background-image: url("../images/completed-dish.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    animation: slide 20s infinite;
+}
+
+@keyframes slide {
+    25% {
+        background-image: url("../images/pasta-veg-on-table.jpg");
+    }
+    50% {
+        background-image: url("../images/recipe-book.jpg");
+    }
+    75% {
+        background-image: url("../images/spoon-meal-on-table.jpg");
+    }
+    100% {
+        background-image: url("../images/completed-dish.jpg");
+    }
+}
+
+.image-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    background-color: rgb(0, 0, 0, 0.5);
+    height: 100%;
+    width: 100%;
 }
 
-.image-one {
-    background-image: url("../images/completed-dish.jpg");
-}
-
-.image-two {
-    background-image: url("../images/pasta-veg-on-table.jpg");
-}
-
-.image-three {
-    background-image: url("../images/recipe-book.jpg");
-}
-
-.image-four {
-    background-image: url("../images/spoon-meal-on-table.jpg");
-}
-
-/*Text within the images*/
-.image-container {
-    background: rgba(0,0,0,0.7);
+.image-text {
     width: 80%;
     max-width: 600px;
-    height: 40%;
+}
+
+.image-text-header {
+    font-size: 4em;
+    font-family: "Kalam", cursive;
+    line-height: 1.3em;
+    color: #FAFAFA;
+}
+
+.image-text-paragraph {
+    font-family: "Roboto", sans-serif;
+    line-height: 1.5em;
+    color: #FAFAFA;
+    font-size: 1.3em;
 }
 
 /*End of the home page image scroll styles*/
@@ -678,6 +653,8 @@ light blue - 80C0B8
     justify-content: center;
     align-items: flex-end; 
     overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid #36736B;
 }
 
 #light-bites {
