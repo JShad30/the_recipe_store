@@ -26,44 +26,19 @@
     <!--Grid section-->
     <div class="meal-type-container">
         
-        <!--Meal type section for light bites-->
-        <div class="meal-type-image" id="light-bites">
+        <!--For loop iterating throung the json file to use the next section of code for the four different meal types-->
+        {% for meal_type in meal_type_statements %}
+        <!--Meal type section on homepage-->
+        <div class="meal-type-image" id="{{ meal_type.id }}">
             <div class="meal-type-description-area">
-                <h3 class="meal-type-heading">Light Bites</h3>
-                <p class="meal-type-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                <a href="#">click here</a>
+                <h3 class="meal-type-heading">{{ meal_type.mealtype }}</h3>
+                <p class="meal-type-paragraph">{{ meal_type.description }}</p>
+                <a href="{{ meal_type.url }}">click here</a>
             </div>
         </div>
+        {% endfor %}
         
-        <!--Meal type section for snacks-->
-        <div class="meal-type-image" id="snacks">
-            <div class="meal-type-description-area">
-                <h3 class="meal-type-heading">Snacks</h3>
-                <p class="meal-type-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                <a href="#">click here</a>
-            </div>
-        </div>
-        
-        <!--Meal type section for main meals-->
-        <div class="meal-type-image" id="main-meals">
-            <div class="meal-type-description-area">
-                <h3 class="meal-type-heading">Main Meals</h3>
-                <p class="meal-type-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                <a href="#">click here</a>
-            </div>
-        </div>
-        
-        <!--Meal type section for desserts-->
-        <div class="meal-type-image" id="desserts">
-            <div class="meal-type-description-area">
-                <h3 class="meal-type-heading">Desserts</h3>
-                <p class="meal-type-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                <a href="#">click here</a>
-            </div>
-        </div>
     </div>
 </section>
-
-<!--Javascript link for the image scroll at the top of the page-->
 
 {% endblock %}

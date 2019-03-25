@@ -1,4 +1,5 @@
 import os
+import json
 from flask import Flask, render_template
 
 app = Flask(__name__)
@@ -6,7 +7,10 @@ app = Flask(__name__)
 """Rendering the home page"""
 @app.route("/")
 def index():
-    return render_template("index.html")
+    data = []
+    with open("static/data/meal-type-homepage.json", "r") as json_data:
+        data = json.load(json_data)
+    return render_template("index.html", meal_type_statements=data)
     
     
 
@@ -35,6 +39,24 @@ def contact():
 @app.route("/about")
 def about():
     return render_template("about.html")
+    
+    
+    
+"""Rendering the Meal types Pages"""
+@app.route("/meal_type")
+def meal_type():
+    return render_template("mealtype.html")
+
+
+
+"""Rendering the Allergen Pages"""
+@app.route("/allergen")
+def allergen():
+    return render_template("allergen.html")
+
+
+
+"""Rnedering the most popular and the most recently added recipes""" 
     
     
     

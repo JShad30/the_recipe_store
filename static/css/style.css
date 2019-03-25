@@ -13,7 +13,7 @@ light blue - 80C0B8
 @import url('https://fonts.googleapis.com/css?family=Kalam:400,700');
 
 /*Roboto to be used for titles, navbarand all other non recipe areas of the site*/
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto:200,400,700');
 
 /*Site overall styles*/
 
@@ -64,6 +64,15 @@ light blue - 80C0B8
 	font-weight: 700;
 	color: #FFFFFF;
 	text-decoration: none;
+	transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
+}
+
+.navbar-logo a:hover {
+    transition-property: color;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
+    color: #80C0B8;
 }
 
 /*Navbar burger icon*/
@@ -583,17 +592,19 @@ light blue - 80C0B8
 }
 
 .image-text-header {
-    font-size: 4em;
+    font-size: 2.3em;
     font-family: "Kalam", cursive;
     line-height: 1.3em;
     color: #FAFAFA;
+    margin-bottom: 20px;
 }
 
 .image-text-paragraph {
     font-family: "Roboto", sans-serif;
     line-height: 1.5em;
     color: #FAFAFA;
-    font-size: 1.3em;
+    font-size: 1.2em;
+    font-weight: 200;
 }
 
 /*End of the home page image scroll styles*/
@@ -674,8 +685,8 @@ light blue - 80C0B8
 }
 
 .meal-type-description-area {
-    background-color: #000000;
-    opacity: 0.7;
+    background-image: linear-gradient(#193632, #36736B);
+    opacity: 0.9;
     height: 20%;
     width: 100%;
     display: flex;
@@ -689,7 +700,7 @@ light blue - 80C0B8
 .meal-type-image:hover .meal-type-description-area {
     transition-property: height, opacity;
     height: 100%;
-    opacity: 0.9;
+    opacity: 1;
     transition-duration: 0.3s;
     transition-timing-function: ease-in-out;
 } 
@@ -726,10 +737,10 @@ light blue - 80C0B8
 .meal-type-image .meal-type-description-area a {
     display: none;
     text-decoration: none;
-    background-color: #193632;
+    background-color: #80C0B8;
     padding: 5px 10px;
     margin: 20px 0;
-    font-family: "Kalam", cursive;
+    font-family: "Roboto", sans-serif;
     font-size: 1.2em;
     font-weight: 700;
     color: #FAFAFA;
@@ -747,7 +758,7 @@ light blue - 80C0B8
     transition-property: background-color;
     transition-duration: 0.1s;
     transition-timing-function: ease-in-out;
-    background-color: #36736B; 
+    background-color: #4E7570; 
     cursor: pointer;
 }
 /*----------End of meal type grid----------*/
@@ -1062,6 +1073,11 @@ light blue - 80C0B8
     
     .sign-up-login-button {
         margin: 0 4px;
+    }
+    
+    /*Scrolling header image text*/
+    .image-text-header {
+        font-size: 3em;
     }
     /*----------End of Navbar in laptop and desktop views-----------*/
     
