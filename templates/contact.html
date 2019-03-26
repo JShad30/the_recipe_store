@@ -8,15 +8,15 @@
         
         <!--Heading and introduction paragraph-->
         <h3 class="contact-title">Contact Us</h3>
-        <p class="contact-form-message">If you would like to contact us for any more information about this site, including the benefits of singing up, please do not hesitate to contact us by filling in the form below.</p>
+        <p class="contact-form-message">If you would like to contact us for any more information about this site, including the benefits of singing up, please do not hesitate to contact us by filling in the form below. If you would like to <a href="{{ url_for('signup') }}">sign up</a> or <a href="{{ url_for('login') }}">log in</a>, please visit the pages.</p>
         
         <!--Form-->
-        <form class="contact-form" onsubmit="return sendMail(this);">
+        <form method="POST" class="contact-form" onsubmit="return sendMail(this);">
             <input id="firstname" type="text" name="firstname" placeholder="type firstname" required>
             <input id="lastname" type="text" name="lastname" placeholder="type lastname" required>
             <input id="email" type="email" name="email" placeholder="type email" required>
             
-            <!--Text area to enable the user to tyoe their message-->
+            <!--Text area to enable the user to type their message-->
             <textarea id="contact-textarea-message" name="message" placeholder="your message here"></textarea>
             
             <!--Submit button. Pressing this will send the email, which is controlled in the contact.js file.-->

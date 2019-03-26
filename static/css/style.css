@@ -548,7 +548,7 @@ light blue - 80C0B8
 /*Image slideshow at the top of the home page*/
 .header-images {
     width: 100%;
-    height: 70vh;
+    height: 80vh;
 }
 
 .slideshow-image {
@@ -564,6 +564,7 @@ light blue - 80C0B8
 @keyframes slide {
     25% {
         background-image: url("../images/pasta-veg-on-table.jpg");
+        
     }
     50% {
         background-image: url("../images/recipe-book.jpg");
@@ -735,10 +736,13 @@ light blue - 80C0B8
 }
 
 .meal-type-image .meal-type-description-area a {
+    height: 40px;
     display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
     text-decoration: none;
     background-color: #80C0B8;
-    padding: 5px 10px;
     margin: 20px 0;
     font-family: "Roboto", sans-serif;
     font-size: 1.2em;
@@ -823,14 +827,16 @@ light blue - 80C0B8
     font-size: 1em;
 }
 
-.about-us-paragraph a {
+.about-us-paragraph a,
+.contact-form-message a {
     text-decoration: underline;
     color: #193632;
     transition-duration: 0.3s;
     transition-timing-function: ease-in-out;
 }
 
-.about-us-paragraph a:hover {
+.about-us-paragraph a:hover,
+.contact-form-message a:hover {
     transition-property: color;
     color: #80C0B8;
     transition-duration: 0.1s;
@@ -986,6 +992,11 @@ light blue - 80C0B8
     /*Increasing the size of the margin between the contacts about page and the contents above*/
     .contact-about-navbar-links {
         margin-top: 50px;
+    }
+    
+    /*Decrease the height of the scrolling image on the homepage*/
+    .header-images {
+        height: 70vh;
     }
     /*----------End of Navbar in tablet views-----------*/
 }

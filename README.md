@@ -22,7 +22,7 @@ This website gives the user the option to become a member. They can sign up for 
 
 ### About and Contact pages
 
-In the bottom right of the footer on every page, you will find links to the 'About' and 'Contact' pages. If the user has any questions about the site or their account, they are able to visit the 'Contact' page and send a message. The 'About' page has been created for those users that would like more information about the site, maybe before they create and account. In the text, they are able to find links to the 'Contact' and 'Sing Up' pages.
+In the bottom right of the footer on every page, you will find links to the 'About' and 'Contact' pages. If the user has any questions about the site or their account, they are able to visit the 'Contact' page and send a message. The 'About' page has been created for those users that would like more information about the site, maybe before they create and account. In the text, they are able to find links to the 'Contact' and 'Sign Up' pages.
 
 ## Features
 
@@ -44,9 +44,19 @@ The site has been built using the Python based Flask framework (http://flask.poc
 
 ### Data Storage
 
+To reduce the amount of code in the index.html page, the 'meal-type-homepage.json' file was created. I then ran a for statement in the 'index.html' template that called each of the objects.
+
 ### Version Control
 
 Git was used throughout the project for version control.
+
+## Issues While Building the Site
+
+### Contact Form
+
+I was having an issue with the redirects when the submit button was pressed on the contact form. I created a form that when filled in sent an email to the users email address. While this was working, there was no feedback to the user that a message had been sent. Therefore I built a new template (messagereceived.html) that I wanted to redirect the user to when the submit button was pressed. At first the only way I could do this was to give the form a method of 'POST'. Although feedback was then being given to the user, the emails were not being sent.
+
+To solve this ..................................
 
 ## Testing
 
@@ -60,7 +70,7 @@ A number of test emails were sent from the contact page to check that the form w
 
 ### Media
 
-The images used on the front page are taken from Pixabay.
+The images used on the front page for the scrolling header and the meal type pictures are taken from Pixabay.
 
 ### Acknowledgements
 
@@ -69,3 +79,5 @@ Throughout the project I received support from the mentor and the tutors. For in
 UX Rating Youtube Channel, https://www.youtube.com/watch?v=z05L-y6GAAY - Hamburger menu to a cross in the navbar when selected in mobile views.
 
 Slideshow on the homepage https://www.the-art-of-web.com/css/fading-slideshow-no-jquery/
+
+The following link was a guide I used to help create the membership areas and implement user authentication https://pythonspot.com/login-authentication-with-flask/

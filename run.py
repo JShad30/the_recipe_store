@@ -1,8 +1,9 @@
 import os
 import json
-from flask import Flask, render_template
+from flask import Flask, render_template, request, flash, redirect, url_for, session
 
 app = Flask(__name__)
+app.secret_key = "secret_message"
 
 """Rendering the home page"""
 @app.route("/")
@@ -15,9 +16,25 @@ def index():
     
 
 """Rendering the signup page and dealing with the form"""
-@app.route("/signup")
+@app.route("/signup", methods=["GET", "POST"])
 def signup():
+    if request.method == "POST":
+        firstname = request.form["firstname"]
+        lastname = request.form["lastname"]
+        username = request.form["username"]
+        session["username"] = username
+        session["firstname"] = firstname
+        session["lastname"] = lastname
+        flash("{0}, Welcome to theRecipeStore".format(request.form["firstname"]))
+        return redirect(url_for("personal_home", username=session["username"]))
     return render_template("signup.html")
+    
+    
+    
+"""Rendering the personal pages"""
+@app.route("/<username>")
+def personal_home(username):
+    return render_template("userhome.html", username=session["username"])
 
 
 
@@ -28,10 +45,30 @@ def login():
     
     
     
+    
+    
+    
+"""The following is the page to redirect to when the contact form is filled in - speak to mentor regarding the contact redirects"""    
+    
 """Rendering the contact page with form"""
-@app.route("/contact")
+@app.route("/contact", methods=["GET", "POST"])
 def contact():
+    if request.method == "POST":
+        firstname = request.form["firstname"]
+        lastname = request.form["lastname"]
+        email = request.form["email"]
+        flash("Thank you for your message {0} {1}. We have received your message and somebody will get back to you at {2}".format(request.form["firstname"], request.form["lastname"], request.form["email"]))
+        return redirect(url_for("messagereceived.html", firstname=firstname, lastname=lastname, email=email))
     return render_template("contact.html")
+    
+    
+    
+"""Page to be redirected to when message received"""  
+@app.route("/message_received")
+def message_received(firstname, lastname, email):
+    return render_template("messagereceived.html", firstname=firstname, lastname=lastname, email=email)
+    
+    
     
     
     
