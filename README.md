@@ -6,11 +6,11 @@ I have designed the site to have a good presentation and consistent feel through
 
 ## User Experience
 
-Every page has the same Navbar and Footer, which are styled depending on the screen size the user is viewing the site in.
+Every page has the same Navbar, Footer and Social Icons (displayed on the left of the screen in desktop views, and within the navbar in mobile views), which are styled depending on the screen size the user is viewing the site in.
 
 ### Example uses of site
 
-A user can use theRecipeStore to look for recipes for different meal types. These are recipes that have been uploaded by other users. Recipes can only be uploaded by users that have become a member of the site, and they can do this by signing up for an account (accessible from the home page by clicking either the sign up or login buttons in the navbar). Logging or signing in takes the user to their personal page, from where they can upload the recipes.
+A user can use theRecipeStore to look for recipes for different meal types. These are recipes that have been uploaded by other users. Recipes can only be uploaded by users that have become a member of the site, and they can do this by signing up for an account (accessible from the home page by clicking either the sign up or login buttons in the navbar). Log in or signing in takes the user to their personal page, from where they can upload the recipes.
 
 ### Home Page
 

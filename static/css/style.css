@@ -345,6 +345,77 @@ light blue - 80C0B8
 
 
 
+/*----------Social link bar----------*/
+.icon-bar-desktop-views {
+    top: 40%;
+    position: fixed;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.icon-bar-desktop-views a {
+    display: none;
+    text-align: center;
+    transition-timing-function: ease-in-out;
+    padding: 10px 12px;
+    transition-duration: 0.1s;
+    color: white;
+    font-size: 25px;
+}
+
+.icon-bar-facebook {
+    background-color: #3B5998;
+    color: #FFFFFF;
+    width: 30px;
+}
+
+.icon-bar-facebook:hover,
+.icon-bar-twitter:hover,
+.icon-bar-instagram:hover,
+.icon-bar-linkedin:hover,
+.icon-bar-pinterest:hover,
+.icon-bar-youtube:hover {
+    padding-left: 30px;
+}
+
+.icon-bar-twitter {
+    background-color: #55ACEE;
+    color: #FFFFFF;
+    width: 30px;
+}
+
+.icon-bar-instagram {
+    background-image: linear-gradient(to top right, #F77D2E, #D12F82, #903AC4);
+    color: #FFFFFF;
+    width: 30px;
+}
+
+.icon-bar-linkedin {
+    background-color: #007bb5;
+    color: #FFFFFF;
+    width: 30px;
+}
+
+.icon-bar-pinterest {
+    background-color: #E60023;
+    color: #FFFFFF;
+    width: 30px;
+}
+
+.icon-bar-youtube {
+    background-color: #bb0000;
+    color: #FFFFFF;
+    width: 30px;
+}
+
+
+/*----------End of Social link bar----------*/
+
+
+
+
+
 
 /*----------Footer*-----------*/
 .footer {
@@ -1093,13 +1164,15 @@ light blue - 80C0B8
     /*----------End of Navbar in laptop and desktop views-----------*/
     
     
+
     
     
     
-    
-    
-    /*----------Social Icons attached to the side of the page----------*/
-    /*End of the styles of the social icons*/
+    /*----------Social link bar display----------*/
+    .icon-bar-desktop-views a {
+        display: block;
+    }
+    /*End of social link bar display*/
 
 }
 
