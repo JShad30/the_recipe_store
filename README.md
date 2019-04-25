@@ -52,6 +52,10 @@ Git was used throughout the project for version control.
 
 ## Issues While Building the Site
 
+### Navbar
+
+The navbar on all pages works well generally. However, on screen sizes such as mobile phone devices turned horizontally the screen is not high enough for all the links to fit on the screen. It is currently difficult to scroll this, and therefore this would be a priority as a further consideration.
+
 ### Contact Form
 
 I was having an issue with the redirects when the submit button was pressed on the contact form. I created a form that when filled in sent an email to the users email address. While this was working, there was no feedback to the user that a message had been sent. Therefore I built a new template (messagereceived.html) that I wanted to redirect the user to when the submit button was pressed. At first the only way I could do this was to give the form a method of 'POST'. Although feedback was then being given to the user, the emails were not being sent.
@@ -74,10 +78,12 @@ The images used on the front page for the scrolling header and the meal type pic
 
 ### Acknowledgements
 
-Throughout the project I received support from the mentor and the tutors. For individual coding tips, I would search online. Examples of these include:
+Throughout the project I received support from the mentor and the tutors. For individual coding tips, I would search online. These include:
 
 UX Rating Youtube Channel, https://www.youtube.com/watch?v=z05L-y6GAAY - Hamburger menu to a cross in the navbar when selected in mobile views.
 
-Slideshow on the homepage https://www.the-art-of-web.com/css/fading-slideshow-no-jquery/
+Slideshow on the homepage - https://www.the-art-of-web.com/css/fading-slideshow-no-jquery/
 
-The following link was a guide I used to help create the membership areas and implement user authentication https://pythonspot.com/login-authentication-with-flask/
+The following link was a guide I used to help create the membership areas and implement user authentication - https://pythonspot.com/login-authentication-with-flask/
+
+Sticky Social links on all pages when viewed on desktop - https://www.w3schools.com/howto/howto_css_sticky_social_bar.asp

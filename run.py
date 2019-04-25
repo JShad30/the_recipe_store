@@ -5,6 +5,8 @@ from flask import Flask, render_template, request, flash, redirect, url_for, ses
 app = Flask(__name__)
 app.secret_key = "secret_message"
 
+
+
 """Rendering the home page"""
 @app.route("/")
 def index():
@@ -12,6 +14,20 @@ def index():
     with open("static/data/meal-type-homepage.json", "r") as json_data:
         data = json.load(json_data)
     return render_template("index.html", meal_type_statements=data)
+    
+    
+    
+@app.route("/<meal_type>")
+def meal_type_page(meal_type):
+    mealtype = {}
+    
+    with open("static/data/meal-type-homepage.json", "r") as json_data:
+        data = json.load(json_data)
+        for obj in data:
+            if obj["url"] == meal_type:
+                mealtype = obj
+        
+    return render_template("mealtype.html", mealtype=mealtype)
     
     
 

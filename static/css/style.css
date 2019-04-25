@@ -34,7 +34,7 @@ light blue - 80C0B8
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 3;
+    z-index: 10;
     box-shadow: 0px 8px 10px 0px rgba(0,0,0,0.7);
 }
 
@@ -150,6 +150,10 @@ light blue - 80C0B8
     justify-content: center;
 }
 
+.dropdown-content-button {
+    cursor: pointer;
+}
+
 /*Navbar dropdown appearance*/
 
 .dropdown-content {
@@ -166,7 +170,7 @@ light blue - 80C0B8
     line-height: 1.4em;
 	font-size: 1em;
 	transition-property: color;
-	transition-duration: 0.3s;
+	transition-duration: 0.1s;
 	transition-timing-function: ease-in-out;
 	margin-left: 10px;
 }
@@ -174,7 +178,7 @@ light blue - 80C0B8
 .dropdown-content .dropdown-content-link:hover {
 	color: #80C0B8;
 	transition-property: color;
-	transition-duration: 0.3s;
+	transition-duration: 0.1s;
 	transition-timing-function: ease-in-out;
 }
 
@@ -326,14 +330,14 @@ light blue - 80C0B8
     font-size: 0.8em;
     font-family: "Roboto", sans-serif;
     transition-property: color;
-    transition-duration: 0.3s;
+    transition-duration: 0.1s;
     transition-timing-function: ease-in-out;
     line-height: 1.5em;
 }
 
 .contact-about-navbar div a:hover {
     transition-property: color;
-    transition-duration: 0.3s;
+    transition-duration: 0.1s;
     transition-timing-function: ease-in-out;
     color: #80C0B8;
 }
@@ -469,14 +473,14 @@ light blue - 80C0B8
 .social-links li a i {
     font-size: 1.8em;
     display: flex;
-    transition-duration: 0.3s;
+    transition-duration: 0.1s;
     transition-timing-function: ease-in-out;
     color: #FFFFFF;
 }
 
 .social-links li a i:hover {
     transition-property: color;
-    transition-duration: 0.3s;
+    transition-duration: 0.1s;
     transition-timing-function: ease-in-out;
     color: #80C0B8;
 }
@@ -513,14 +517,14 @@ light blue - 80C0B8
     color: #FFFFFF;
     font-weight: 100;
     transition-timing-function: ease-in-out;
-    transition-duration: 0.3s;
+    transition-duration: 0.1s;
 }
 
 .footer-list-item a:hover {
     transition-property: color;
     color: #80C0B8;
     transition-timing-function: ease-in-out;
-    transition-duration: 0.3s;
+    transition-duration: 0.1s;
 }
 
 /* Links to the contact and about pages */
@@ -548,7 +552,7 @@ light blue - 80C0B8
     font-size: .7em;
     color: #FFFFFF;
     transition-property: color;
-    transition-duration: 0.3s;
+    transition-duration: 0.1s;
     transition-timing-function: ease-in-out;
     text-decoration: none;
 }
@@ -556,7 +560,7 @@ light blue - 80C0B8
 .footer-contact-about-links span a:hover {
     font-size: .7em;
     transition-property: color;
-    transition-duration: 0.3s;
+    transition-duration: 0.1s;
     transition-timing-function: ease-in-out;
     color: #80C0B8;
 }
@@ -620,6 +624,8 @@ light blue - 80C0B8
 .header-images {
     width: 100%;
     height: 80vh;
+    box-shadow: 0px 8px 10px 0px rgba(0,0,0,0.7);
+    z-index: 1;
 }
 
 .slideshow-image {
@@ -648,6 +654,7 @@ light blue - 80C0B8
     }
 }
 
+/*The following styles are also used within */
 .image-container {
     display: flex;
     justify-content: center;
@@ -688,7 +695,8 @@ light blue - 80C0B8
 
 
 /*----------Meal type home page grid----------*/
-.meal-type {
+.meal-type-section,
+.post-it-notes-section {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -696,30 +704,56 @@ light blue - 80C0B8
     padding: 50px 0;
     display: flex;
     flex-direction: column;
+}
+
+.meal-type-section {
     background-color: #FAFAFA;
 }
 
-.meal-type-intro {
+.post-it-notes-section {
+    background-image: linear-gradient(to bottom right, #828784, #CBD4CE);
+}
+
+.meal-type-intro,
+.post-it-notes-intro {
     width: 80%;
+    max-width: 600px;
+}
+
+.meal-type-intro-heading,
+.post-it-notes-intro-heading {
+    margin-bottom: 10px;
+    text-align: left;
+    font-family: "Kalam", cursive;
+    font-size: 2em;
 }
 
 .meal-type-intro-heading {
-    margin-bottom: 10px;
-    text-align: center;
-    font-family: "Kalam", cursive;
-    font-size: 2em;
-    color: #193632;
+    color: #36736B;
 }
 
-.meal-type-intro-paragraph {
+.post-it-notes-intro-heading {
+    color: #FAFAFA;
+}
+
+.meal-type-intro-paragraph,
+.post-it-notes-intro-paragraph {
     margin: 10px 0 40px 0;
-    text-align: center;
+    text-align: left;
     font-family: "Roboto", sans-serif;
     font-size: 1em;
     font-weight: 100;
 }
 
-.meal-type-container {
+.meal-type-intro-paragraph {
+    color: #333333;
+}
+
+.post-it-notes-intro-paragraph {
+    color: #333333;
+}
+
+.meal-type-section-container {
     width: 80%;
     max-width: 600px;
     display: grid;
@@ -765,7 +799,7 @@ light blue - 80C0B8
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition-duration: 0.3s;
+    transition-duration: 0.1s;
     transition-timing-function: ease-in-out;
 }
 
@@ -773,7 +807,7 @@ light blue - 80C0B8
     transition-property: height, opacity;
     height: 100%;
     opacity: 1;
-    transition-duration: 0.3s;
+    transition-duration: 0.1s;
     transition-timing-function: ease-in-out;
 } 
 
@@ -792,7 +826,7 @@ light blue - 80C0B8
     line-height: 1.5em;
     margin: 10px 0;
     color: #FAFAFA;
-    transition-duration: 0.3s;
+    transition-duration: 0.1s;
     transition-timing-function: ease-in-out;
     opacity: 0;
     text-align: center;
@@ -802,7 +836,7 @@ light blue - 80C0B8
     transition-property: opacity;
     display: flex;
     opacity: 1;
-    transition-duration: 0.3s;
+    transition-duration: 0.1s;
     transition-timing-function: ease-in-out;
 }
 
@@ -838,6 +872,162 @@ light blue - 80C0B8
 }
 /*----------End of meal type grid----------*/
 
+
+
+
+
+
+
+/*----------Post it note section on the home page----------*/
+.post-it-notes-section-container {
+    max-width: 700px;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+.post-it-notes {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.post-it-note {
+    height: 280px;
+    width: 100%;
+    box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.3);
+    background-color: #D2DBF5;
+    padding: 10px;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
+}
+
+.post-it-notes .post-it-note a {
+    text-decoration: none;
+    color: #333333;
+    height: inherit;
+    width: inherit;
+}
+
+.post-it-note:nth-child(2n) {
+    transform: rotate(5deg);
+    -o-transform: rotate(5deg);
+    -webkit-transform: rotate(5deg);
+    -moz-transform: rotate(5deg);
+    position:relative;
+    top: 5px;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
+    background-color: #B6F5B4;
+}
+
+.post-it-note:nth-child(4n) {
+    transform: rotate(2deg);
+    -o-transform: rotate(2deg);
+    -webkit-transform: rotate(2deg);
+    -moz-transform: rotate(2deg);
+    position:relative;
+    top: 5px;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
+    background-color: #F5EBC3;
+}
+
+.post-it-note:nth-child(5n) {
+    transform: rotate(4deg);
+    -o-transform: rotate(-3deg);
+    -webkit-transform: rotate(-3deg);
+    -moz-transform: rotate(-3deg);
+    position: relative;
+    top: -5px;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
+    background-color: #F5CDBF;
+}
+
+.post-it-note:nth-child(7n) {
+    transform: rotate(-1deg);
+    -o-transform: rotate(-1deg);
+    -webkit-transform: rotate(-1deg);
+    -moz-transform: rotate(-1deg);
+    position: relative;
+    top: -10px;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
+    background-color: #EDCCF6;
+}
+
+.post-it-note:hover, .post-it-note:focus{
+    -moz-box-shadow:10px 10px 7px rgba(0,0,0,.7);
+    -webkit-box-shadow: 10px 10px 7px rgba(0,0,0,.7);
+    box-shadow:10px 10px 7px rgba(0,0,0,.7);
+    -webkit-transform: scale(1.15);
+    -moz-transform: scale(1.15);
+    -o-transform: scale(1.15);
+    position:relative;
+    z-index:5;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
+}
+
+.post-it-notes .post-it-note a:hover {
+    cursor: pointer;
+}
+
+.post-it-notes .post-it-note a h2,
+.post-it-notes .post-it-note a p {
+    font-family: "Kalam", cursive;
+}
+
+.post-it-notes .post-it-note a h2 {
+    font-size: 1.4em;
+    font-weight: 700;
+}
+
+.post-it-notes .post-it-note a p {
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 1.2em;
+}
+
+.post-it-notes .post-it-note {
+    margin: 15px;
+}
+/*----------End of the Post it note sectione----------*/
+
+
+
+
+
+
+
+/*----------Individual meal type pages----------*/
+
+.background-image {
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+} 
+    
+#light-bites {
+    background-image: url("../images/sandwich.jpg");
+}
+
+#snacks {
+    background-image: url("../images/snack.jpg");
+}
+
+#main-meals {
+    background-image: url("../images/dinner.jpg");
+}
+
+#desserts {
+    background-image: url("../images/cake.jpg");
+}
+/*----------End of the styles for the individual meal type pages----------*/
 
 
 
@@ -902,7 +1092,7 @@ light blue - 80C0B8
 .contact-form-message a {
     text-decoration: underline;
     color: #193632;
-    transition-duration: 0.3s;
+    transition-duration: 0.1s;
     transition-timing-function: ease-in-out;
 }
 
@@ -923,10 +1113,12 @@ light blue - 80C0B8
     align-items: center;
 }
 
-#login-textbox,
+#login-textbox-username,
+#login-textbox-password,
 #signup-textbox-firstname,
 #signup-textbox-lastname,
 #signup-textbox-username,
+#signup-textbox-password,
 #firstname,
 #lastname,
 #email {
@@ -992,7 +1184,7 @@ light blue - 80C0B8
 .signup-form-message a{
     text-decoration: underline;
     color: #193632;
-    transition-duration: 0.3s;
+    transition-duration: 0.1s;
     transition-timing-function: ease-in-out;
 }
 
@@ -1059,6 +1251,28 @@ light blue - 80C0B8
 /*tablet screens*/
 @media(min-width: 768px) {
     /*----------Navbar----------*/
+    
+    
+    
+    
+    
+    
+    /*----------Post it note section on the home page----------*/
+    .post-it-notes-section-container {
+        width: 90%;
+    }
+    
+    .post-it-note {
+        height: 180px;
+        width: 180px;
+    }
+
+    /*----------End of the Post it note sectione----------*/
+    
+    
+    
+    
+    
     
     /*Increasing the size of the margin between the contacts about page and the contents above*/
     .contact-about-navbar-links {

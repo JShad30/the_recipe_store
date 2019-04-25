@@ -3,24 +3,29 @@
         "id": "light-bites",
         "mealtype": "Light Bites",
         "description": "For quick to make lunches, such as sandwiches see the light bite recipes.",
-        "url": "#"
+        "image_source": "../images/sandwich.jpg",
+        "introduction": "",
+        "url": "light-bites"
     },
     {
         "id": "snacks",
         "mealtype": "Snacks",
         "description": "Want a quick afternoon snack, have a look at the latest recipes for snacks.",
-        "url": "#"
+        "image_source": "../images/snack.jpg",
+        "url": "snacks"
     },
     {
         "id": "main-meals",
         "mealtype": "Main Meals",
         "description": "Find recipes for great meals, whether for yourself or an evening with friends.",
-        "url": "#"
+        "image_source": "../images/dinner.jpg",
+        "url": "main-meals"
     },
     {
         "id": "desserts",
         "mealtype": "Desserts",
         "description": "Great recipes for cakes and after dinner sweets.",
-        "url": "#"
+        "image_source": "../images/cake.jpg",
+        "url": "desserts"
     }
 ]
