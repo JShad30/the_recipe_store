@@ -4,7 +4,7 @@
         "mealtype": "Light Bites",
         "description": "For quick to make lunches, such as sandwiches see the light bite recipes.",
         "image_source": "../images/sandwich.jpg",
-        "introduction": "",
+        "introduction": "See great recipes below, uploaded to the site by our members for light bites. Whether you're looking for something small for lunch, or a salad for dinner, your sure to find a great variety here!",
         "url": "light-bites"
     },
     {
@@ -12,6 +12,7 @@
         "mealtype": "Snacks",
         "description": "Want a quick afternoon snack, have a look at the latest recipes for snacks.",
         "image_source": "../images/snack.jpg",
+        "introduction": "See great recipes below, uploaded to the site by our members for sancks. Whether for something small with a drink, or canopes for when your friends come over, you'll find plenty to choose from here.",
         "url": "snacks"
     },
     {
@@ -19,6 +20,7 @@
         "mealtype": "Main Meals",
         "description": "Find recipes for great meals, whether for yourself or an evening with friends.",
         "image_source": "../images/dinner.jpg",
+        "introduction": "See great recipes below, uploaded to the site by our members for main meals. Whether you're looking for something new for yourself, or to impress your friends at your next dinner party, you'll find it here!",
         "url": "main-meals"
     },
     {
@@ -26,6 +28,7 @@
         "mealtype": "Desserts",
         "description": "Great recipes for cakes and after dinner sweets.",
         "image_source": "../images/cake.jpg",
+        "introduction": "See great recipes below, uploaded to the site by our members for desserts. From cakes to sundaes, you'll find great recipes for after dinner sweets that will really impress!",
         "url": "desserts"
     }
 ]

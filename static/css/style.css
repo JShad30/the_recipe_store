@@ -878,7 +878,7 @@ light blue - 80C0B8
 
 
 
-/*----------Post it note section on the home page----------*/
+/*----------Post it note section on the home page. Some of these are also used within the pages when the user selects their preferences, i.e. meal type----------*/
 .post-it-notes-section-container {
     max-width: 700px;
     width: 80%;

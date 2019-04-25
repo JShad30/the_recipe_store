@@ -24,6 +24,10 @@ This website gives the user the option to become a member. They can sign up for 
 
 In the bottom right of the footer on every page, you will find links to the 'About' and 'Contact' pages. If the user has any questions about the site or their account, they are able to visit the 'Contact' page and send a message. The 'About' page has been created for those users that would like more information about the site, maybe before they create and account. In the text, they are able to find links to the 'Contact' and 'Sign Up' pages.
 
+### Individual Meal Pages
+
+If the user is looking for a meal of a particular type, they can either click the navbar menu, or, from the home page, the meal type options. This then takes them through to the individual pages for these options. They are then presented with recipes which they can click for meals of this type. 
+
 ## Features
 
 ## Technology Used
@@ -64,11 +68,23 @@ To solve this ..................................
 
 ## Testing
 
+The CSS was run through a CSS validator and errors were corrected. It now shows no errors. The javascript/jquery code was validated using jshint and showed no errors.
+
+The site has been tested manually by clicking the links to the pages and checking all of the jQuery options. It has also been tested in different browsers.
+
+Accounts have been created and I have created recipes to ensure that all functionality works well for new members. 
+
 ### Contact
 
-A number of test emails were sent from the contact page to check that the form was set up correctly. 
+A number of test emails were sent from the contact page to check that the form was set up correctly......... (Now running in python in Flask) 
 
 ## Deployment
+
+This project has been deployed to both Github and Heroku by using the push command in the terminal.
+
+If you would like to contribute to the project can be cloned or downloaded from the Github link provided below. 
+
+The individual files on Github can be found via https://github.com/JShad30/solar-system-quiz, and the website can be viewed via https://solar-system-quiz.herokuapp.com/.
 
 ## Credits
 
