@@ -677,6 +677,7 @@ light blue - 80C0B8
     line-height: 1.3em;
     color: #FAFAFA;
     margin-bottom: 20px;
+    text-shadow: 2px 2px 5px #000000;
 }
 
 .image-text-paragraph {
@@ -739,8 +740,7 @@ light blue - 80C0B8
     text-shadow: 2px 2px 5px #333333;
 }
 
-.meal-type-intro-paragraph,
-.post-it-notes-intro-paragraph {
+.meal-type-intro-paragraph {
     margin: 10px 0 40px 0;
     text-align: center;
     font-family: "Roboto", sans-serif;
@@ -891,11 +891,90 @@ light blue - 80C0B8
 
 
 /*----------Post it note section on the home page. Some of these are also used within the pages when the user selects their preferences, i.e. meal type----------*/
+.popular-recent-button-choices {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.popular-recent-button {
+    height: 50px;
+    width: 100%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    color: #FAFAFA;
+    margin: 5px 0;
+    text-shadow: 1px 1px 10px #333333;
+    font-weight: 700;
+}
+
+#most-popular-button {
+    background-color: #9EB7CC;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
+}
+
+#most-popular-button:hover {
+    transition-property: background-color;
+    background-color: #6C7E8C;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
+    cursor: pointer;
+}
+
+#most-recent-button {
+    background-color: #D6CD85;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
+}
+
+#most-recent-button:hover {
+    transition-property: background-color;
+    background-color: #96905D;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
+    cursor: pointer;
+}
+
+#most-popular-post-it-notes {
+    display: flex;
+}
+
+#most-popular-post-it-notes.active {
+    display: none;
+}
+
+#most-recent-post-it-notes {
+    display: none;
+}
+
+#most-recent-post-it-notes.active {
+    display: flex;
+}
+
 .post-it-notes-section-container {
     max-width: 700px;
     width: 80%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+}
+
+.most-popular-intro-paragraph,
+.most-recent-intro-paragraph {
+    text-align: center;
+    color: #FAFAFA;
+    text-shadow: 2px 2px 5px #000000;
+    font-size: 1em;
+    line-height: 1.5em;
+    margin-bottom: 20px;
 }
 
 .post-it-notes {
@@ -1038,6 +1117,34 @@ light blue - 80C0B8
 
 #desserts {
     background-image: url("../images/cake-dark.jpg");
+}
+
+#vegetarian {
+    background-image: url("../images/vegetarian-dark.jpg");
+}
+
+#pescatarian {
+    background-image: url("../images/pescatarian-dark.jpg");
+}
+
+#vegan {
+    background-image: url("../images/olive-oil-veg-dark.jpg");
+}
+
+#raw-vegetarian {
+    background-image: url("../images/raw-veg-dark.jpg");
+}
+
+#lactose-free {
+    background-image: url("../images/lactose-free-dark.jpg");
+}
+
+#gluten-free {
+    background-image: url("../images/gluten-free-dark.jpg");
+}
+
+#nut-free {
+    background-image: url("../images/nut-free-dark.jpg");
 }
 /*----------End of the styles for the individual meal type pages----------*/
 
@@ -1311,6 +1418,7 @@ light blue - 80C0B8
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        align-items: center;
     }
 	
 	/*Setting the margin between the left of the page and the logo*/
@@ -1320,7 +1428,7 @@ light blue - 80C0B8
         flex-direction: row;
         justify-content: flex-end;
         align-items: center;
-        height: 60px;
+        height: 80px;
         margin-top: 0;
     }
     
@@ -1383,10 +1491,6 @@ light blue - 80C0B8
         margin: 0 4px;
     }
     
-    /*Scrolling header image text*/
-    .image-text-header {
-        text-shadow: 2px 2px 5px #000000;
-    }
     /*----------End of Navbar in laptop and desktop views-----------*/
     
     

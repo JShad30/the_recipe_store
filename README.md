@@ -92,6 +92,12 @@ The individual files on Github can be found via https://github.com/JShad30/solar
 
 The images used on the front page for the scrolling header and the meal type pictures are taken from Pixabay.
 
+The image used for the gluten free page was found from https://www.verywellhealth.com/five-different-types-of-gluten-allergy-562305
+
+The image for the lactose free page image was found from https://www.medicalnewstoday.com/articles/317496.php
+
+The image for the nut free meal was found at https://www.onegreenplanet.org/vegan-food/these-vegan-recipes-are-nut-free-and-delicious/
+
 ### Acknowledgements
 
 Throughout the project I received support from the mentor and the tutors. For individual coding tips, I would search online. These include:
