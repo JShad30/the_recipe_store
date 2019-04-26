@@ -9,7 +9,7 @@
         <div class="image-container">
             <div class="image-text">
                 <h2 class="image-text-header">Welcome to theRecipeStore</h2>
-                <p class="image-text-paragraph">Whether looking for something a little different for yourself, or want to impress your friends at a dinner party, this is the site for you. Or, if you feel you have a great recipe of your own to add, then sign up and start adding yourself!</p>
+                <p class="image-text-paragraph">If you're looking for something a little different, or just want to impress your friends at a dinner party, this is the site for you. If you feel you have a great recipe of your own to add, then sign up and start adding!</p>
             </div>
         </div>
     </div>
@@ -28,14 +28,19 @@
         
         <!--For loop iterating throung the json file to use the next section of code for the four different meal types-->
         {% for meal_type in meal_type_statements %}
-        <!--Meal type section on homepage-->
-        <div class="meal-type-image" id="{{ meal_type.id }}">
-            <div class="meal-type-description-area">
-                <h3 class="meal-type-heading">{{ meal_type.mealtype }}</h3>
-                <p class="meal-type-paragraph">{{ meal_type.description }}</p>
-                <a href="{{ meal_type.url }}">click here</a>
+        
+        <!--If statement checks whether the section in the mealtype json file is 'mealtype'. If so it is displayed as part of a grid-->
+            {% if meal_type.section.lower() == "mealtype" %}
+            
+            <!--Meal type section on homepage-->
+            <div class="meal-type-image" id="{{ meal_type.id }}-home">
+                <div class="meal-type-description-area">
+                    <h3 class="meal-type-heading">{{ meal_type.mealtype }}</h3>
+                    <p class="meal-type-paragraph">{{ meal_type.description }}</p>
+                    <a class="meal-type-button-shadow" href="{{ meal_type.url }}">click here</a>
+                </div>
             </div>
-        </div>
+            {% endif %}
         {% endfor %}
         
     </div>
