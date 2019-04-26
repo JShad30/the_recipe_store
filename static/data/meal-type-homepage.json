@@ -66,7 +66,7 @@
         "id": "raw-vegetarian",
         "mealtype": "Raw Vegetarian Meals",
         "section": "preference",
-        "description": "",
+        "description": "Find great raw vegetarian recipes here!",
         "image_source": "../images/raw-vegetarian.jpg",
         "introduction": "Raw vegetarian meals do not contain animal products, and the food is not cooked or cooked at very low temperatures. Great for vegans or those that follow this raw vegetarian diet.",
         "url": "raw-vegetarian"
