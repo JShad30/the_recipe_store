@@ -1377,6 +1377,16 @@ light blue - 80C0B8
     
     
     /*----------Post it note section on the home page----------*/
+    
+    .popular-recent-button-choices {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .popular-recent-button {
+        width: 45%;
+    }
+    
     .post-it-notes-section-container {
         width: 90%;
     }
