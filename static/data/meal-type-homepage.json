@@ -2,22 +2,25 @@
     {
         "id": "light-bites",
         "mealtype": "Light Bites",
+        "section": "mealtype",
         "description": "For quick to make lunches, such as sandwiches see the light bite recipes.",
         "image_source": "../images/sandwich.jpg",
-        "introduction": "See great recipes below, uploaded to the site by our members for light bites. Whether you're looking for something small for lunch, or a salad for dinner, your sure to find a great variety here!",
+        "introduction": "See great recipes below, uploaded to the site by our members for light bites. Whether you're looking for something small for lunch, or a salad for dinner, you're sure to find a great variety here!",
         "url": "light-bites"
     },
     {
         "id": "snacks",
         "mealtype": "Snacks",
+        "section": "mealtype",
         "description": "Want a quick afternoon snack, have a look at the latest recipes for snacks.",
         "image_source": "../images/snack.jpg",
-        "introduction": "See great recipes below, uploaded to the site by our members for sancks. Whether for something small with a drink, or canopes for when your friends come over, you'll find plenty to choose from here.",
+        "introduction": "See great recipes below, uploaded to the site by our members for snacks. Whether for something small with a drink, or canopes for when your friends come over, you'll find plenty to choose from here.",
         "url": "snacks"
     },
     {
         "id": "main-meals",
         "mealtype": "Main Meals",
+        "section": "mealtype",
         "description": "Find recipes for great meals, whether for yourself or an evening with friends.",
         "image_source": "../images/dinner.jpg",
         "introduction": "See great recipes below, uploaded to the site by our members for main meals. Whether you're looking for something new for yourself, or to impress your friends at your next dinner party, you'll find it here!",
@@ -26,9 +29,73 @@
     {
         "id": "desserts",
         "mealtype": "Desserts",
+        "section": "mealtype",
         "description": "Great recipes for cakes and after dinner sweets.",
         "image_source": "../images/cake.jpg",
         "introduction": "See great recipes below, uploaded to the site by our members for desserts. From cakes to sundaes, you'll find great recipes for after dinner sweets that will really impress!",
         "url": "desserts"
+    },
+    {
+        "id": "vegetarian",
+        "mealtype": "Vegetarian Meals",
+        "section": "preference",
+        "description": "Find great recipes that do not contain meat or fish.",
+        "image_source": "../images/vegetarian.jpg",
+        "introduction": "If you are looking for great vegetarian meals, you will find many here. The vegetarian meals below are for meals that do not contain meat or fish, but may contain dairy products.",
+        "url": "vegetarian"
+    },
+    {
+        "id": "vegan",
+        "mealtype": "Vegan Meals",
+        "section": "preference",
+        "description": "Great recipes that do not contain animal products.",
+        "image_source": "../images/vegan.jpg",
+        "introduction": "If you are looking for vegan recipes, that do not contain meat, fish or any animal products, including milk or eggs, then you'll find great recipes below.",
+        "url": "vegan"
+    },
+    {
+        "id": "pescatarian",
+        "mealtype": "Pescatarian Meals",
+        "section": "preference",
+        "description": "Find great pescatarian fish recipes",
+        "image_source": "../images/pescatarian.jpg",
+        "introduction": "Take a look below at the fish recipes below, suitable for pescatarians. You'll find great fish recipes on this page!",
+        "url": "pescatarian"
+    },
+    {
+        "id": "raw-vegetarian",
+        "mealtype": "Raw Vegetarian Meals",
+        "section": "preference",
+        "description": "",
+        "image_source": "../images/raw-vegetarian.jpg",
+        "introduction": "Raw vegetarian meals do not contain animal products, and the food is not cooked or cooked at very low temperatures. Great for vegans or those that follow this raw vegetarian diet.",
+        "url": "raw-vegetarian"
+    },
+    {
+        "id": "nut-free",
+        "mealtype": "Nut Free Meals",
+        "section": "allergen",
+        "description": "Find great nut-free recipes here.",
+        "image_source": "../images/nut-free.jpg",
+        "introduction": "Whether you have an allergy to nuts or don't like them, there are plenty of great meals that can be found here!",
+        "url": "nut-free"
+    },
+    {
+        "id": "lactose-free",
+        "mealtype": "Lactose Free Meals",
+        "section": "allergen",
+        "description": "Find great lactose-free meals on this page!",
+        "image_source": "../images/lactose-free.jpg",
+        "introduction": "If you are looking for recipe ideas for meals that are free of lactose (dairy), then you're sure to find them on this page.",
+        "url": "lactose-free"
+    },
+    {
+        "id": "gluten-free",
+        "mealtype": "Gluten Free Meals",
+        "section": "allergen",
+        "description": "Find great gluten-free meals on this page!",
+        "image_source": "../images/gluten-free.jpg",
+        "introduction": "If you're looking for great recipes free of gluten then see great meal ideas below.",
+        "url": "gluten-free"
     }
 ]
