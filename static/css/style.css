@@ -717,10 +717,13 @@ light blue - 80C0B8
     background-image: linear-gradient(to bottom right, #828784, #CBD4CE, #CBD4CE);
 }
 
-.meal-type-intro,
-.post-it-notes-intro {
+.meal-type-intro {
     width: 80%;
     max-width: 600px;
+}
+
+.post-it-notes-intro { 
+    width: 100%;   
 }
 
 .meal-type-intro-heading,
@@ -757,6 +760,8 @@ light blue - 80C0B8
     font-size: 1em;
     line-height: 1.6em;
     text-shadow: 2px 2px 5px #000000;
+    text-align: center;
+    margin-bottom: 40px;
 }
 
 .meal-type-section-container {
@@ -891,53 +896,20 @@ light blue - 80C0B8
 
 
 /*----------Post it note section on the home page. Some of these are also used within the pages when the user selects their preferences, i.e. meal type----------*/
-.popular-recent-button-choices {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-}
 
 .popular-recent-button {
-    height: 50px;
-    width: 100%;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5em;
-    text-transform: uppercase;
-    color: #FAFAFA;
-    margin: 5px 0;
-    text-shadow: 1px 1px 10px #333333;
-    font-weight: 700;
+    text-decoration: underline;
 }
 
-#most-popular-button {
-    background-color: #9EB7CC;
-    transition-duration: 0.1s;
-    transition-timing-function: ease-in-out;
-}
-
-#most-popular-button:hover {
-    transition-property: background-color;
-    background-color: #6C7E8C;
-    transition-duration: 0.1s;
-    transition-timing-function: ease-in-out;
-    cursor: pointer;
-}
-
+#most-popular-button,
 #most-recent-button {
-    background-color: #D6CD85;
-    transition-duration: 0.1s;
-    transition-timing-function: ease-in-out;
+    color: #FAFAFA;
 }
 
+#most-popular-button:hover,
 #most-recent-button:hover {
-    transition-property: background-color;
-    background-color: #96905D;
+    transition-property: color;
+    color: #193632;
     transition-duration: 0.1s;
     transition-timing-function: ease-in-out;
     cursor: pointer;
@@ -971,9 +943,9 @@ light blue - 80C0B8
 .most-recent-intro-paragraph {
     text-align: center;
     color: #FAFAFA;
-    text-shadow: 2px 2px 5px #000000;
     font-size: 1em;
     line-height: 1.5em;
+    text-shadow: 2px 2px 5px #000000;
     margin-bottom: 20px;
 }
 
