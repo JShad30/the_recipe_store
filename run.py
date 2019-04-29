@@ -59,9 +59,6 @@ def login():
     
     
     
-    
-    
-    
 """The following is the page to redirect to when the contact form is filled in - speak to mentor regarding the contact redirects"""    
     
 """Rendering the contact page with form"""
@@ -82,9 +79,7 @@ def contact():
 def message_received(firstname, lastname, email):
     return render_template("messagereceived.html", firstname=firstname, lastname=lastname, email=email)
     
-    
-    
-    
+
     
 """Rendering the about page with form"""
 @app.route("/about")
