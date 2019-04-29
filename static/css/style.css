@@ -643,7 +643,6 @@ light blue - 80C0B8
 @keyframes slide {
     25% {
         background-image: url("../images/pasta-veg-on-table.jpg");
-        
     }
     50% {
         background-image: url("../images/recipe-book.jpg");
@@ -698,32 +697,50 @@ light blue - 80C0B8
 
 
 /*----------Meal type home page grid----------*/
-.meal-type-section,
-.post-it-notes-section {
+.meal-type-section {
     width: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding: 50px 0;
-    display: flex;
-    flex-direction: column;
-}
-
-.meal-type-section {
+    justify-content: center;
     background-color: #FAFAFA;
 }
 
-.post-it-notes-section {
-    background-image: linear-gradient(to bottom right, #828784, #CBD4CE, #CBD4CE);
+.meal-type-section-container {
+    width: 80%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+}
+
+#meal-type-homepage-section {
+    display: flex;
+}
+
+#meal-type-homepage-section.active {
+    display: none;
+}
+
+#preference-homepage-section {
+    display: none;
+}
+
+#preference-homepage-section.active {
+    display: flex;
+}
+
+#allergen-homepage-section {
+    display: none;
+}
+
+#allergen-homepage-section.active {
+    display: flex;
 }
 
 .meal-type-intro {
-    width: 80%;
-    max-width: 600px;
-}
-
-.post-it-notes-intro { 
-    width: 100%;   
+    margin-bottom: 30px;
 }
 
 .meal-type-intro-heading,
@@ -738,13 +755,8 @@ light blue - 80C0B8
     color: #36736B;
 }
 
-.post-it-notes-intro-heading {
-    color: #FAFAFA;
-    text-shadow: 2px 2px 5px #333333;
-}
-
 .meal-type-intro-paragraph {
-    margin: 10px 0 40px 0;
+    margin: 10px 0 10px 0;
     text-align: center;
     font-family: "Roboto", sans-serif;
     font-size: 1em;
@@ -755,17 +767,8 @@ light blue - 80C0B8
     color: #333333;
 }
 
-.post-it-notes-intro-paragraph {
-    color: #FAFAFA;
-    font-size: 1em;
-    line-height: 1.6em;
-    text-shadow: 2px 2px 5px #000000;
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.meal-type-section-container {
-    width: 80%;
+.meal-type-grid-container {
+    width: 100%;
     max-width: 600px;
     display: grid;
     grid-gap: 20px;
@@ -781,8 +784,6 @@ light blue - 80C0B8
     justify-content: center;
     align-items: flex-end; 
     overflow: hidden;
-    border-radius: 10px;
-    border: 1px solid #36736B;
 }
 
 #light-bites-home {
@@ -799,6 +800,34 @@ light blue - 80C0B8
 
 #desserts-home {
     background-image: url("../images/cake.jpg");
+}
+
+#vegetarian-home {
+    background-image: url("../images/vegetarian.jpg");
+}
+
+#vegan-home {
+    background-image: url("../images/olive-oil-veg.jpg");
+}
+
+#pescatarian-home {
+    background-image: url("../images/pescatarian.jpg");
+}
+
+#raw-vegetarian-home {
+    background-image: url("../images/raw-veg.jpg");
+}
+
+#nut-free-home {
+    background-image: url("../images/nut-free.jpg");
+}
+
+#lactose-free-home {
+    background-image: url("../images/lactose-free.jpg");
+}
+
+#gluten-free-home {
+    background-image: url("../images/gluten-free.jpg");
 }
 
 .meal-type-description-area {
@@ -824,7 +853,8 @@ light blue - 80C0B8
 
 .meal-type-heading {
     font-family: "Kalam", cursive;
-    font-size: 1.6em;
+    font-size: 1.4em;
+    font-weight: 200;
     color: #FAFAFA;
     margin: 10px;
     text-shadow: 2px 2px 5px #000000;
@@ -843,6 +873,21 @@ light blue - 80C0B8
     opacity: 0;
     text-align: center;
     text-shadow: 2px 2px 5px #000000;
+}
+
+.meal-type-click-here-button {
+    text-decoration: underline;
+    color: #193632;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
+}
+
+.meal-type-click-here-button:hover {
+    transition-property: color;
+    color: #80C0B8;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
+    cursor: pointer;
 }
 
 .meal-type-button-shadow {
@@ -896,6 +941,35 @@ light blue - 80C0B8
 
 
 /*----------Post it note section on the home page. Some of these are also used within the pages when the user selects their preferences, i.e. meal type----------*/
+.post-it-notes-section {
+    background-image: linear-gradient(to bottom right, #828784, #CBD4CE, #CBD4CE);
+}
+
+.post-it-notes-intro { 
+    width: 100%;   
+}
+
+.post-it-notes-intro-heading {
+    color: #FAFAFA;
+    text-shadow: 2px 2px 5px #333333;
+}
+
+.post-it-notes-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.post-it-notes-intro-paragraph {
+    color: #FAFAFA;
+    font-size: 1em;
+    line-height: 1.6em;
+    text-shadow: 2px 2px 5px #000000;
+    text-align: center;
+    margin-bottom: 40px;
+}
 
 .popular-recent-button {
     text-decoration: underline;

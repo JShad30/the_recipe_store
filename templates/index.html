@@ -15,34 +15,109 @@
     </div>
 </header>
 
+<!--Meal type section-->
+<section class="meal-type-section">
+    <div class="meal-type-section-container" id="meal-type-homepage-section">
+        <div class="meal-type-intro">
+            <!--Introduction to the section where the user can choose from menus for their specific meal type choice-->
+            <h2 class="meal-type-intro-heading">Meal Types</h2>
+            <p class="meal-type-intro-paragraph">Search for great recipes by looking for the type of meals you are looking for, whether something quick for an afternoon snack, or a large meal for a dinner party.</p>
+            <!--The following paragraph includes links that allows the user to view the preferences or allergens-->
+            <p class="meal-type-intro-paragraph">If you would prefer to search for a recipe by preference click <span class="meal-type-click-here-button" id="meal-type-to-preference-button">here</span>, or click <span class="meal-type-click-here-button" id="meal-type-to-allergen-button">here</span> to search by allergen.</p>
+        </div>
+        
+        <!--Grid section-->
+        <div class="meal-type-grid-container">
+            
+            <!--For loop iterating throung the json file to use the next section of code for the four different meal types-->
+            {% for meal_type in meal_type_statements %}
+            
+            <!--If statement checks whether the section in the mealtype json file is 'mealtype'. If so it is displayed as part of a grid-->
+            
+                {% if meal_type.section.lower() == "mealtype" %}
+                <!--Meal type section on homepage-->
+                <div class="meal-type-image" id="{{ meal_type.id }}-home">
+                    <div class="meal-type-description-area">
+                        <h3 class="meal-type-heading">{{ meal_type.mealtype }}</h3>
+                        <p class="meal-type-paragraph">{{ meal_type.description }}</p>
+                        <a class="meal-type-button-shadow" href="{{ meal_type.url }}">click here</a>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+            
+        </div>
+    </div>
+</section>
+
+<!--Preference link grid-->
+<section class="meal-type-section">
+    <div class="meal-type-section-container" id="preference-homepage-section">
+        <div class="meal-type-intro">
+            <!--Introduction to the section where the user can choose from menus for their specific meal type choice-->
+    
+            <h2 class="meal-type-intro-heading">Preferences</h2>
+            <p class="meal-type-intro-paragraph">Search for recipes by you preference, whether you be a vegetarian or vegan you can find specific meal preferences here!</p>
+            <!--The following paragraph includes links that allows the user to view the meal type or allergens-->
+            <p class="meal-type-intro-paragraph">If you would prefer to search for a recipe by meal type click <span class="meal-type-click-here-button" id="preference-to-meal-type-button">here</span>, or click <span class="meal-type-click-here-button" id="preference-to-allergen-button">here</span> to search by allergen.</p>
+        </div>
+        
+        <!--Grid section-->
+        <div class="meal-type-grid-container">
+            
+            <!--For loop iterating throung the json file to use the next section of code for the four different meal types-->
+            {% for meal_type in meal_type_statements %}
+            
+            <!--If statement checks whether the section in the mealtype json file is 'mealtype'. If so it is displayed as part of a grid-->
+            
+                {% if meal_type.section.lower() == "preference" %}
+                <!--Meal type section on homepage-->
+                <div class="meal-type-image" id="{{ meal_type.id }}-home">
+                    <div class="meal-type-description-area">
+                        <h3 class="meal-type-heading">{{ meal_type.mealtype }}</h3>
+                        <p class="meal-type-paragraph">{{ meal_type.description }}</p>
+                        <a class="meal-type-button-shadow" href="{{ meal_type.url }}">click here</a>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+            
+        </div>
+    </div>
+</section>
+
 <!--Meal type link grid-->
 <section class="meal-type-section">
-    <div class="meal-type-intro">
-        <!--Introduction to the section where the user can choose from menus for their specific meal type choice-->
-        <h2 class="meal-type-intro-heading">Meal Types</h2>
-        <p class="meal-type-intro-paragraph">Make your search more precise by searching by the meal types you're looking for.</p>
-    </div>
-    
-    <!--Grid section-->
-    <div class="meal-type-section-container">
+    <div class="meal-type-section-container" id="allergen-homepage-section">
+        <div class="meal-type-intro">
+            <!--Introduction to the section where the user can choose from menus for their specific meal type choice-->
+            <h2 class="meal-type-intro-heading">Allergens</h2>
+            <p class="meal-type-intro-paragraph">Search for recipes by your allergen. Find great recipes whether you have nut allergies or are lactose intolerent!</p>
+            <!--The following paragraph icludes links that allows the user to view the meal type or preferences-->
+            <p class="meal-type-intro-paragraph">If you would prefer to search for a recipe by meal type click <span class="meal-type-click-here-button" id="allergen-to-meal-type-button">here</span>, or click <span class="meal-type-click-here-button" id="allergen-to-preference-button">here</span> to search by your meal preference.</p>
+        </div>
         
-        <!--For loop iterating throung the json file to use the next section of code for the four different meal types-->
-        {% for meal_type in meal_type_statements %}
-        
-        <!--If statement checks whether the section in the mealtype json file is 'mealtype'. If so it is displayed as part of a grid-->
-            {% if meal_type.section.lower() == "mealtype" %}
+        <!--Grid section-->
+        <div class="meal-type-grid-container">
             
-            <!--Meal type section on homepage-->
-            <div class="meal-type-image" id="{{ meal_type.id }}-home">
-                <div class="meal-type-description-area">
-                    <h3 class="meal-type-heading">{{ meal_type.mealtype }}</h3>
-                    <p class="meal-type-paragraph">{{ meal_type.description }}</p>
-                    <a class="meal-type-button-shadow" href="{{ meal_type.url }}">click here</a>
+            <!--For loop iterating throung the json file to use the next section of code for the four different meal types-->
+            {% for meal_type in meal_type_statements %}
+            
+            <!--If statement checks whether the section in the mealtype json file is 'mealtype'. If so it is displayed as part of a grid-->
+            
+                {% if meal_type.section.lower() == "allergen" %}
+                <!--Meal type section on homepage-->
+                <div class="meal-type-image" id="{{ meal_type.id }}-home">
+                    <div class="meal-type-description-area">
+                        <h3 class="meal-type-heading">{{ meal_type.mealtype }}</h3>
+                        <p class="meal-type-paragraph">{{ meal_type.description }}</p>
+                        <a class="meal-type-button-shadow" href="{{ meal_type.url }}">click here</a>
+                    </div>
                 </div>
-            </div>
-            {% endif %}
-        {% endfor %}
-        
+                {% endif %}
+            {% endfor %}
+            
+        </div>
     </div>
 </section>
 

@@ -5,8 +5,6 @@ from flask import Flask, render_template, request, flash, redirect, url_for, ses
 app = Flask(__name__)
 app.secret_key = "secret_message"
 
-
-
 """Rendering the home page"""
 @app.route("/")
 def index():
