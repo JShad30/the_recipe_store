@@ -1,3 +1,71 @@
 {% extends 'base.html' %}
 {% block content %}
+
+<section class="recipe-section">
+    
+    <!--Container for each of the recipes-->
+    <div class="recipe-section-container">
+        
+        <!--Title and a small description for the recipe-->
+        <div class="recipe-title">
+            <h2 class="recipe-title-header">Chocolate Cake</h2>
+            <p class="recipe-title-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At ullam repellendus odio amet, optio reiciendis nemo necessitatibus temporibus dolore aperiam.</p>
+        </div>
+        
+        <!--Ingredients list-->
+        <div class="recipe-ingredient-section">
+            
+            <!--The following is an introduction to the ingredients and the same for each of the recipes-->
+            <div class="recipe-ingredient-intro">
+                <h3 class="ingredient-heading">Ingredients</h3>
+                <p class="ingredient-paragraph">Before you begin your recipe, ensure you have the following ingredients:</p>
+            </div>
+            
+            <!--The list from the database-->
+            <ul class="recipe-ingredients-list">
+                <li class="recipe-ingredient">8oz Butter</li>
+                <li class="recipe-ingredient">5oz Sugar</li>
+                <li class="recipe-ingredient">2 teaspoons chocolate mix</li>
+                <li class="recipe-ingredient">2 eggs</li>
+                <li class="recipe-ingredient">Baking Powder</li>
+                <li class="recipe-ingredient">Self Raising Flour</li>
+            </ul>
+            
+        </div>
+        
+        <!--Instruction list-->
+        <div class="recipe-instruction-section">
+        
+            <!--The following is an introduction to the ingredients and the same for each of the recipes-->
+            <div class="recipe-instruction-intro">
+                <h3 class="instruction-heading">Instructions</h3>
+                <p class="instruction-paragraph">Follow the instructions below:</p>
+            </div>
+            
+            <!--Instructions for the recipe-->
+            <ol class="recipe-instruction-list">
+                <li class="recipe-instruction">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, explicabo.</li>
+                <li class="recipe-instruction">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse reprehenderit, odit placeat culpa tempore maiores!</li>
+                <li class="recipe-instruction">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non cupiditate nostrum ea.</li>
+                <li class="recipe-instruction">Lorem ipsum dolor sit amet, consectetur adipisicing.</li>
+                <li class="recipe-instruction">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At commodi aut, sapiente harum laborum tempore vero quibusdam assumenda quas eveniet.</li>
+                <li class="recipe-instruction">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum debitis, necessitatibus vel alias veniam quas.</li>
+                <li class="recipe-instruction">Lorem ipsum dolor sit amet, consectetur adipisicing.</li>
+            </ol>
+            
+        </div>
+        
+        <!--Like button form - if the user clicks this it will add one to the score of the recipe. The recipes that have the highest scores are the ones that will appear on the most popular section post it notes on the home page-->
+        <form method="POST" class="recipe-like-button">
+            <h4 class="recipe-like-button-heading">Press the button if you like this recipe</h4>
+            <input type="submit" value="Like" id="begin-quiz" class="like-submit-button">
+        </form>
+        
+        <div class="meal-type-intro">
+            <p class="meal-type-intro-paragraph">If you would like to see other recipes from this user click <a href="#" class="meal-type-click-here-button">here</a>.</p>
+        </div>
+        
+    </div>
+    
+</section>
 {% endblock %}

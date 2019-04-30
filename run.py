@@ -99,10 +99,13 @@ def meal_type():
 @app.route("/allergen")
 def allergen():
     return render_template("allergen.html")
-
-
-
-"""Rnedering the most popular and the most recently added recipes""" 
+    
+    
+    
+"""Rendering each of the individual recipe pages"""
+@app.route("/recipe")
+def recipe():
+    return render_template("recipe.html")
     
     
     
