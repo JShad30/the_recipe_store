@@ -38,7 +38,7 @@ This project was built using different languages, libraries and frameworks.
 
 The template pages have been written with HTML5 (http://www.html5.com/) and styled with CSS3 (www.css3.com) in the style.css file. CSS3 was used to create the mobile responsiveness seen across the whole site. It has also been used to create the hover effects for the buttons and icons. On each of the pages, you will find the jinja template engine used. A 'base.html' page has been created to contain the HTML code that is to be used on each of the pages i.e. the head, header and the footer.
 
-jQuery (https://jquery.com/) has been used in the navbar to control the dropdown menus. Javascrpt (https://www.javascript.com/) was used for the form in the contact page.
+jQuery (https://jquery.com/) has been used in the navbar to control the dropdown menus. It is also used in the home page to allow the user to scroll between meal type, preferences or allergen, and switch the post it notes section between the most popular recipes on the site and the most recently uploaded recipes on the site. ------Javascrpt (https://www.javascript.com/) was used for the form in the contact page.------
 
 The contact form on the 'contact.html' page was created using HTML forms. An account and template for the data submitted was created on Emailjs, and this was connected with Javascrpt in the 'contact.js' file.
 
@@ -53,12 +53,6 @@ To reduce the amount of code in the index.html page, the 'meal-type-homepage.jso
 ### Version Control
 
 Git was used throughout the project for version control.
-
-## Issues While Building the Site
-
-### Navbar
-
-The navbar on all pages works well generally. However, on screen sizes such as mobile phone devices turned horizontally the screen is not high enough for all the links to fit on the screen. It is currently difficult to scroll this, and therefore this would be a priority as a further consideration.
 
 ### Contact Form
 
@@ -76,7 +70,17 @@ Accounts have been created and I have created recipes to ensure that all functio
 
 ### Contact
 
-A number of test emails were sent from the contact page to check that the form was set up correctly......... (Now running in python in Flask) 
+A number of test emails were sent from the contact page to check that the form was set up correctly......... (Now running in python in Flask).
+
+## Further Considerations
+
+### Navbar
+
+The navbar on all pages works well generally. However, on screen sizes such as mobile phone devices turned horizontally the screen is not high enough for all the links to fit on the screen. It is currently difficult to scroll this, and therefore this would be a priority as a further consideration.
+
+### Database and displaying recipes
+
+There are many ways in which the database can be used to give the user more options. Currently the database is used on the home page to allow the user to select meal types, preference or allergen. More functionality can be provided through sql and a search form to allow the user to search for desserts for people who are lactose intolerent, or nut free snacks etc.
 
 ## Deployment
 
