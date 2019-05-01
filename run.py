@@ -42,13 +42,6 @@ def signup():
         flash("{0}, Welcome to theRecipeStore".format(request.form["firstname"]))
         return redirect(url_for("personal_home", username=session["username"]))
     return render_template("signup.html")
-    
-    
-    
-"""Rendering the personal pages"""
-@app.route("/<username>")
-def personal_home(username):
-    return render_template("userhome.html", username=session["username"])
 
 
 
@@ -56,6 +49,13 @@ def personal_home(username):
 @app.route("/login")
 def login():
     return render_template("login.html")
+    
+    
+    
+"""Rendering the personal pages"""
+@app.route("/<username>")
+def personal_home(username):
+    return render_template("userhome.html", username=session["username"])
     
     
     
