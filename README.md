@@ -113,3 +113,5 @@ Slideshow on the homepage - https://www.the-art-of-web.com/css/fading-slideshow-
 The following link was a guide I used to help create the membership areas and implement user authentication - https://pythonspot.com/login-authentication-with-flask/
 
 Sticky Social links on all pages when viewed on desktop - https://www.w3schools.com/howto/howto_css_sticky_social_bar.asp
+
+To send the email from the contact form - https://code.tutsplus.com/tutorials/intro-to-flask-adding-a-contact-page--net-28982
