@@ -210,33 +210,38 @@ light blue - 80C0B8
     font-family: "Kalam", cursive;
     font-size: 1.1em;
     font-weight: 700;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.1s;
+}
+
+.sign-up-login-button:hover {
+    transition-property: background-color;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.1s;
 }
 
 #sign-up {
     background-color: #C09380;
-    transition-timing-function: ease-in-out;
-    transition-duration: 0.1s;
-    color: #FAFAFA;
 }
 
 #sign-up:hover {
     background-color: #614437;
-    transition-property: background-color;
-    transition-timing-function: ease-in-out;
-    transition-duration: 0.1s;
 }
 
 #login {
     background-color: #80C0B8;
-    transition-timing-function: ease-in-out;
-    transition-duration: 0.1s;
 }
 
 #login:hover {
     background-color: #4E7570;
-    transition-property: background-color;
-    transition-timing-function: ease-in-out;
-    transition-duration: 0.1s;
+}
+
+#logout {
+    background-color: #808080;
+}
+
+#logout:hover {
+    background-color: #404040;
 }
 
 .sign-up-login-button a {
@@ -376,15 +381,6 @@ light blue - 80C0B8
     width: 30px;
 }
 
-.icon-bar-facebook:hover,
-.icon-bar-twitter:hover,
-.icon-bar-instagram:hover,
-.icon-bar-linkedin:hover,
-.icon-bar-pinterest:hover,
-.icon-bar-youtube:hover {
-    padding-left: 30px;
-}
-
 .icon-bar-twitter {
     background-color: #55ACEE;
     color: #FFFFFF;
@@ -413,6 +409,15 @@ light blue - 80C0B8
     background-color: #bb0000;
     color: #FFFFFF;
     width: 30px;
+}
+
+.icon-bar-facebook:hover,
+.icon-bar-twitter:hover,
+.icon-bar-instagram:hover,
+.icon-bar-linkedin:hover,
+.icon-bar-pinterest:hover,
+.icon-bar-youtube:hover {
+    padding-left: 30px;
 }
 
 
@@ -671,7 +676,7 @@ light blue - 80C0B8
 }
 
 .image-text-header {
-    font-size: 3em;
+    font-size: 2.4em;
     font-family: "Kalam", cursive;
     line-height: 1.3em;
     color: #FAFAFA;
@@ -1572,12 +1577,149 @@ light blue - 80C0B8
 
 
 
+/*----------Userhome page once the user has signed up or logged in----------*/
+.userhome-intro {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FAFAFA;
+}
+
+.userhome-intro-container {
+    width: 90%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0;
+}
+
+.userhome-intro-text {
+    width: 100%;
+}
+
+.userhome-intro-title {
+    font-family: "Kalam", cursive;
+    font-size: 2em;
+    color: #36736B;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.userhome-details-paragraph
+{
+    margin-bottom: 5px;
+    font-family: "Roboto", sans-serif;
+    font-size: 1em;
+    font-weight: 100;
+    color: #333333;
+    margin: 5px 0 10px 0;
+    width: 100%;
+    text-align: left;
+}
+
+/*User details*/
+.userhome-details {
+    width: 100%;
+}
+
+.account-details-text {
+    margin: 20px 0;
+}
+
+.userhome-details-table {
+    padding: 0;
+    list-style-type: none;
+    width: 100%;
+    margin: 30px 0;
+}
+
+.userhome-details-row {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    background-image: linear-gradient(to bottom right, #808080, #FDFDFD);
+    margin-bottom: 5px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.userhome-details-table-item {
+    color: #333333;
+    margin-left: 10px;
+}
+
+.user-field {
+    font-size: 1em;
+    width: 30%;
+    margin: 10px 0 0 10px;
+}
+
+.user-variable {
+    font-size: 1.1em;
+    width: 60%;
+    font-weight: 700;
+    margin: 10px 0 0 10px;
+}
+
+.user-edit-button-section {
+    width: 30%;
+}
+
+.user-edit-button {
+    height: 40px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 10px;
+    text-transform: uppercase;
+    margin:15px 10px;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.1em;
+    font-weight: 700;
+    background-color: #C09380;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.1s;
+    color: #FAFAFA;
+    text-shadow: 1px 1px 10px #333333;
+    text-align: right;
+}
+
+.user-edit-button:hover {
+    background-color: #614437;
+    transition-property: background-color;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.1s;
+}
+/*----------End of Userhome page----------*/
+
+
+
+
+
 
 
 /*Larger screen sizes*/
 
 /*Horizontal mobile screens*/
 @media(min-width: 500px) {
+    
+    /*----------Changing the size of the font in the header image in larger screen sizes----------*/
+    .image-text-header {
+        font-size: 3em;
+    }
+    /*----------End of header font size----------*/
+    
+    
+    
+    
+    
+    
+    
     /*----------Footer----------*/
     .footer-social {
         margin: 20px 0;
@@ -1615,6 +1757,25 @@ light blue - 80C0B8
         width: 32%;
     }
     /*----------End of Recipe boxes -----------*/
+    
+    
+    
+    
+    
+    
+    
+    
+    .user-field {
+        width: 20%;
+    }
+    
+    .user-variable {
+        width: 50%;
+    }
+    
+    .user-edit-button-section {
+        width: 25%;
+    }
 }
 
 /*tablet screens*/
