@@ -1,6 +1,16 @@
 import os
 import json
 from flask import Flask, render_template, request, flash, redirect, url_for, session
+import datetime
+import pymysql
+
+username = os.getenv('C9_USER')
+
+#Connect to the database
+connection = pymysql.connect(host='localhost',
+                            user=username,
+                            password='',
+                            db='theRecipeStore')
 
 app = Flask(__name__)
 app.secret_key = "secret_message"
@@ -28,39 +38,79 @@ def meal_type_page(meal_type):
     return render_template("mealtype.html", mealtype=mealtype)
     
     
+        
+"""Rendering the about page with form"""
+@app.route("/about")
+def about():
+    return render_template("about.html")
+    
+    
 
 """Rendering the signup page and dealing with the form"""
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
+    session.clear()
     if request.method == "POST":
         firstname = request.form["firstname"]
         lastname = request.form["lastname"]
         username = request.form["username"]
-        session["username"] = username
-        session["firstname"] = firstname
-        session["lastname"] = lastname
-        flash("{0}, Welcome to theRecipeStore".format(request.form["firstname"]))
-        return redirect(url_for("personal_home", username=session["username"]))
+        email = request.form["email"]
+        password = request.form["password"]
+        with connection.cursor() as cursor:
+            row = (firstname, lastname, username, email, password)
+            cursor.execute("INSERT INTO user (firstname, lastname, username, email, password) VALUES (%s, %s, %s, %s, %s)", row)
+            connection.commit()
+            flash("Hi {0}. Many thanks for registering. You can now login".format(request.form["firstname"]))
+
+        return redirect(url_for("login", username=username, firstname=firstname))
     return render_template("signup.html")
 
 
 
 """Rendering the login page and dealing with the form"""
-@app.route("/login")
+@app.route("/login", methods=["GET", "POST"])
 def login():
+    session.clear()
+    if request.method == "POST":
+        username = request.form["username"]
+        password = request.form["password"]
+        with connection.cursor() as cursor:
+            usernamelogin = cursor.execute("SELECT username FROM user WHERE username = '%s'", username).fetchone()
+            passwordlogin = cursor.execute("SELECT password FROM user WHERE username = '%s'", username).fetchone()
+                
+            if usernamelogin is None:
+                flash("Incorrect login details, try again")
+                return render_template("login.html")
+            else:
+                for password_given in passwordlogin:
+                    if password == password_given:
+                        session["log"] = True
+                        flash("Hi {0}, welcome to your theRecipeStore account".format(request.form["username"]))
+                        return redirect(url_for("personal_home"))
+                    else:
+                        flash("Incorrect login details, try again")
+                        return render_template("login.html")
     return render_template("login.html")
     
     
+
+"""Execute when the user clicks the logout button"""    
+@app.route("/logout")
+def logout():
+    session.clear()
+    flash("You are now logged out. Thanks for using theRecipeStore, we hope to see you again soon!")
+    return redirect(url_for("login"))
+
     
+
 """Rendering the personal pages"""
-@app.route("/<username>")
-def personal_home(username):
-    return render_template("userhome.html", username=session["username"])
+@app.route("/user/<username>")
+def personal_home():
+    return render_template("userhome.html", username=username)
     
     
     
 """The following is the page to redirect to when the contact form is filled in - speak to mentor regarding the contact redirects"""    
-    
 """Rendering the contact page with form"""
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
@@ -69,22 +119,12 @@ def contact():
         lastname = request.form["lastname"]
         email = request.form["email"]
         flash("Thank you for your message {0} {1}. We have received your message and somebody will get back to you at {2}".format(request.form["firstname"], request.form["lastname"], request.form["email"]))
-        return redirect(url_for("messagereceived.html", firstname=firstname, lastname=lastname, email=email))
     return render_template("contact.html")
-    
-    
     
 """Page to be redirected to when message received"""  
 @app.route("/message_received")
 def message_received(firstname, lastname, email):
     return render_template("messagereceived.html", firstname=firstname, lastname=lastname, email=email)
-    
-
-    
-"""Rendering the about page with form"""
-@app.route("/about")
-def about():
-    return render_template("about.html")
     
     
     
