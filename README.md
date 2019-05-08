@@ -82,6 +82,10 @@ The navbar on all pages works well generally. However, on screen sizes such as m
 
 There are many ways in which the database can be used to give the user more options. Currently the database is used on the home page to allow the user to select meal types, preference or allergen. More functionality can be provided through sql and a search form to allow the user to search for desserts for people who are lactose intolerent, or nut free snacks etc.
 
+### Sign Up and Log in
+
+To make becomming a member of the site more secure the sign up page will have a 'confirm password'. This password will then also be encrypted.
+
 ## Deployment
 
 This project has been deployed to both Github and Heroku by using the push command in the terminal.
@@ -110,7 +114,7 @@ UX Rating Youtube Channel, https://www.youtube.com/watch?v=z05L-y6GAAY - Hamburg
 
 Slideshow on the homepage - https://www.the-art-of-web.com/css/fading-slideshow-no-jquery/
 
-The following link was a guide I used to help create the membership areas and implement user authentication - https://pythonspot.com/login-authentication-with-flask/
+The following link was a guide I used to help create the membership areas and implement user authentication - https://pythonspot.com/login-authentication-with-flask/ and from youtube I used https://www.youtube.com/watch?v=d04xxdrc7Yw
 
 Sticky Social links on all pages when viewed on desktop - https://www.w3schools.com/howto/howto_css_sticky_social_bar.asp
 
