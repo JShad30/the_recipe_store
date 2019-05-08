@@ -1,14 +1,74 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<!--Presenting the flashed message to the user when they've filled in the sign up form-->
-<!--{% with messages = get_flashed_messages() %}
-{% if messages %}
-{% for message in messages %}-->
-<!--HTML presentation of the message-->
-<!--<p>{{ message }}</p>
-{% endfor %}
-{% endif %}
-{% endwith %}-->
+<section class="userhome-intro">
+    <div class="userhome-intro-container">
+        
+        <div class="userhome-intro-text">
+            <h2 class="userhome-intro-title">Your Account</h2>
+            
+            <!--Presenting the flashed message to the user when they've filled in the sign up form-->
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <!--HTML presentation of the message-->
+            <p class="userhome-details-paragraph">{{ message }}</p>
+            <p class="userhome-details-paragraph">From this page you'll be able to add recipes, or update your existing recipes.</p>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+            
+            <!--List of user details-->
+            <div class="userhome-details">
+                <div class="account-details-text">
+                    <p class="userhome-details-paragraph">Below is a list of your details you have submitted to theRecipeStore. Click edit on the options if you want to change any of them.</p>
+                </div>
+                
+                <!--This table will display to the user what they inputted into the sign up form. Edit buttons will redirect to a page which will allow them to change any of the details-->
+                <table class="userhome-details-table">
+                    
+                    <!--First name field row-->
+                    <tr class="userhome-details-row">
+                        <td class="userhome-details-table-item user-field">First Name:</td>
+                        <td class="userhome-details-table-item user-variable">Fred</td>
+                        <td class="userhome-details-table-item user-edit-button">Edit</td>
+                    </tr>
+                    
+                    <!--Last name field row-->
+                    <tr class="userhome-details-row">
+                        <td class="userhome-details-table-item user-field">Last Name:</td>
+                        <td class="userhome-details-table-item user-variable">Jones</td>
+                        <td class="userhome-details-table-item user-edit-button">Edit</td>
+                    </tr>
+                    
+                    <!--Username field row-->
+                    <tr class="userhome-details-row">
+                        <td class="userhome-details-table-item user-field">Username:</td>
+                        <td class="userhome-details-table-item user-variable">f_jones123</td>
+                        <td class="userhome-details-table-item user-edit-button">Edit</td>
+                    </tr>
+                    
+                    <!--Email address field row-->
+                    <tr class="userhome-details-row">
+                        <td class="userhome-details-table-item user-field">Email:</td>
+                        <td class="userhome-details-table-item user-variable">f_jones@gmail.com</td>
+                        <td class="userhome-details-table-item user-edit-button">Edit</td>
+                    </tr>
+                    
+                    <!--Password field row-->
+                    <tr class="userhome-details-row">
+                        <td class="userhome-details-table-item user-field">Password:</td>
+                        <td class="userhome-details-table-item user-variable">f_jtrcPW0$,&</td>
+                        <td class="userhome-details-table-item user-edit-button">Edit</td>
+                    </tr>
+                    
+                </table>
+            </div>
+            
+        </div>
+    
+    </div>
+</section>
+
 
 {% endblock %}

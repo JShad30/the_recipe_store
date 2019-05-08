@@ -7,6 +7,16 @@
     <div class="login-form-container">
         <h3 class="login-title">Log in</h3>
         
+        <!--Presenting the flashed message to the user when they've filled in the sign up form-->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <!--HTML presentation of the message-->
+        <p class="userhome-details-paragraph">{{ message }}</p>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        
         <!--Form-->
         <form class="login-form">
             <!--Text box for the user to fill in their username-->
