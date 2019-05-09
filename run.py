@@ -61,7 +61,6 @@ def signup():
             cursor.execute("INSERT INTO user (firstname, lastname, username, email, password) VALUES (%s, %s, %s, %s, %s)", row)
             connection.commit()
             flash("Hi {0}. Many thanks for registering. You can now login".format(request.form["firstname"]))
-
         return redirect(url_for("login", username=username, firstname=firstname))
     return render_template("signup.html")
 
@@ -121,6 +120,8 @@ def contact():
         flash("Thank you for your message {0} {1}. We have received your message and somebody will get back to you at {2}".format(request.form["firstname"], request.form["lastname"], request.form["email"]))
     return render_template("contact.html")
     
+    
+    
 """Page to be redirected to when message received"""  
 @app.route("/message_received")
 def message_received(firstname, lastname, email):
@@ -146,6 +147,13 @@ def allergen():
 @app.route("/recipe")
 def recipe():
     return render_template("recipe.html")
+    
+
+
+"""Rendering the page where a user will build a new recipe"""
+@app.route("/create_recipe")
+def create_recipe():
+    return render_template("createrecipe.html")
     
     
     

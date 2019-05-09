@@ -1304,8 +1304,10 @@ light blue - 80C0B8
 
 .login-button,
 .signup-button,
-.contact-button {
-    margin: 20px;
+.contact-button,
+.submit-recipe-button,
+.add-button {
+    margin-top: 20px;
     width: 100%;
     height: 50px;
     border: 0;
@@ -1318,7 +1320,9 @@ light blue - 80C0B8
 }
 
 .login-button,
-.contact-button {
+.contact-button,
+.submit-recipe-button,
+.add-button{
     background-color: #80C0B8;
 }
 
@@ -1327,7 +1331,9 @@ light blue - 80C0B8
 }
 
 .login-button:hover,
-.contact-button:hover {
+.contact-button:hover,
+.submit-recipe-button:hover,
+.add-button:hover {
     transition-property: background-color;
     cursor: pointer;
     background-color: #4E7570;
@@ -1392,8 +1398,10 @@ light blue - 80C0B8
 
 
 
-/*----------Recipe pages----------*/
-.recipe-section {
+/*----------Recipe pages - also include the create recipe sections----------*/
+
+.recipe-section,
+.create-recipe-section {
     width: 100%;
     display: flex;
     align-items: center;
@@ -1401,7 +1409,8 @@ light blue - 80C0B8
     background-color: #FAFAFA;
 }
 
-.recipe-section-container {
+.recipe-section-container,
+.create-recipe-container {
     width: 90%;
     max-width: 800px;
     display: flex;
@@ -1411,11 +1420,13 @@ light blue - 80C0B8
     padding: 30px 0;
 }
 
-.recipe-title {
+.recipe-title,
+.create-recipe-title {
     margin-bottom: 20px;
 }
 
-.recipe-title-header {
+.recipe-title-header,
+.create-recipe-header {
     margin-bottom: 5px;
     text-align: center;
     font-family: "Kalam", cursive;
@@ -1423,13 +1434,15 @@ light blue - 80C0B8
     color: #36736B;
 }
 
-.recipe-title-description {
+.recipe-title-description,
+.create-recipe-description {
     margin: 5px 0 10px 0;
     text-align: left;
     font-family: "Roboto", sans-serif;
     font-size: 1em;
     font-weight: 100;
     color: #333333;
+    text-align: center;
 }
 
 .recipe-overview-info {
@@ -1696,6 +1709,186 @@ light blue - 80C0B8
     transition-duration: 0.1s;
 }
 /*----------End of Userhome page----------*/
+
+
+
+
+
+
+
+
+/*----------Create new recipe - linked to from the user home section----------*/
+
+/* The section and container styles already filled out in the recipe pages*/
+.create-recipe-info-section {
+    margin-bottom: 30px;
+    padding: 20px 15px;
+    box-shadow: 5px 5px 10px #333333;
+}
+
+#create-recipe-image {
+    background-image: url("../images/recipe-book-dark.jpg");
+    background-position: left;
+}
+
+#create-recipe-suitability-section {
+    box-shadow: none;
+    background-color: beige;
+    box-shadow: 5px 5px 10px #333333;
+}
+
+#create-recipe-prep-cook-section {
+    background-color: #C09380;
+}
+
+#create-recipe-ingredients-section {
+    background-image: linear-gradient(#193632, #36736B);
+}
+
+.recipe-info-intro {
+    padding-bottom: 20px;
+}
+
+.recipe-info-intro-title {
+    font-family: "Kalam", cursive;
+    font-size: 1.6em;
+    line-height: 1.5em;
+    margin-bottom: 5px;
+}
+
+.recipe-info-intro-paragraph {
+    color: #333333;
+    font-size: 1.2em;
+    line-height: 1.4em;
+}
+
+#cooking-info-title,
+#ingredients-info-title,
+#instructions-info-title {
+    color: #FAFAFA;
+    text-shadow: 5px 5px 10px #000000;
+}
+
+.radio-button {
+    margin: 0 20px 10px 20px;
+    color: #333333;
+    font-size: 1.2em;
+}
+
+.radio-button label input:hover {
+    cursor: pointer;
+}
+
+.radio-button-input {
+    margin-right: 20px;
+    -webkit-appearance: radio;
+}
+
+.radio-button label input {
+    height: 15px;
+    width: 15px;
+}
+
+#recipe-specifics-title,
+#recipe-specifics-meal-type-title,
+#recipe-specifics-preference-title,
+#recipe-specifics-allergens-title,
+#recipe-name-description-title {
+    color: #36736B;
+}
+
+#recipe-specifics-meal-type-paragraph,
+#recipe-specifics-preference-paragraph,
+#recipe-specifics-allergens-paragraph {
+    font-size: 1.2em;
+}
+
+#cooking-info-paragraph,
+#ingredients-info-paragraph {
+    color: #FAFAFA;
+    text-shadow: 5px 5px 10px #000000;
+}
+
+#create-recipe-instructions-section {
+    background-image: linear-gradient(to bottom, #BDCDD9, #FAFAFA);
+}
+
+.create-recipe-instruction {
+    height: 120px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1em;
+    border-radius: 10px;
+    border: solid 1px #80C0B8;
+    padding-top: 10px;
+    padding-left: 10px;
+    margin-top: 10px
+}
+
+.recipe-name-description-textboxes,
+.recipe-info-textboxes,
+.ingredient-textboxes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.recipe-level-option {
+    color: #333333;
+    margin: 5px;
+}
+
+.create-recipe-info-textbox {
+    width: 100%;
+    max-width: 350px;
+}
+
+.create-recipe-info-textbox,
+.create-recipe-ingredient,
+.create-recipe-name {
+    height: 45px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1em;
+    border-radius: 10px;
+    border: solid 1px #80C0B8;
+    padding-left: 10px;
+    margin-top: 10px;
+}
+
+.create-recipe-info-textbox,
+.create-recipe-ingredient {
+    max-width: 350px;
+}
+ 
+.meal-type-preference-allergen-section {
+    margin-bottom: 30px;
+}
+
+.meal-type-preference-allergen-section:last-of-type {
+    margin-bottom: 0;
+}
+
+.recipe-options-content {
+    padding: 15px;
+    background-color: #FAFAFA;
+}
+
+.add-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 350px;
+}
+/*----------End of the create a new recipe section----------*/
 
 
 
