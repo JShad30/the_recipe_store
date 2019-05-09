@@ -1,3 +1,181 @@
 {% extends 'base.html' %}
 {% block content %}
+
+<!--Header section containing image of recipe with intro to section-->
+<header class="header-images" id="create-recipe-image">
+    <!--Images introducing the meal type section-->
+    <div class="background-image">
+        <!--Introduction image to the create recipe section-->
+        <div class="image-container">
+            <div class="image-text">
+                <h2 class="image-text-header">Create Recipe</h2>
+                <p class="image-text-paragraph">Create your recipe below. Ensure you fill out all of the ingredients and instructions. To make it easier to find for a user, make sure you tell us what meal types, preferences and allergens your recipe is suitable for.</p>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="create-recipe-section">
+    
+    <!--Section that contains the form-->
+    <div class="create-recipe-container">
+        
+        <!--Form to submit the recipe-->
+        <form method="POST" class="recipe-form">
+            <div class="create-recipe-form-section">
+                
+                <div class="create-recipe-info-section" id="create-recipe-name-description">
+                    <div class="recipe-info-intro">
+                        <h4 class="recipe-info-intro-title" id="recipe-name-description-title">Recipe Name and Description</h4>
+                        <p class="recipe-info-intro-paragraph" id="recipe-name-description-paragraph">Start by telling us the name of yur recipe and give a brief description. This is how your recipe will be introduced to other users.</p>
+                    </div>
+                    <div class="recipe-name-description-textboxes">
+                        <input class="create-recipe-name" type="text" name="recipe-name" placeholder="Recipe Name"/>
+                        <textarea class="create-recipe-instruction" placeholder="Recipe Description"/></textarea>
+                    </div>
+                </div>
+                
+                <div class="create-recipe-info-section" id="create-recipe-suitability-section">
+                    <div class="recipe-info-intro">
+                        <h4 class="recipe-info-intro-title" id="recipe-specifics-title">Recipe Specifics</h4>
+                        <p class="recipe-info-intro-paragraph" id="recipe-specifics-paragraph">Tell us who your meal is most suitable for. This will help your recipe appear in the correct section, and make it easier to find for those who are looking for it.</p>
+                    </div>
+                    
+                    <!--Meal type options section-->
+                    <div class="meal-type-preference-allergen-section" id="create-recipe-meal-type-section">
+                        <img src="static/images/dinner.jpg" height="auto" width="100%"></img>
+                        
+                        <div class="recipe-options-content">
+                            <div class="recipe-info-intro">
+                                <h4 class="recipe-info-intro-title" id="recipe-specifics-meal-type-title">Meal Type</h4>
+                                <p class="recipe-info-intro-paragraph" id="recipe-specifics-meal-type-paragraph">What type of meal type is your recipe for? You can only select one.</p>
+                            </div>
+                            <!--These Radio buttons will allow the creator to select which meal type the recipe is for-->
+                            <div class="recipe-meal-type-options">
+                                <div class="radio-button">
+                                    <label for="light-bites"><input class="radio-button-input" type="radio" id="light-bites-option" name="choice" value="light-bites" required/>Light Bites</label>
+                                </div>
+                                <div class="radio-button">
+                                    <label for="snacks"><input class="radio-button-input" type="radio" id="snack-option" name="choice" value="snacks" required/>Snacks</label>
+                                </div>
+                                <div class="radio-button">
+                                    <label for="main-meal"><input class="radio-button-input" type="radio" id="main-meal-option" name="choice" value="main-meal" required/>Main Meal</label>
+                                </div>
+                                <div class="radio-button">
+                                    <label for="desserts"><input class="radio-button-input" type="radio" id="desserts-option" name="choice" value="desserts" required/>Desserts</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!--Preferences options section-->
+                    <div class="meal-type-preference-allergen-section" id="create-recipe-preferences-section">
+                        <img src="static/images/vegetarian.jpg" height="auto" width="100%"></img>
+                        <div class="recipe-options-content">
+                            <div class="recipe-info-intro">
+                                <h4 class="recipe-info-intro-title" id="recipe-specifics-preference-title">Preferences</h4>
+                                <p class="recipe-info-intro-paragraph" id="recipe-specifics-preference-paragraph">What meal preferences is your recipe suitable for? Select all that are relevent.</p>
+                            </div>
+                            <!--These Radio buttons will allow the creator to select which meal type the recipe is for-->
+                            <div class="recipe-preference-options">
+                                <div class="radio-button">
+                                    <label for="vegetarian"><input class="radio-button-input" type="checkbox" id="vegetarian-option" name="choice" value="vegetarian" required/>Vegetarian</label>
+                                </div>
+                                <div class="radio-button">
+                                    <label for="vegan"><input class="radio-button-input" type="checkbox" id="vegan-option" name="choice" value="vegan" required/>Vegan</label>
+                                </div>
+                                <div class="radio-button">
+                                    <label for="pescatarian"><input class="radio-button-input" type="checkbox" id="pescatarian-option" name="choice" value="pescatarian" required/>Pescatarian</label>
+                                </div>
+                                <div class="radio-button">
+                                    <label for="raw-vegetarian"><input class="radio-button-input" type="checkbox" id="raw-vegetarian-option" name="choice" value="raw-vegetarian" required/>Raw Vegetarian</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!--Alergen options section-->
+                    <div class="meal-type-preference-allergen-section" id="create-recipe-allergens-section">
+                        <img src="static/images/lactose-free.jpg" height="auto" width="100%"></img>
+                        <div class="recipe-options-content">
+                            <div class="recipe-info-intro">
+                                <h4 class="recipe-info-intro-title" id="recipe-specifics-allergens-title">Allergens</h4>
+                                <p class="recipe-info-intro-paragraph" id="recipe-specifics-allergens-paragraph">Let us know what your recipe is free of, with regards to allergens. Select all that are relevent.</p>
+                            </div>
+                            <!--These Radio buttons will allow the creator to select which meal type the recipe is for-->
+                            <div class="recipe-allergen-options">
+                                <div class="radio-button">
+                                    <label for="nut-free"><input class="radio-button-input" type="checkbox" id="nut-free-option" name="choice" value="nut-free" required/>Nut Free</label>
+                                </div>
+                                <div class="radio-button">
+                                    <label for="lactose-free"><input class="radio-button-input" type="checkbox" id="lactose-free-option" name="choice" value="lactose-free" required/>Lactose Free</label>
+                                </div>
+                                <div class="radio-button">
+                                    <label for="gluten-free"><input class="radio-button-input" type="checkbox" id="gluten-free-option" name="choice" value="gluten-free" required/>Gluten Free</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!--These textboxes are for the creator of the recipe to tell the user about the basics of the recipe in terms of preparation time, ease and cooking time-->
+                <div class="create-recipe-info-section" id="create-recipe-prep-cook-section">
+                    <div class="recipe-info-intro">
+                        <h4 class="recipe-info-intro-title" id="cooking-info-title">Recipe cooking information</h4>
+                        <p class="recipe-info-intro-paragraph" id="cooking-info-paragraph">Tell us how you would rate your recipe in terms of the following:</p>
+                    </div>
+                    <div class="recipe-info-textboxes">
+                        <select class="create-recipe-info-textbox recipe-level-dropdown">
+                            <option class="recipe-level-option">Easy</option>
+                            <option class="recipe-level-option">Moderate</option>
+                            <option class="recipe-level-option">Difficult</option>
+                        </select>
+                        <input class="create-recipe-info-textbox" type="text" name="preparation-time" placeholder="Length of time"/>
+                        <input class="create-recipe-info-textbox" type="text" name="cooking-time" placeholder="Length of time"/>
+                    </div>
+                </div>
+                
+                <!--Ingredient textboxes. The information filled out in these textboxes will be added to the ingredients database -->
+                <div class="create-recipe-info-section" id="create-recipe-ingredients-section">
+                    <div class="recipe-info-intro">
+                        <h4 class="recipe-info-intro-title" id="ingredients-info-title">Ingredients</h4>
+                        <p class="recipe-info-intro-paragraph" id="ingredients-info-paragraph">Please fill out the ingredients of your recipe below.</p>
+                    </div>
+                    <div class="ingredient-textboxes">
+                        <input class="create-recipe-ingredient" type="text" name="ingredient" placeholder="Ingredient"/>
+                        <input class="create-recipe-ingredient" type="text" name="ingredient" placeholder="Ingredient"/>
+                        <input class="create-recipe-ingredient" type="text" name="ingredient" placeholder="Ingredient"/>
+                    </div>
+                    <!--Add ingredient button-->
+                    <div class="add-button-container">
+                        <div class="add-button" value="Submit Recipe" id="add-ingredient-button">Add Ingredient +</div>
+                    </div>
+                </div>
+                
+                <!--Instruction textboxes. The information filled out in these textboxes will be added to the instructions database -->
+                <div class="create-recipe-info-section" id="create-recipe-instructions-section">
+                    <div class="recipe-info-intro">
+                        <h4 class="recipe-info-intro-title" id="instructions-info-title">Instructions</h4>
+                        <p class="recipe-info-intro-paragraph" id="instructions-info-paragraph">Please fill out the instructions of your recipe below. Be sure they are easy to follow.</p>
+                    </div>
+                    <div class="instruction-textboxes">
+                        <textarea class="create-recipe-instruction" placeholder="Instruction"/></textarea>
+                        <textarea class="create-recipe-instruction" placeholder="Instruction"/></textarea>
+                        <textarea class="create-recipe-instruction" placeholder="Instruction"/></textarea>
+                    </div>
+                    
+                    <!--Add ingredient button-->
+                    <div class="add-button-container">
+                        <div class="add-button" value="Submit Recipe" id="add-instruction-button">Add Instruction +</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!--Submit button-->
+            <input class="submit-recipe-button" type="submit" value="Submit Recipe"/>
+            
+        </form>
+
+    </div>
+</section>
 {% endblock %}
