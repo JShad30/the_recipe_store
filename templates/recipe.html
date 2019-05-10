@@ -1,16 +1,24 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<!--Header section containing image of recipe with intro to section-->
+<header class="header-images" id="create-recipe-image">
+    <!--Images introducing the meal type section-->
+    <div class="background-image">
+        <!--Introduction image to the create recipe section-->
+        <div class="image-container">
+            <div class="image-text">
+                <h2 class="image-text-header">Chocolate Cake</h2>
+                <p class="image-text-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At ullam repellendus odio amet, optio reiciendis nemo necessitatibus temporibus dolore aperiam.</p>
+            </div>
+        </div>
+    </div>
+</header>
+
 <section class="recipe-section">
     
     <!--Container for each of the recipes-->
     <div class="recipe-section-container">
-        
-        <!--Title and a small description for the recipe-->
-        <div class="recipe-title">
-            <h2 class="recipe-title-header">Chocolate Cake</h2>
-            <p class="recipe-title-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At ullam repellendus odio amet, optio reiciendis nemo necessitatibus temporibus dolore aperiam.</p>
-        </div>
         
         <!--These are the three boxes that tell the user the ease level, preparation time and cooking time-->
         <div class="recipe-overview-info">
@@ -22,14 +30,14 @@
             </div>
             <div class="recipe-overview-box">
                 <div class="recipe-overview-box-text">
-                    <span class="recipe-overview-header">Cooking Time</span>
-                    <span class="recipe-overview-description">1 hour</span>
+                    <span class="recipe-overview-header">Preparation Time</span>
+                    <span class="recipe-overview-description">20 mins</span>
                 </div>
             </div>
             <div class="recipe-overview-box">
                 <div class="recipe-overview-box-text">
-                    <span class="recipe-overview-header">Preparation Time</span>
-                    <span class="recipe-overview-description">20 mins</span>
+                    <span class="recipe-overview-header">Cooking Time</span>
+                    <span class="recipe-overview-description">1 hour</span>
                 </div>
             </div>
         </div>

@@ -144,15 +144,17 @@ def allergen():
     
     
 """Rendering each of the individual recipe pages"""
-@app.route("/recipe")
+@app.route("/recipe", methods=["GET", "POST"])
 def recipe():
     return render_template("recipe.html")
     
 
 
 """Rendering the page where a user will build a new recipe"""
-@app.route("/create_recipe")
+@app.route("/create_recipe", methods=["GET", "POST"])
 def create_recipe():
+    if request.method == "POST":
+        return redirect(url_for("personal_home"))
     return render_template("createrecipe.html")
     
     

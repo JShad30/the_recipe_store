@@ -1326,6 +1326,16 @@ light blue - 80C0B8
     background-color: #80C0B8;
 }
 
+.submit-button-container {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.submit-recipe-button {
+    max-width: 350px;
+}
+
 .signup-button {
     background-color: #C09380;
 }
@@ -1417,7 +1427,7 @@ light blue - 80C0B8
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 30px 0;
+    padding: 60px 0;
 }
 
 .recipe-title,
@@ -1457,7 +1467,6 @@ light blue - 80C0B8
     justify-content: center;
     background-color: #C09380;
     width: 100%;
-    margin-bottom: 20px;
     box-shadow: 5px 5px 10px #333333;
 }
 
@@ -1489,7 +1498,7 @@ light blue - 80C0B8
 .recipe-ingredient-section,
 .recipe-instruction-section {
     width: 100%;
-    margin: 10px 0 20px 0;
+    margin: 20px 0;
     padding: 15px;
     box-sizing: border-box;
     box-shadow: 2px 5px 10px #333333;
@@ -1728,6 +1737,8 @@ light blue - 80C0B8
 
 #create-recipe-image {
     background-image: url("../images/recipe-book-dark.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     background-position: left;
 }
 
@@ -1758,7 +1769,7 @@ light blue - 80C0B8
 
 .recipe-info-intro-paragraph {
     color: #333333;
-    font-size: 1.2em;
+    font-size: 1em;
     line-height: 1.4em;
 }
 
@@ -1772,7 +1783,7 @@ light blue - 80C0B8
 .radio-button {
     margin: 0 20px 10px 20px;
     color: #333333;
-    font-size: 1.2em;
+    font-size: 1em;
 }
 
 .radio-button label input:hover {
@@ -1800,7 +1811,7 @@ light blue - 80C0B8
 #recipe-specifics-meal-type-paragraph,
 #recipe-specifics-preference-paragraph,
 #recipe-specifics-allergens-paragraph {
-    font-size: 1.2em;
+    font-size: 1em;
 }
 
 #cooking-info-paragraph,
@@ -1813,7 +1824,8 @@ light blue - 80C0B8
     background-image: linear-gradient(to bottom, #BDCDD9, #FAFAFA);
 }
 
-.create-recipe-instruction {
+.create-recipe-instruction,
+.create-recipe-description {
     height: 120px;
     width: 100%;
     box-sizing: border-box;
@@ -1822,7 +1834,8 @@ light blue - 80C0B8
     border: solid 1px #80C0B8;
     padding-top: 10px;
     padding-left: 10px;
-    margin-top: 10px
+    margin-top: 10px;
+    text-align: left;
 }
 
 .recipe-name-description-textboxes,
@@ -1864,6 +1877,7 @@ light blue - 80C0B8
  
 .meal-type-preference-allergen-section {
     margin-bottom: 30px;
+    max-width: 400px;
 }
 
 .meal-type-preference-allergen-section:last-of-type {
@@ -1877,7 +1891,7 @@ light blue - 80C0B8
 
 .add-button-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
 }
 
@@ -1886,7 +1900,7 @@ light blue - 80C0B8
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 350px;
+    max-width: 50px;
 }
 /*----------End of the create a new recipe section----------*/
 
@@ -2040,6 +2054,60 @@ light blue - 80C0B8
         width: 66%;
     }
     /*----------End of the Recipe pages-----------*/
+    
+    
+    
+    
+    
+    /*----------Create a recipe page----------*/
+    .create-recipe-instruction,
+    .create-recipe-description {
+        height: 90px;
+    }
+    
+    .recipe-name-info {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    #create-recipe-name-description {
+        width: 45%;
+        margin-right: 20px;
+    }
+    
+    #create-recipe-prep-cook-section {
+        width: 45%
+    }
+    
+    .recipe-ingredients-instructions {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    #create-recipe-ingredients-section {
+        width: 35%;
+        margin-right: 20px;
+    }
+    
+    #create-recipe-instructions-section {
+        width: 60%;
+    }
+    
+    .meal-type-preference-allergen {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .meal-type-preference-allergen-section {
+        width: 32%;
+        margin-right: 10px;
+        margin-bottom: 0;
+    }
+    
+    .meal-type-preference-allergen-section:last-of-type {
+        margin-right: 0;
+    }
+    /*----------End of create a recipe page styles----------*/
 }
 
 
