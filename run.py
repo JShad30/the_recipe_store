@@ -1,6 +1,7 @@
 import os
 import json
 from flask import Flask, render_template, request, flash, redirect, url_for, session
+from flask_mail import Mail, Message
 import datetime
 import pymysql
 
@@ -15,12 +16,19 @@ connection = pymysql.connect(host='localhost',
 app = Flask(__name__)
 app.secret_key = "secret_message"
 
+
 """Rendering the home page"""
 @app.route("/")
 def index():
     data = []
     with open("static/data/meal-type-homepage.json", "r") as json_data:
         data = json.load(json_data)
+        
+    #with connection.cursor() as cursor:
+        #Search through the database where 
+        #cursor.execute("SELECT * FROM Recipes ORDER BY SCORE WHERE TimeCreated='%s'", )
+        #cursor.execute("SELECT * FROM Recipes ORDER BY SCORE WHERE Allergen='%s'", )
+        
     return render_template("index.html", meal_type_statements=data)
     
     
@@ -69,26 +77,26 @@ def signup():
 """Rendering the login page and dealing with the form"""
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    session.clear()
     if request.method == "POST":
-        username = request.form["username"]
-        password = request.form["password"]
+        usernamelogin = request.form["username"]
+        passwordlogin = request.form["password"]
         with connection.cursor() as cursor:
-            usernamelogin = cursor.execute("SELECT username FROM user WHERE username = '%s'", username).fetchone()
-            passwordlogin = cursor.execute("SELECT password FROM user WHERE username = '%s'", username).fetchone()
-                
-            if usernamelogin is None:
+            result = cursor.execute("SELECT firstname, lastname, username, email, password FROM user WHERE username = %s", (usernamelogin,))
+            print(result)
+            firstname, lastname, username, email, password = cursor.fetchone()
+            print(username)
+            print(password)
+            if username is None:
                 flash("Incorrect login details, try again")
                 return render_template("login.html")
             else:
-                for password_given in passwordlogin:
-                    if password == password_given:
-                        session["log"] = True
-                        flash("Hi {0}, welcome to your theRecipeStore account".format(request.form["username"]))
-                        return redirect(url_for("personal_home"))
-                    else:
-                        flash("Incorrect login details, try again")
-                        return render_template("login.html")
+                if password == passwordlogin:
+                    session["log"] = True
+                    flash("Hi {0}, welcome to your theRecipeStore account".format(request.form["username"]))
+                    return redirect(url_for("personal_home", username=username))
+                else:
+                    flash("Incorrect login details, try again")
+                    return render_template("login.html")
     return render_template("login.html")
     
     
@@ -103,13 +111,14 @@ def logout():
     
 
 """Rendering the personal pages"""
-@app.route("/user/<username>")
-def personal_home():
-    return render_template("userhome.html", username=username)
+@app.route("/personal_home/<username>")
+def personal_home(username):
+    print('**************')
+    print('{}'.format(username))
+    return render_template("userhome.html", firstname='', lastname='', username=username, email='', password='')
     
-    
-    
-"""The following is the page to redirect to when the contact form is filled in - speak to mentor regarding the contact redirects"""    
+
+
 """Rendering the contact page with form"""
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
@@ -118,13 +127,14 @@ def contact():
         lastname = request.form["lastname"]
         email = request.form["email"]
         flash("Thank you for your message {0} {1}. We have received your message and somebody will get back to you at {2}".format(request.form["firstname"], request.form["lastname"], request.form["email"]))
+        return redirect(url_for("message_recieved"))
     return render_template("contact.html")
     
     
     
 """Page to be redirected to when message received"""  
 @app.route("/message_received")
-def message_received(firstname, lastname, email):
+def message_received(firstname, lastname, email, message):
     return render_template("messagereceived.html", firstname=firstname, lastname=lastname, email=email)
     
     
@@ -132,6 +142,19 @@ def message_received(firstname, lastname, email):
 """Rendering the Meal types Pages"""
 @app.route("/meal_type")
 def meal_type():
+    with connection.cursor() as cursor:
+        #Search through the database where 
+        cursor.execute("SELECT * FROM Recipes ORDER BY SCORE WHERE MealType='%s'", )
+    return render_template("mealtype.html")
+    
+    
+    
+"""Rendering the Allergen Pages"""
+@app.route("/preference")
+def preference():
+    with connection.cursor() as cursor:
+        #Search through the database where 
+        cursor.execute("SELECT * FROM Recipes ORDER BY SCORE WHERE Preference='%s'", )
     return render_template("mealtype.html")
 
 
@@ -139,7 +162,10 @@ def meal_type():
 """Rendering the Allergen Pages"""
 @app.route("/allergen")
 def allergen():
-    return render_template("allergen.html")
+    with connection.cursor() as cursor:
+        #Search through the database where 
+        cursor.execute("SELECT * FROM Recipes ORDER BY SCORE WHERE Allergen='%s'", )
+    return render_template("mealtype.html")
     
     
     
@@ -154,6 +180,43 @@ def recipe():
 @app.route("/create_recipe", methods=["GET", "POST"])
 def create_recipe():
     if request.method == "POST":
+        
+        """Setting the variables from the created recipe form"""
+        
+        #Recipe name and description
+        recipe_name = request.form["recipe-name"]
+        recipe_description = request.form["recipe-description"]
+        
+        #Recipe cooking information
+        difficulty_level = request.form["difficulty-level"]
+        preparation_time = request.form["preparation-time"]
+        cooking_time = request.form["cooking-time"]
+        
+        #Recipe Meal Type takes info from selection of radio button section
+        choice_mealtype = request.form["choice-mealtype"]
+        
+        #Check whether checkboxes are checked - if yes then add 'Y', if no then add 'N'
+        choice_preference = request.form[""]
+        choice_allergen = request.form[""]
+        
+        #Recipe ingrediets section
+        ingredientname = request.form[""]
+        
+        #Recipe instructions section
+        instruction = request.form[""]
+        
+        """Inserting those variables into the database"""
+        with connection.cursor() as cursor:
+            #Inserting into the recipes table
+            row = (recipe_name, recipe_description, difficulty_level, preparation_time, cooking_time)
+            recipe_name_add = cursor.execute("INSERT INTO Recipe (recipename, recipedescription, allergyid, preferenceid, mealtypeid, createdby, timecreated, score", row).fetchone()
+            
+            #Inserting into the ingredients table
+            ingredients_add = cursor.execute("INSERT INTO Ingredients (ingredientname) VALUES ('%s')", ingredientname)
+            
+            #Inserting into the instructions table
+            instructions_add = cursor.execute("INSERT INTO Ingredients (instruction) VALUES ('%s')", instruction)
+        
         return redirect(url_for("personal_home"))
     return render_template("createrecipe.html")
     

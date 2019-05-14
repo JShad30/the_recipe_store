@@ -34,8 +34,8 @@
                             <p class="recipe-info-intro-paragraph" id="recipe-name-description-paragraph">Start by telling us the name of your recipe and give a brief description. This is how your recipe will be introduced to other users.</p>
                         </div>
                         <div class="recipe-name-description-textboxes">
-                            <input class="create-recipe-name" type="text" name="recipe-name" placeholder="Recipe Name" required/>
-                            <textarea class="create-recipe-description" placeholder="Recipe Description" required/></textarea>
+                            <input class="create-recipe-name" type="text" id="recipe-name" name="recipe-name" placeholder="Recipe Name" required/>
+                            <textarea class="create-recipe-description" id="recipe-description" name="recipe-description" placeholder="Recipe Description" required/></textarea>
                         </div>
                     </div>
                     
@@ -46,13 +46,13 @@
                             <p class="recipe-info-intro-paragraph" id="cooking-info-paragraph">Tell us how you would rate your recipe in terms of the following:</p>
                         </div>
                         <div class="recipe-info-textboxes">
-                            <select class="create-recipe-info-textbox recipe-level-dropdown">
+                            <select class="create-recipe-info-textbox recipe-level-dropdown" name="difficulty-level" id="difficulty-level">
                                 <option class="recipe-level-option">Easy</option>
                                 <option class="recipe-level-option">Moderate</option>
                                 <option class="recipe-level-option">Difficult</option>
                             </select>
-                            <input class="create-recipe-info-textbox" type="text" name="preparation-time" placeholder="Preparation Time" required/>
-                            <input class="create-recipe-info-textbox" type="text" name="cooking-time" placeholder="Cooking Time" required/>
+                            <input class="create-recipe-info-textbox" type="text" id="preparation-time" name="preparation-time" placeholder="Preparation Time" required/>
+                            <input class="create-recipe-info-textbox" type="text" id="cooking-time" name="cooking-time" placeholder="Cooking Time" required/>
                         </div>
                     </div>
                 </div>
@@ -77,16 +77,16 @@
                                 <!--These Radio buttons will allow the creator to select which meal type the recipe is for-->
                                 <div class="recipe-meal-type-options">
                                     <div class="radio-button">
-                                        <label for="light-bites"><input class="radio-button-input" type="radio" id="light-bites-option" name="choice" value="light-bites" required/>Light Bites</label>
+                                        <label for="light-bites"><input class="radio-button-input" type="radio" id="light-bites-option" name="choice-mealtype" value="light-bites" required/>Light Bites</label>
                                     </div>
                                     <div class="radio-button">
-                                        <label for="snacks"><input class="radio-button-input" type="radio" id="snack-option" name="choice" value="snacks" required/>Snacks</label>
+                                        <label for="snacks"><input class="radio-button-input" type="radio" id="snack-option" name="choice-mealtype" value="snacks" required/>Snacks</label>
                                     </div>
                                     <div class="radio-button">
-                                        <label for="main-meal"><input class="radio-button-input" type="radio" id="main-meal-option" name="choice" value="main-meal" required/>Main Meal</label>
+                                        <label for="main-meal"><input class="radio-button-input" type="radio" id="main-meal-option" name="choice-mealtype" value="main-meal" required/>Main Meal</label>
                                     </div>
                                     <div class="radio-button">
-                                        <label for="desserts"><input class="radio-button-input" type="radio" id="desserts-option" name="choice" value="desserts" required/>Desserts</label>
+                                        <label for="desserts"><input class="radio-button-input" type="radio" id="desserts-option" name="choice-mealtype" value="desserts" required/>Desserts</label>
                                     </div>
                                 </div>
                             </div>
