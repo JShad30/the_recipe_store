@@ -2197,8 +2197,16 @@ light blue - 80C0B8
         width: 220px;
     }
     
+    .navbar-link-buttons-logout {
+        width: 130px;
+    }
+    
     .sign-up-login-button {
         margin: 0 4px;
+    }
+    
+    .my-account {
+        font-size: 1.6em;
     }
     
     /*----------End of Navbar in laptop and desktop views-----------*/

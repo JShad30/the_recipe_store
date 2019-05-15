@@ -81,10 +81,10 @@
 	            </div>
 	            <!--Account link which only appears if user is logged in-->
                 <div class="navbar-link">
-	                <a id="home-link" class="dropdown-content-button" href="{{ url_for('index') }}">My Account</a>
+	                <a id="home-link" class="dropdown-content-button" href="{{ url_for('index') }}"><i class="fa fa-user-circle my-account"></i></a>
 	            </div>
 	            {% else %}
-	                        	<!--Link to the home page-->
+	            <!--Link to the home page-->
                 <div class="navbar-link">
 	                <a id="home-link" class="dropdown-content-button" href="{{ url_for('index') }}">Home</a>
 	            </div>
@@ -120,14 +120,17 @@
 	            {% endif %}
 	            
                 <!--Buttons that link to pages allowing the user to sign up or login to their membership area-->
-                <div class="navbar-link-buttons"> 
-                	{% if session.log %}
+                {% if session.log %}
+                <div class="navbar-link-buttons-logout"> 
                 	<div class="sign-up-login-button" id="logout"><a href="{{ url_for('logout') }}" class="navbar-link-button">Log Out</a></div>
-                	{% else %}
+	            </div>
+	            
+	            {% else %}
+	            <div class="navbar-link-buttons">
 	                <div class="sign-up-login-button" id="sign-up"><a href="{{ url_for('signup') }}" class="navbar-link-button">Sign Up</a></div>
 	                <div class="sign-up-login-button" id="login"><a href="{{ url_for('login') }}" class="navbar-link-button">Log In</a></div>
-	                {% endif %}
 	            </div>
+	            {% endif %}
 	            
 	            <!--The following lines will only appear in mobile views-->
 	            <div class="horizontal-rule-divider">
