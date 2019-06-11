@@ -2,7 +2,7 @@ import os
 import json
 from flask import Flask, render_template, request, flash, redirect, url_for, session
 from flask_mail import Mail, Message
-import datetime
+from datetime import datetime
 import pymysql
 
 username = os.getenv('C9_USER')
@@ -19,6 +19,7 @@ app.secret_key = "secret_message"
 
 """Rendering the home page"""
 @app.route("/")
+@app.route("/home")
 def index():
     data = []
     with open("static/data/meal-type-homepage.json", "r") as json_data:
@@ -113,7 +114,6 @@ def logout():
 """Rendering the personal pages"""
 @app.route("/personal_home/<username>")
 def personal_home(username):
-    print('**************')
     print('{}'.format(username))
     return render_template("userhome.html", firstname='', lastname='', username=username, email='', password='')
     

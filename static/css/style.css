@@ -1306,7 +1306,8 @@ light blue - 80C0B8
 .signup-button,
 .contact-button,
 .submit-recipe-button,
-.add-button {
+.add-button,
+.userhome-create-recipe-button {
     margin-top: 20px;
     width: 100%;
     height: 50px;
@@ -1600,10 +1601,64 @@ light blue - 80C0B8
 
 
 /*----------Userhome page once the user has signed up or logged in----------*/
+
+.userhome-intro-heading {
+    font-family: 'Kalam', cursive;
+    font-size: 1.5em;
+    color: #FAFAFA;
+    text-shadow: 5px 5px 10px #000000;
+    margin-bottom: 10px;
+}
+
+.userhome-intro-paragraph {
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+.userhome-update-button-row {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.userhome-update-button {
+    transition-duration: 0.1s;
+    background-color: #808080;
+    height: 40px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 0;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    margin-top: 20px;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.1em;
+    font-weight: 700;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.1s;
+    text-shadow: 5px 5px 10px #333333;
+}
+
+.userhome-update-button:hover {
+    transition-property: background-color;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.1s;
+    background-color: #404040;
+}
+
+.userhome-form {
+    background-color: #3333;
+    padding: 20px 35px;
+}
+
 .userhome-intro {
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     background-color: #FAFAFA;
 }
@@ -1643,6 +1698,38 @@ light blue - 80C0B8
 }
 
 /*User details*/
+.userhome-form {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.userhome-details-row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 5px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#firstname-form-userhome,
+#lastname-form-userhome,
+#username-form-userhome,
+#email-form-userhome,
+#password-form-userhome {
+    height: 45px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1em;
+    border-radius: 10px;
+    border: solid 1px #80C0B8;
+    padding-left: 10px;
+    margin-top: 10px;
+}
+
 .userhome-details {
     width: 100%;
 }
@@ -1658,16 +1745,6 @@ light blue - 80C0B8
     margin: 30px 0;
 }
 
-.userhome-details-row {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    background-image: linear-gradient(to bottom right, #808080, #FDFDFD);
-    margin-bottom: 5px;
-    align-items: center;
-    justify-content: space-between;
-}
-
 .userhome-details-table-item {
     color: #333333;
     margin-left: 10px;
@@ -1676,7 +1753,7 @@ light blue - 80C0B8
 .user-field {
     font-size: 1em;
     width: 30%;
-    margin: 10px 0 0 10px;
+    margin-right: 20px;
 }
 
 .user-variable {
@@ -1686,36 +1763,10 @@ light blue - 80C0B8
     margin: 10px 0 0 10px;
 }
 
-.user-edit-button-section {
-    width: 30%;
-}
-
-.user-edit-button {
-    height: 40px;
-    width: 100px;
+.userhome-create-recipe {
     display: flex;
     justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    border-radius: 10px;
-    text-transform: uppercase;
-    margin:15px 10px;
-    font-family: "Roboto", sans-serif;
-    font-size: 1.1em;
-    font-weight: 700;
-    background-color: #C09380;
-    transition-timing-function: ease-in-out;
-    transition-duration: 0.1s;
-    color: #FAFAFA;
-    text-shadow: 1px 1px 10px #333333;
-    text-align: right;
-}
-
-.user-edit-button:hover {
-    background-color: #614437;
-    transition-property: background-color;
-    transition-timing-function: ease-in-out;
-    transition-duration: 0.1s;
+    margin: 40px 0;
 }
 /*----------End of Userhome page----------*/
 

@@ -136,60 +136,14 @@
         </div>
         
         <ul class="post-it-notes">
+            {% for recipe in recipes %}
             <li class="post-it-note">
                 <a href="{{ url_for('recipe') }}">
-                    <h2 class="post-it-note-title">Popular Title 1</h2>
+                    <h2 class="post-it-note-title">Recent Title 1</h2>
                     <p class="post-it-note-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, quam.</p>
                 </a>
             </li>
-            <li class="post-it-note">
-                <a href="{{ url_for('recipe') }}">
-                    <h2 class="post-it-note-title">Popular Title 2</h2>
-                    <p class="post-it-note-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, quam.</p>
-                </a>
-            </li>
-            <li class="post-it-note">
-                <a href="{{ url_for('recipe') }}">
-                    <h2 class="post-it-note-title">Popular Title 3</h2>
-                    <p class="post-it-note-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, quam.</p>
-                </a>
-            </li>
-            <li class="post-it-note">
-                <a href="{{ url_for('recipe') }}">
-                    <h2 class="post-it-note-title">Popular Title 4</h2>
-                    <p class="post-it-note-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, quam.</p>
-                </a>
-            </li>
-            <li class="post-it-note">
-                <a href="{{ url_for('recipe') }}">
-                    <h2 class="post-it-note-title">Popular Title 5</h2>
-                    <p class="post-it-note-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, quam.</p>
-                </a>
-            </li>
-            <li class="post-it-note">
-                <a href="{{ url_for('recipe') }}">
-                    <h2 class="post-it-note-title">Popular Title 6</h2>
-                    <p class="post-it-note-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, quam.</p>
-                </a>
-            </li>
-            <li class="post-it-note">
-                <a href="{{ url_for('recipe') }}">
-                    <h2 class="post-it-note-title">Popular Title 7</h2>
-                    <p class="post-it-note-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, quam.</p>
-                </a>
-            </li>
-            <li class="post-it-note">
-                <a href="{{ url_for('recipe') }}">
-                    <h2 class="post-it-note-title">Popular Title 8</h2>
-                    <p class="post-it-note-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, quam.</p>
-                </a>
-            </li>
-            <li class="post-it-note">
-                <a href="{{ url_for('recipe') }}">
-                    <h2 class="post-it-note-title">Popular Title 9</h2>
-                    <p class="post-it-note-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, quam.</p>
-                </a>
-            </li>
+            {% endfor %}
         </ul>
     </div>
     
@@ -205,60 +159,14 @@
         </div>
         
         <ul class="post-it-notes">
+            {% for recipe in recipes %}
             <li class="post-it-note">
                 <a href="{{ url_for('recipe') }}">
                     <h2 class="post-it-note-title">Recent Title 1</h2>
                     <p class="post-it-note-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, quam.</p>
                 </a>
             </li>
-            <li class="post-it-note">
-                <a href="{{ url_for('recipe') }}">
-                    <h2 class="post-it-note-title">Recent Title 2</h2>
-                    <p class="post-it-note-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, quam.</p>
-                </a>
-            </li>
-            <li class="post-it-note">
-                <a href="{{ url_for('recipe') }}">
-                    <h2 class="post-it-note-title">Recent Title 3</h2>
-                    <p class="post-it-note-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, quam.</p>
-                </a>
-            </li>
-            <li class="post-it-note">
-                <a href="{{ url_for('recipe') }}">
-                    <h2 class="post-it-note-title">Recent Title 4</h2>
-                    <p class="post-it-note-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, quam.</p>
-                </a>
-            </li>
-            <li class="post-it-note">
-                <a href="{{ url_for('recipe') }}">
-                    <h2 class="post-it-note-title">Recent Title 5</h2>
-                    <p class="post-it-note-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, quam.</p>
-                </a>
-            </li>
-            <li class="post-it-note">
-                <a href="{{ url_for('recipe') }}">
-                    <h2 class="post-it-note-title">Recent Title 6</h2>
-                    <p class="post-it-note-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, quam.</p>
-                </a>
-            </li>
-            <li class="post-it-note">
-                <a href="{{ url_for('recipe') }}">
-                    <h2 class="post-it-note-title">Recent Title 7</h2>
-                    <p class="post-it-note-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, quam.</p>
-                </a>
-            </li>
-            <li class="post-it-note">
-                <a href="{{ url_for('recipe') }}">
-                    <h2 class="post-it-note-title">Recent Title 8</h2>
-                    <p class="post-it-note-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, quam.</p>
-                </a>
-            </li>
-            <li class="post-it-note">
-                <a href="{{ url_for('recipe') }}">
-                    <h2 class="post-it-note-title">Recent Title 9</h2>
-                    <p class="post-it-note-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, quam.</p>
-                </a>
-            </li>
+            {% endfor %}
         </ul>
     </div>
     

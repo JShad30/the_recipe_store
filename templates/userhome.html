@@ -25,50 +25,60 @@
                 </div>
                 
                 <!--This table will display to the user what they inputted into the sign up form. Edit buttons will redirect to a page which will allow them to change any of the details-->
-                <table class="userhome-details-table">
-                    
-                    <!--First name field row-->
-                    <tr class="userhome-details-row">
-                        <td class="userhome-details-table-item user-field">First Name:</td>
-                        <td class="userhome-details-table-item user-variable">Fred</td>
-                        <td class="userhome-details-table-item user-edit-button">Edit</td>
-                    </tr>
-                    
-                    <!--Last name field row-->
-                    <tr class="userhome-details-row">
-                        <td class="userhome-details-table-item user-field">Last Name:</td>
-                        <td class="userhome-details-table-item user-variable">Jones</td>
-                        <td class="userhome-details-table-item user-edit-button">Edit</td>
-                    </tr>
-                    
-                    <!--Username field row-->
-                    <tr class="userhome-details-row">
-                        <td class="userhome-details-table-item user-field">Username:</td>
-                        <td class="userhome-details-table-item user-variable">f_jones123</td>
-                        <td class="userhome-details-table-item user-edit-button">Edit</td>
-                    </tr>
-                    
-                    <!--Email address field row-->
-                    <tr class="userhome-details-row">
-                        <td class="userhome-details-table-item user-field">Email:</td>
-                        <td class="userhome-details-table-item user-variable">f_jones@gmail.com</td>
-                        <td class="userhome-details-table-item user-edit-button">Edit</td>
-                    </tr>
-                    
-                    <!--Password field row-->
-                    <tr class="userhome-details-row">
-                        <td class="userhome-details-table-item user-field">Password:</td>
-                        <td class="userhome-details-table-item user-variable">f_jtrcPW0$,&</td>
-                        <td class="userhome-details-table-item user-edit-button">Edit</td>
-                    </tr>
-                    
-                </table>
+                <!--Form-->
+                <form class="userhome-form" method="POST">
+                    <div class="userhome-intro-text">
+                        <h3 class="userhome-intro-heading">Account Details</h3>
+                        <p class="userhome-intro-paragraph">Here are the details for your account. Check them, and update them if required.</p>
+                    </div>
+                    <div class="userhome-details-row">
+                        <!--First name field row-->
+                        <label class="userhome-details-table-item user-field">Firstname:</label>
+                        <input id="firstname-form-userhome" type="text" name="firstname" placeholder="Type firstname"/>
+                    </div>
+                    <div class="userhome-details-row">
+                        <!--First name field row-->
+                        <label class="userhome-details-table-item user-field">Lastname:</label>
+                        <input id="lastname-form-userhome" type="text" name="lastname" placeholder="Type lastname"/>
+                    </div>
+                    <div class="userhome-details-row">
+                        <!--First name field row-->
+                        <label class="userhome-details-table-item user-field">Username:</label>
+                        <input id="username-form-userhome" type="text" name="username" placeholder="Type username"/>
+                    </div>
+                    <div class="userhome-details-row">
+                        <!--First name field row-->
+                        <label class="userhome-details-table-item user-field">Email:</label>
+                        <input id="email-form-userhome" type="text" name="email" placeholder="Type email"/>
+                    </div>
+                    <div class="userhome-details-row">
+                        <!--First name field row-->
+                        <label class="userhome-details-table-item user-field">Password:</label>
+                        <input id="password-form-userhome" type="text" name="password" placeholder="Type password"/>
+                    </div>
+                    <div class="userhome-update-button-row">
+                	    <button class="userhome-update-button" id="update-button">Update</button>
+                	</div>
+                </form>
             </div>
-            
         </div>
-    
     </div>
 </section>
 
-
+<!--Post it notes section to display popular and recents-->
+<section class="post-it-notes-section">
+    <!--Container for the post it notes-->
+    <div class="post-it-notes-section-container" id="most-popular-post-it-notes">
+        <div class="most-popular-intro">
+            <div class="post-it-notes-intro">
+                <!--Introduction to the section where the user can choose from menus for their specific meal type choice-->
+                <h2 class="post-it-notes-intro-heading">My Recipes</h2>
+                <p class="most-popular-intro-paragraph">Below are therecipes you have created. If you would like to create a new recipe, click the button below. Click on your recipes if you would like to edit and update them.</p>
+            </div>
+        </div>
+        <div class="userhome-create-recipe">
+            <div class="userhome-create-recipe-button"><a href="{{ url_for('create_recipe') }}">Create new recipe</a></div>
+        </div>
+    </div>
+</section>
 {% endblock %}
