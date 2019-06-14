@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section class="signup-form-section">
+    
+    <!--Section that contains the form-->
+    <div class="signup-form-container">
+        
+        <!--Introduction to the form-->
+        <h3 class="signup-title">Sign Up</h3>
+        <p class="signup-form-message">Signup to be able to add recipes to the website, and have them viewed and shared by others.</p>
+        
+        <!--Form-->
+        <form method="POST" class="signup-form" action="">
+            <!--Textboxes for the user to fill in their firstname, lastname and username-->
+            <!--hidden tag tocontain the csrf token-->
+            {{ form.hidden_tag() }}
+            
+            <fieldset class="signup-form-fieldset">
+                
+                <div class="form-group">
+                    {{ form.firstname.label(class="signup-textbox-label") }}
+                    {{ form.firstname(class="signup-textbox", placeholder="Type Firstname") }}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.lastname.label(class="signup-textbox-label") }}
+                    {{ form.lastname(class="signup-textbox", placeholder="Type Lastname") }}
+                </div>
+                
+                {% if form.username.errors %}
+                    <div class="form-group-errors">
+                        <div class="form-group">
+                            {{ form.username.label(class="signup-textbox-label") }}
+                            {{ form.username(class="signup-textbox", placeholder="Type Username") }}
+                        </div>
+                        <div class="invalid-feedback">
+                            {% for error in form.username.errors %}
+                                <span class="signup-error-message">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="form-group">
+                        {{ form.username.label(class="signup-textbox-label") }}
+                        {{ form.username(class="signup-textbox", placeholder="Type Username") }}
+                    </div>
+                {% endif %}
+                
+                {% if form.email.errors %}
+                    <div class="form-group-errors">
+                        <div class="form-group">
+                            {{ form.email.label(class="signup-textbox-label") }}
+                            {{ form.email(class="signup-textbox", placeholder="Type Email Address") }}
+                        </div>
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span class="signup-error-message">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="form-group">
+                        {{ form.email.label(class="signup-textbox-label") }}
+                        {{ form.email(class="signup-textbox", placeholder="Type Email Address") }}
+                    </div>
+                {% endif %}
+                
+                <div class="form-group">
+                    {{ form.password.label(class="signup-textbox-label") }}
+                    {{ form.password(class="signup-textbox", placeholder="Type Password") }}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.confirm_password.label(class="signup-textbox-label") }}
+                    {{ form.confirm_password(class="signup-textbox", placeholder="Confirm Password") }}
+                </div>
+                
+            </fieldset>
+            {{ form.submit(class="signup-button") }}
+        </form>
+        
+        <!--If the user is already a member this link gives them the option to go the login page-->
+        <p class="signup-form-message">Already a member? Go to the <a href="{{ url_for('login') }}">log in</a> page.</p>
+    </div>
+</section>
+
+{% endblock %}

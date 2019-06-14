@@ -1283,23 +1283,47 @@ light blue - 80C0B8
     align-items: center;
 }
 
-#login-textbox-username,
-#login-textbox-password,
-#signup-textbox-firstname,
-#signup-textbox-lastname,
-#signup-textbox-username,
-#signup-textbox-password,
+.signup-form-fieldset,
+.login-form-fieldset {
+    width: 100%;
+    border: 0;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.signup-textbox-label,
+.login-textbox-label {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+
+.login-textbox,
+.signup-textbox,
 #firstname,
 #lastname,
 #email {
-    height: 45px;
+    height: 35px;
     width: 100%;
     box-sizing: border-box;
-    font-size: 1em;
     border-radius: 10px;
     border: solid 1px #80C0B8;
     padding-left: 10px;
-    margin-top: 10px;
+    font-size: 0.9em;
+    color: #333333;
+}
+
+.signup-error-message {
+    display: block;
+    color: red;
+    font-size: 0.9em;
 }
 
 .login-button,
@@ -1308,7 +1332,6 @@ light blue - 80C0B8
 .submit-recipe-button,
 .add-button,
 .userhome-create-recipe-button {
-    margin-top: 20px;
     width: 100%;
     height: 50px;
     border: 0;
@@ -1316,6 +1339,7 @@ light blue - 80C0B8
     color: #FAFAFA;
     font-family: "Roboto", cursive;
     font-size: 1.7em;
+    font-weight: 400;
     transition-timing-function: ease-in-out;
     transition-duration: 0.1s;
 }
@@ -1973,6 +1997,44 @@ light blue - 80C0B8
     /*----------End of header font size----------*/
     
     
+    
+    
+    
+    
+    
+    
+    /*----------Sign up and login forms----------*/
+    .form-group {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin: 15px 0;
+    }
+    
+    .form-group-errors {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .signup-textbox-label,
+    .login-textbox-label {
+        width: 30%;
+    }
+    
+    .login-textbox,
+    .signup-textbox,
+    #firstname,
+    #lastname,
+    #email {
+        width: 70%;
+    }
+    
+    .invalid-feedback {
+        width: 100%;
+    }
+
+    /*----------End of Sign up and login forms----------*/
     
     
     
