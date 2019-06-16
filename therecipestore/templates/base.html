@@ -79,10 +79,10 @@
 	            </div>
 	            
                 <!--Buttons that link to pages allowing the user to sign up or login to their membership area-->
-                {% if session.log %}
+                {% if current_user.is_authenticated %}
                 <!--Account link which only appears if user is logged in-->
                 <div class="navbar-link">
-	                <a id="home-link" class="dropdown-content-button" href="{{ url_for('index') }}"><i class="fa fa-user-circle my-account"></i></a>
+	                <a id="home-link" class="dropdown-content-button" href="{{ url_for('personal_home') }}"><i class="fa fa-user-circle my-account"></i></a>
 	            </div>
                 <div class="navbar-link-buttons-logout"> 
                 	<div class="sign-up-login-button" id="logout"><a href="{{ url_for('logout') }}" class="navbar-link-button">Log Out</a></div>
@@ -175,7 +175,7 @@
 						<li class="footer-list-item"><a class="footer-list-link" href="/vegetarian">Vegetarian</a></li>
 						<li class="footer-list-item"><a class="footer-list-link" href="/pescatarian">Pescatarian</a></li>
 						<li class="footer-list-item"><a class="footer-list-link" href="/vegan">Vegan</a></li>
-						<li class="footer-list-item"><a class="footer-list-link" href="raw-vegetarian">Raw Vegetarian</a></li>
+						<li class="footer-list-item"><a class="footer-list-link" href="/raw-vegetarian">Raw Vegetarian</a></li>
 					</ul>
 				</div>
 			</div>

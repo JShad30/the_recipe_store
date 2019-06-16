@@ -5,7 +5,7 @@
     <div class="userhome-intro-container">
         
         <div class="userhome-intro-text">
-            <h2 class="userhome-intro-title">Your Account</h2>
+            <h2 class="userhome-intro-title">Personal Page for {{ current_user.username }}</h2>
             
             <!--Presenting the flashed message to the user when they've filled in the sign up form-->
             {% with messages = get_flashed_messages() %}
@@ -26,40 +26,69 @@
                 
                 <!--This table will display to the user what they inputted into the sign up form. Edit buttons will redirect to a page which will allow them to change any of the details-->
                 <!--Form-->
-                <form class="userhome-form" method="POST">
-                    <div class="userhome-intro-text">
-                        <h3 class="userhome-intro-heading">Account Details</h3>
-                        <p class="userhome-intro-paragraph">Here are the details for your account. Check them, and update them if required.</p>
-                    </div>
-                    <div class="userhome-details-row">
-                        <!--First name field row-->
-                        <label class="userhome-details-table-item user-field">Firstname:</label>
-                        <input id="firstname-form-userhome" type="text" name="firstname" placeholder="Type firstname"/>
-                    </div>
-                    <div class="userhome-details-row">
-                        <!--First name field row-->
-                        <label class="userhome-details-table-item user-field">Lastname:</label>
-                        <input id="lastname-form-userhome" type="text" name="lastname" placeholder="Type lastname"/>
-                    </div>
-                    <div class="userhome-details-row">
-                        <!--First name field row-->
-                        <label class="userhome-details-table-item user-field">Username:</label>
-                        <input id="username-form-userhome" type="text" name="username" placeholder="Type username"/>
-                    </div>
-                    <div class="userhome-details-row">
-                        <!--First name field row-->
-                        <label class="userhome-details-table-item user-field">Email:</label>
-                        <input id="email-form-userhome" type="text" name="email" placeholder="Type email"/>
-                    </div>
-                    <div class="userhome-details-row">
-                        <!--First name field row-->
-                        <label class="userhome-details-table-item user-field">Password:</label>
-                        <input id="password-form-userhome" type="text" name="password" placeholder="Type password"/>
-                    </div>
-                    <div class="userhome-update-button-row">
-                	    <button class="userhome-update-button" id="update-button">Update</button>
-                	</div>
-                </form>
+                <!--Section that contains the form-->
+                <div class="signup-form-container">
+                    
+                    <!--Form-->
+                    <form method="POST" class="signup-form" action="">
+                        <!--Textboxes for the user to fill in their firstname, lastname and username-->
+                        <!--hidden tag to contain the csrf token-->
+                        {{ form.hidden_tag() }}
+                        
+                        <fieldset class="signup-form-fieldset">
+                            
+                            <div class="form-group">
+                                {{ form.firstname.label(class="signup-textbox-label") }}
+                                {{ form.firstname(class="signup-textbox", placeholder="Type Firstname") }}
+                            </div>
+                            
+                            <div class="form-group">
+                                {{ form.lastname.label(class="signup-textbox-label") }}
+                                {{ form.lastname(class="signup-textbox", placeholder="Type Lastname") }}
+                            </div>
+                            
+                            {% if form.username.errors %}
+                                <div class="form-group-errors">
+                                    <div class="form-group">
+                                        {{ form.username.label(class="signup-textbox-label") }}
+                                        {{ form.username(class="signup-textbox", placeholder="Type Username") }}
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        {% for error in form.username.errors %}
+                                            <span class="signup-error-message">{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            {% else %}
+                                <div class="form-group">
+                                    {{ form.username.label(class="signup-textbox-label") }}
+                                    {{ form.username(class="signup-textbox", placeholder="Type Username") }}
+                                </div>
+                            {% endif %}
+                            
+                            {% if form.email.errors %}
+                                <div class="form-group-errors">
+                                    <div class="form-group">
+                                        {{ form.email.label(class="signup-textbox-label") }}
+                                        {{ form.email(class="signup-textbox", placeholder="Type Email Address") }}
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        {% for error in form.email.errors %}
+                                            <span class="signup-error-message">{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            {% else %}
+                                <div class="form-group">
+                                    {{ form.email.label(class="signup-textbox-label") }}
+                                    {{ form.email(class="signup-textbox", placeholder="Type Email Address") }}
+                                </div>
+                            {% endif %}
+                            
+                        </fieldset>
+                        {{ form.submit(class="signup-button") }}
+                    </form>
+                </div>
             </div>
         </div>
     </div>

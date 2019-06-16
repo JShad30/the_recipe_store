@@ -1,8 +1,9 @@
 from datetime import datetime
-from therecipestore import db, app, login_manager
+from therecipestore import db, login_manager
 from flask_login import UserMixin
 
 
+"""Gets the sessions working for different users"""
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))

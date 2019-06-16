@@ -1,9 +1,9 @@
 import json
-from flask import Flask, render_template, request, flash, redirect, url_for
+from flask import render_template, request, flash, redirect, url_for
 from therecipestore import app, db, bcrypt
-from therecipestore.forms import Signup, Login
-from therecipestore.models import User
-from flask_login import login_user, current_user
+from therecipestore.forms import Signup, Login, UpdatePersonalHome
+from therecipestore.models import User, Recipe
+from flask_login import login_user, current_user, logout_user, login_required
 
 
 
@@ -47,45 +47,63 @@ def signup():
     	return redirect(url_for('index'))
     form = Signup()
     if form.validate_on_submit():
-        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-    	user = User(firstname=form.firstname.data, lastname=form.lastname.data, username=form.username.data, email=form.email.data, password=form.password.data)
-    	db.session.add(user)
-    	db.session.commit()
-    	flash('Welcome to theRecipeStore. You can now log in')
-    	return redirect(url_for('login'))
+        hashed_password = bcrypt.generate_password_hash(form.password.data)
+        user = User(firstname=form.firstname.data, lastname=form.lastname.data, username=form.username.data, email=form.email.data, password=hashed_password)
+        db.session.add(user)
+        db.session.commit()
+        flash('Welcome to theRecipeStore. You can now log in')
+        return redirect(url_for('login'))
     return render_template('signup.html', title='Sign Up', form=form)
 
 
 """Rendering the login page and dealing with the form"""
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    if current_user.is_authenticated:
+    	return redirect(url_for('personal_home'))
     form = Login()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user, remember=form.remember.data)
-            return redirect(url_for('home'))
+            #Go to the next page if it exists. If it doesn't redirect to the home page
+            nextpage = request.args.get('next')
+            return redirect(nextpage) if nextpage else redirect(url_for('personal_home'))
         else:
             flash('Either the email or password are incorrect, please try again.')
     return render_template('login.html', title='Log In', form=form)
-    
-    
-    
-    
+
 
 """Execute when the user clicks the logout button"""    
 @app.route("/logout")
 def logout():
+    logout_user()
     flash("You are now logged out. Thanks for using theRecipeStore, we hope to see you again soon!")
     return redirect(url_for("login"))
 
     
 
 """Rendering the personal pages"""
-@app.route("/personal_home/<username>")
-def personal_home(username):
-    print('{}'.format(username))
-    return render_template("userhome.html", firstname='', lastname='', username=username, email='', password='')
+@app.route("/personal_home")
+@login_required
+def personal_home():
+    form = UpdatePersonalHome()
+    if form.validate_on_submit():
+        current_user.firstname = form.firstname.data
+        current_user.lastname = form.lastname.data
+        current_user.username = form.username.data
+        current_user.email = form.email.data
+        current_user.password = form.password.data
+        db.session.commit()
+        flash("Your personal details have now been updated")
+        return redirect(url_for("personal_home"))
+    elif request.method == 'GET':
+        form.firstname.data = current_user.firstname
+        form.lastname.data = current_user.lastname
+        form.username.data = current_user.username
+        form.email.data = current_user.email
+        form.password.data = current_user.password
+    return render_template("userhome.html", title="Personal Page", form=form)
     
 
 
@@ -133,5 +151,6 @@ def recipe():
 
 """Rendering the page where a user will build a new recipe"""
 @app.route("/create_recipe", methods=["GET", "POST"])
+@login_required
 def create_recipe():
     return render_template("createrecipe.html")
