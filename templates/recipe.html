@@ -89,8 +89,9 @@
         
         <!--Like button form - if the user clicks this it will add one to the score of the recipe. The recipes that have the highest scores are the ones that will appear on the most popular section post it notes on the home page-->
         <form method="POST" class="recipe-like-button">
+            {{ form.hidden_tag() }}
             <h4 class="recipe-like-button-heading">Press the button if you like this recipe</h4>
-            <input type="submit" value="Like" id="begin-quiz" class="like-submit-button">
+            {{ form.submit(class="like-submit-button") }}
         </form>
         
         <div class="meal-type-intro">

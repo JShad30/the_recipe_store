@@ -21,7 +21,8 @@
     <div class="create-recipe-container">
         
         <!--Form to submit the recipe-->
-        <form method="POST" class="recipe-form">
+        <form method="POST" class="recipe-form" action="">
+            {{ form.hidden_tag() }}
             <div class="create-recipe-form-section">
                 
                 <!--Div to allow the following two sections to appear horizontally in tablet views and above-->
@@ -33,10 +34,10 @@
                             <h4 class="recipe-info-intro-title" id="recipe-name-description-title">Recipe Name and Description</h4>
                             <p class="recipe-info-intro-paragraph" id="recipe-name-description-paragraph">Start by telling us the name of your recipe and give a brief description. This is how your recipe will be introduced to other users.</p>
                         </div>
-                        <div class="recipe-name-description-textboxes">
-                            <input class="create-recipe-name" type="text" id="recipe-name" name="recipe-name" placeholder="Recipe Name" required/>
-                            <textarea class="create-recipe-description" id="recipe-description" name="recipe-description" placeholder="Recipe Description" required/></textarea>
-                        </div>
+                        <fieldset class="recipe-name-description-textboxes">
+                            {{ form.recipe_name(class="create-recipe-name", type="text", id="recipe-name", placeholder="Recipe Name") }}
+                            {{ form.recipe_description(class="create-recipe-description", id="recipe-description", placeholder="Recipe Description") }}
+                        </fieldset>
                     </div>
                     
                     <!--These textboxes are for the creator of the recipe to tell the user about the basics of the recipe in terms of preparation time, ease and cooking time-->
@@ -45,15 +46,11 @@
                             <h4 class="recipe-info-intro-title" id="cooking-info-title">Recipe cooking information</h4>
                             <p class="recipe-info-intro-paragraph" id="cooking-info-paragraph">Tell us how you would rate your recipe in terms of the following:</p>
                         </div>
-                        <div class="recipe-info-textboxes">
-                            <select class="create-recipe-info-textbox recipe-level-dropdown" name="difficulty-level" id="difficulty-level">
-                                <option class="recipe-level-option">Easy</option>
-                                <option class="recipe-level-option">Moderate</option>
-                                <option class="recipe-level-option">Difficult</option>
-                            </select>
-                            <input class="create-recipe-info-textbox" type="text" id="preparation-time" name="preparation-time" placeholder="Preparation Time" required/>
-                            <input class="create-recipe-info-textbox" type="text" id="cooking-time" name="cooking-time" placeholder="Cooking Time" required/>
-                        </div>
+                        <fieldset class="recipe-info-textboxes">
+                            {{ form.recipe_difficulty(class="create-recipe-info-textbox", id="difficulty-level") }}
+                            {{ form.recipe_prep_time(class="create-recipe-info-textbox", type="text", id="preparation-time", placeholder="Preparation Time") }}
+                            {{ form.recipe_cook_time(class="create-recipe-info-textbox", type="text", id="cooking-time", placeholder="Cooking Time") }}
+                        </fieldset>
                     </div>
                 </div>
                 
@@ -75,20 +72,9 @@
                                     <p class="recipe-info-intro-paragraph" id="recipe-specifics-meal-type-paragraph">What type of meal type is your recipe for? You can only select one.</p>
                                 </div>
                                 <!--These Radio buttons will allow the creator to select which meal type the recipe is for-->
-                                <div class="recipe-meal-type-options">
-                                    <div class="radio-button">
-                                        <label for="light-bites"><input class="radio-button-input" type="radio" id="light-bites-option" name="choice-mealtype" value="light-bites" required/>Light Bites</label>
-                                    </div>
-                                    <div class="radio-button">
-                                        <label for="snacks"><input class="radio-button-input" type="radio" id="snack-option" name="choice-mealtype" value="snacks" required/>Snacks</label>
-                                    </div>
-                                    <div class="radio-button">
-                                        <label for="main-meal"><input class="radio-button-input" type="radio" id="main-meal-option" name="choice-mealtype" value="main-meal" required/>Main Meal</label>
-                                    </div>
-                                    <div class="radio-button">
-                                        <label for="desserts"><input class="radio-button-input" type="radio" id="desserts-option" name="choice-mealtype" value="desserts" required/>Desserts</label>
-                                    </div>
-                                </div>
+                                <fieldset class="recipe-meal-type-options">
+                                    {{ form.meal_type(id="meal-type") }}
+                                </fieldset>
                             </div>
                         </div>
                         
@@ -101,20 +87,16 @@
                                     <p class="recipe-info-intro-paragraph" id="recipe-specifics-preference-paragraph">What meal preferences is your recipe suitable for? Select all that are relevent.</p>
                                 </div>
                                 <!--These Radio buttons will allow the creator to select which meal type the recipe is for-->
-                                <div class="recipe-preference-options">
-                                    <div class="radio-button">
-                                        <label for="vegetarian"><input class="radio-button-input" type="checkbox" id="vegetarian-option" name="choice" value="vegetarian"/>Vegetarian</label>
-                                    </div>
-                                    <div class="radio-button">
-                                        <label for="vegan"><input class="radio-button-input" type="checkbox" id="vegan-option" name="choice" value="vegan"/>Vegan</label>
-                                    </div>
-                                    <div class="radio-button">
-                                        <label for="pescatarian"><input class="radio-button-input" type="checkbox" id="pescatarian-option" name="choice" value="pescatarian"/>Pescatarian</label>
-                                    </div>
-                                    <div class="radio-button">
-                                        <label for="raw-vegetarian"><input class="radio-button-input" type="checkbox" id="raw-vegetarian-option" name="choice" value="raw-vegetarian"/>Raw Vegetarian</label>
-                                    </div>
-                                </div>
+                                <fieldset class="recipe-preference-options">
+                                    {{ form.meal_preference_vegetarian() }}
+                                    {{ form.meal_preference_vegetarian.label() }}<br>
+                                    {{ form.meal_preference_vegan() }}
+                                    {{ form.meal_preference_vegan.label() }}<br>
+                                    {{ form.meal_preference_pescatarian() }}
+                                    {{ form.meal_preference_pescatarian.label() }}<br>
+                                    {{ form.meal_preference_raw_vegetarian() }}
+                                    {{ form.meal_preference_raw_vegetarian.label() }}<br>
+                                </fieldset>
                             </div>
                         </div>
                         
@@ -127,17 +109,14 @@
                                     <p class="recipe-info-intro-paragraph" id="recipe-specifics-allergens-paragraph">Let us know what your recipe is free of, with regards to allergens. Select all that are relevent.</p>
                                 </div>
                                 <!--These Radio buttons will allow the creator to select which meal type the recipe is for-->
-                                <div class="recipe-allergen-options">
-                                    <div class="radio-button">
-                                        <label for="nut-free"><input class="radio-button-input" type="checkbox" id="nut-free-option" name="choice" value="nut-free"/>Nut Free</label>
-                                    </div>
-                                    <div class="radio-button">
-                                        <label for="lactose-free"><input class="radio-button-input" type="checkbox" id="lactose-free-option" name="choice" value="lactose-free"/>Lactose Free</label>
-                                    </div>
-                                    <div class="radio-button">
-                                        <label for="gluten-free"><input class="radio-button-input" type="checkbox" id="gluten-free-option" name="choice" value="gluten-free"/>Gluten Free</label>
-                                    </div>
-                                </div>
+                                <fieldset class="recipe-allergen-options">
+                                    {{ form.meal_allergen_nut_free() }}
+                                    {{ form.meal_allergen_nut_free.label() }}<br>
+                                    {{ form.meal_allergen_lactose_free() }}
+                                    {{ form.meal_allergen_lactose_free.label() }}<br>
+                                    {{ form.meal_allergen_gluten_free() }}
+                                    {{ form.meal_allergen_gluten_free.label() }}<br>
+                                </fieldset>
                             </div>
                         </div>
                     </div>
@@ -151,11 +130,11 @@
                             <h4 class="recipe-info-intro-title" id="ingredients-info-title">Ingredients</h4>
                             <p class="recipe-info-intro-paragraph" id="ingredients-info-paragraph">Please fill out the ingredients of your recipe below.</p>
                         </div>
-                        <div class="ingredient-textboxes">
-                            <input class="create-recipe-ingredient" type="text" name="ingredient" placeholder="Ingredient"/>
-                            <input class="create-recipe-ingredient" type="text" name="ingredient" placeholder="Ingredient"/>
-                            <input class="create-recipe-ingredient" type="text" name="ingredient" placeholder="Ingredient"/>
-                        </div>
+                        <fieldset class="ingredient-textboxes">
+                            {{ form.ingredient_name(class="create-recipe-ingredient", type="text", placeholder="Ingredient") }}
+                            {{ form.ingredient_name(class="create-recipe-ingredient", type="text", placeholder="Ingredient") }}
+                            {{ form.ingredient_name(class="create-recipe-ingredient", type="text", placeholder="Ingredient") }}
+                        </fieldset>
                         <!--Add ingredient button-->
                         <div class="add-button-container">
                             <div class="add-button" value="Submit Recipe" id="add-ingredient-button">+</div>
@@ -168,10 +147,10 @@
                             <h4 class="recipe-info-intro-title" id="instructions-info-title">Instructions</h4>
                             <p class="recipe-info-intro-paragraph" id="instructions-info-paragraph">Please fill out the instructions of your recipe below. Be sure they are easy to follow.</p>
                         </div>
-                        <div class="instruction-textboxes">
-                            <textarea class="create-recipe-instruction" placeholder="Instruction"/></textarea>
-                            <textarea class="create-recipe-instruction" placeholder="Instruction"/></textarea>
-                        </div>
+                        <fieldset class="instruction-textboxes">
+                            {{ form.instruction_name(class="create-recipe-instruction", placeholder="Instruction") }}
+                            {{ form.instruction_name(class="create-recipe-instruction", placeholder="Instruction") }}
+                        </fieldset>
                         
                         <!--Add ingredient button-->
                         <div class="add-button-container">
@@ -183,11 +162,10 @@
             
             <!--Submit button-->
             <div class="submit-button-container">
-                <input class="submit-recipe-button" type="submit" value="Submit Recipe"/>
+                {{ form.submit(class="submit-recipe-button", type="submit", value="Submit Recipe") }}
             </div>
             
         </form>
-
     </div>
 </section>
 {% endblock %}

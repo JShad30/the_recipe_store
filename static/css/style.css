@@ -1552,6 +1552,23 @@ light blue - 80C0B8
     margin-bottom: 20px;
 }
 
+.recipe-name-description-textboxes,
+.recipe-info-textboxes,
+.recipe-meal-type-options,
+.recipe-preference-options,
+.recipe-allergen-options,
+.ingredient-textboxes,
+.instruction-textboxes {
+    padding: 0;
+    border: 0;
+    margin-bottom: 10px;
+}
+
+#meal-type {
+    padding: 0;
+    list-style: none;
+}
+
 .ingredient-paragraph {
     color: #FAFAFA;
     text-shadow: 2px 2px 5px #000000;

@@ -101,13 +101,22 @@
         <div class="most-popular-intro">
             <div class="post-it-notes-intro">
                 <!--Introduction to the section where the user can choose from menus for their specific meal type choice-->
-                <h2 class="post-it-notes-intro-heading">My Recipes</h2>
+                <h2 class="post-it-notes-intro-heading">My Created Recipes</h2>
                 <p class="most-popular-intro-paragraph">Below are therecipes you have created. If you would like to create a new recipe, click the button below. Click on your recipes if you would like to edit and update them.</p>
             </div>
+            <ul class="post-it-notes">
+                <li class="post-it-note">
+                    <a href="#">
+                        <h2 class="post-it-note-title">Title 1</h2>
+                        <p class="post-it-note-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, quam.</p>
+                    </a>
+                </li>
+            </ul>
         </div>
         <div class="userhome-create-recipe">
             <div class="userhome-create-recipe-button"><a href="{{ url_for('create_recipe') }}">Create new recipe</a></div>
         </div>
+        
     </div>
 </section>
 {% endblock %}

@@ -1,8 +1,8 @@
 import json
 from flask import render_template, request, flash, redirect, url_for
 from therecipestore import app, db, bcrypt
-from therecipestore.forms import Signup, Login, UpdatePersonalHome
-from therecipestore.models import User, Recipe
+from therecipestore.forms import Signup, Login, UpdatePersonalHome, CreateRecipe, RateRecipe
+from therecipestore.models import User, Recipe, Ingredient, Instruction
 from flask_login import login_user, current_user, logout_user, login_required
 
 
@@ -47,7 +47,7 @@ def signup():
     	return redirect(url_for('index'))
     form = Signup()
     if form.validate_on_submit():
-        hashed_password = bcrypt.generate_password_hash(form.password.data)
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
         user = User(firstname=form.firstname.data, lastname=form.lastname.data, username=form.username.data, email=form.email.data, password=hashed_password)
         db.session.add(user)
         db.session.commit()
@@ -84,7 +84,7 @@ def logout():
     
 
 """Rendering the personal pages"""
-@app.route("/personal_home")
+@app.route("/personal_home", methods=['GET', 'POST'])
 @login_required
 def personal_home():
     form = UpdatePersonalHome()
@@ -93,7 +93,6 @@ def personal_home():
         current_user.lastname = form.lastname.data
         current_user.username = form.username.data
         current_user.email = form.email.data
-        current_user.password = form.password.data
         db.session.commit()
         flash("Your personal details have now been updated")
         return redirect(url_for("personal_home"))
@@ -102,9 +101,27 @@ def personal_home():
         form.lastname.data = current_user.lastname
         form.username.data = current_user.username
         form.email.data = current_user.email
-        form.password.data = current_user.password
     return render_template("userhome.html", title="Personal Page", form=form)
     
+
+
+"""Rendering the page where a user will build a new recipe"""
+@app.route("/create_recipe", methods=["GET", "POST"])
+@login_required
+def create_recipe():
+    form = CreateRecipe()
+    if form.validate_on_submit():
+        recipe = Recipe(recipe_name=form.recipe_name.data, recipe_description=form.recipe_description.data, recipe_difficulty=form.recipe_difficulty.data, recipe_prep_time=form.recipe_prep_time.data, recipe_cook_time=form.recipe_cook_time.data, recipe_score=0, author=current_user)
+        ingredient = Ingredient(ingredient_name=form.ingredient_name.data)
+        instruction = Instruction(instruction_name=form.instruction_name.data)
+        db.session.add(recipe)
+        db.session.add(ingredient)
+        db.session.add(instruction)
+        db.session.commit()
+        flash("Your recipe has been created")
+        return redirect(url_for("personal_home"))
+    return render_template("createrecipe.html", form=form)
+
 
 
 """Rendering the contact page with form"""
@@ -145,12 +162,5 @@ def allergen():
 """Rendering each of the individual recipe pages"""
 @app.route("/recipe", methods=["GET", "POST"])
 def recipe():
-    return render_template("recipe.html")
-    
-
-
-"""Rendering the page where a user will build a new recipe"""
-@app.route("/create_recipe", methods=["GET", "POST"])
-@login_required
-def create_recipe():
-    return render_template("createrecipe.html")
+    form = RateRecipe()
+    return render_template("recipe.html", form=form)
