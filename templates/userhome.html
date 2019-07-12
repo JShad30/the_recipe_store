@@ -9,13 +9,12 @@
             
             <!--Presenting the flashed message to the user when they've filled in the sign up form-->
             {% with messages = get_flashed_messages() %}
-            {% if messages %}
-            {% for message in messages %}
-            <!--HTML presentation of the message-->
-            <p class="userhome-details-paragraph">{{ message }}</p>
-            <p class="userhome-details-paragraph">From this page you'll be able to add recipes, or update your existing recipes.</p>
-            {% endfor %}
-            {% endif %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <!--HTML presentation of the message-->
+                        <p class="userhome-details-paragraph">{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
             {% endwith %}
             
             <!--List of user details-->
@@ -30,7 +29,7 @@
                 <div class="signup-form-container">
                     
                     <!--Form-->
-                    <form method="POST" class="signup-form" action="">
+                    <form method="POST" class="signup-form" id="userhome-signup-form" action="">
                         <!--Textboxes for the user to fill in their firstname, lastname and username-->
                         <!--hidden tag to contain the csrf token-->
                         {{ form.hidden_tag() }}
@@ -101,22 +100,26 @@
         <div class="most-popular-intro">
             <div class="post-it-notes-intro">
                 <!--Introduction to the section where the user can choose from menus for their specific meal type choice-->
-                <h2 class="post-it-notes-intro-heading">My Created Recipes</h2>
-                <p class="most-popular-intro-paragraph">Below are therecipes you have created. If you would like to create a new recipe, click the button below. Click on your recipes if you would like to edit and update them.</p>
+                <h2 class="post-it-notes-intro-heading">My Recipes</h2>
+                <p class="most-recent-intro-paragraph">Below are therecipes you have created. If you would like to create a new recipe, click the button below. Click on your recipes if you would like to edit and update them.</p>
             </div>
             <ul class="post-it-notes">
-                <li class="post-it-note">
-                    <a href="#">
-                        <h2 class="post-it-note-title">Title 1</h2>
-                        <p class="post-it-note-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, quam.</p>
-                    </a>
-                </li>
+                {% for recipe in recipes %}
+                    {% if recipe.author == current_user %}
+                        <li class="post-it-note">
+                            <a href="{{ url_for('recipe', id=recipe.id) }}">
+                                <p>{{ recipe.author.username }} - {{ recipe.recipe_added.strftime('%d-%m-%Y') }}</p>
+                                <h2 class="post-it-note-title">{{ recipe.recipe_name }}</h2>
+                                <p class="post-it-note-paragraph">{{ recipe.recipe_description }}</p>
+                            </a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
             </ul>
         </div>
-        <div class="userhome-create-recipe">
-            <div class="userhome-create-recipe-button"><a href="{{ url_for('create_recipe') }}">Create new recipe</a></div>
+        <div class="userhome-create-recipe-button">
+            <a href="{{ url_for('create_recipe') }}">Create new recipe</a>
         </div>
-        
     </div>
 </section>
 {% endblock %}

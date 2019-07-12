@@ -84,18 +84,11 @@
                             <div class="recipe-options-content">
                                 <div class="recipe-info-intro">
                                     <h4 class="recipe-info-intro-title" id="recipe-specifics-preference-title">Preferences</h4>
-                                    <p class="recipe-info-intro-paragraph" id="recipe-specifics-preference-paragraph">What meal preferences is your recipe suitable for? Select all that are relevent.</p>
+                                    <p class="recipe-info-intro-paragraph" id="recipe-specifics-preference-paragraph">What meal preferences is your recipe most suitable for? Select the most relevent.</p>
                                 </div>
                                 <!--These Radio buttons will allow the creator to select which meal type the recipe is for-->
-                                <fieldset class="recipe-preference-options">
-                                    {{ form.meal_preference_vegetarian() }}
-                                    {{ form.meal_preference_vegetarian.label() }}<br>
-                                    {{ form.meal_preference_vegan() }}
-                                    {{ form.meal_preference_vegan.label() }}<br>
-                                    {{ form.meal_preference_pescatarian() }}
-                                    {{ form.meal_preference_pescatarian.label() }}<br>
-                                    {{ form.meal_preference_raw_vegetarian() }}
-                                    {{ form.meal_preference_raw_vegetarian.label() }}<br>
+                                <fieldset class="recipe-meal-type-options">
+                                    {{ form.preference(id="meal-type") }}
                                 </fieldset>
                             </div>
                         </div>
@@ -106,16 +99,11 @@
                             <div class="recipe-options-content">
                                 <div class="recipe-info-intro">
                                     <h4 class="recipe-info-intro-title" id="recipe-specifics-allergens-title">Allergens</h4>
-                                    <p class="recipe-info-intro-paragraph" id="recipe-specifics-allergens-paragraph">Let us know what your recipe is free of, with regards to allergens. Select all that are relevent.</p>
+                                    <p class="recipe-info-intro-paragraph" id="recipe-specifics-allergens-paragraph">Let us know what your recipe is in terms of allergens</p>
                                 </div>
                                 <!--These Radio buttons will allow the creator to select which meal type the recipe is for-->
-                                <fieldset class="recipe-allergen-options">
-                                    {{ form.meal_allergen_nut_free() }}
-                                    {{ form.meal_allergen_nut_free.label() }}<br>
-                                    {{ form.meal_allergen_lactose_free() }}
-                                    {{ form.meal_allergen_lactose_free.label() }}<br>
-                                    {{ form.meal_allergen_gluten_free() }}
-                                    {{ form.meal_allergen_gluten_free.label() }}<br>
+                                <fieldset class="recipe-meal-type-options">
+                                    {{ form.allergen(id="meal-type") }}
                                 </fieldset>
                             </div>
                         </div>
@@ -131,9 +119,9 @@
                             <p class="recipe-info-intro-paragraph" id="ingredients-info-paragraph">Please fill out the ingredients of your recipe below.</p>
                         </div>
                         <fieldset class="ingredient-textboxes">
-                            {{ form.ingredient_name(class="create-recipe-ingredient", type="text", placeholder="Ingredient") }}
-                            {{ form.ingredient_name(class="create-recipe-ingredient", type="text", placeholder="Ingredient") }}
-                            {{ form.ingredient_name(class="create-recipe-ingredient", type="text", placeholder="Ingredient") }}
+                            {% for ingredient in form.ingredients %}
+                                {{ ingredient(class="create-recipe-ingredient", type="text", placeholder="Ingredient") }}
+                            {% endfor %}
                         </fieldset>
                         <!--Add ingredient button-->
                         <div class="add-button-container">
@@ -148,8 +136,9 @@
                             <p class="recipe-info-intro-paragraph" id="instructions-info-paragraph">Please fill out the instructions of your recipe below. Be sure they are easy to follow.</p>
                         </div>
                         <fieldset class="instruction-textboxes">
-                            {{ form.instruction_name(class="create-recipe-instruction", placeholder="Instruction") }}
-                            {{ form.instruction_name(class="create-recipe-instruction", placeholder="Instruction") }}
+                            {% for instruction in form.instructions %}
+                                {{ instruction(class="create-recipe-instruction", placeholder="Instruction") }}
+                            {% endfor %}
                         </fieldset>
                         
                         <!--Add ingredient button-->

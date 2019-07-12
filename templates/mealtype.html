@@ -20,68 +20,19 @@
     
     <!--Container for the post it notes-->
     <div class="post-it-notes-section-container">
-        <div class="post-it-notes-intro">
-            <!--Introduction to the section where the user can choose from menus for their specific meal type choice-->
-            <h2 class="post-it-notes-intro-heading">{{ mealtype.mealtype }} Recipes</h2>
-            <p class="post-it-notes-intro-paragraph">{{ mealtype.introduction }}</p>
-        </div>
         <ul class="post-it-notes">
+            {% for recipe in recipes %}
             <li class="post-it-note">
-                <a href="#">
-                    <h2 class="post-it-note-title">Title 1</h2>
-                    <p class="post-it-note-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, quam.</p>
+                <a href="{{ url_for('recipe', id=recipe.id) }}">
+                    <p>{{ recipe.author.username }} - {{ recipe.recipe_added.strftime('%d-%m-%Y') }}</p>
+                    <h2 class="post-it-note-title">{{ recipe.recipe_name }}</h2>
+                    <p class="post-it-note-paragraph">{{ recipe.recipe_description }}</p>
                 </a>
             </li>
-            <li class="post-it-note">
-                <a href="#">
-                    <h2 class="post-it-note-title">Title 2</h2>
-                    <p class="post-it-note-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, quam.</p>
-                </a>
-            </li>
-            <li class="post-it-note">
-                <a href="#">
-                    <h2 class="post-it-note-title">Title 3</h2>
-                    <p class="post-it-note-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, quam.</p>
-                </a>
-            </li>
-            <li class="post-it-note">
-                <a href="#">
-                    <h2 class="post-it-note-title">Title 4</h2>
-                    <p class="post-it-note-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, quam.</p>
-                </a>
-            </li>
-            <li class="post-it-note">
-                <a href="#">
-                    <h2 class="post-it-note-title">Title 5</h2>
-                    <p class="post-it-note-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, quam.</p>
-                </a>
-            </li>
-            <li class="post-it-note">
-                <a href="#">
-                    <h2 class="post-it-note-title">Title 6</h2>
-                    <p class="post-it-note-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, quam.</p>
-                </a>
-            </li>
-            <li class="post-it-note">
-                <a href="#">
-                    <h2 class="post-it-note-title">Title 7</h2>
-                    <p class="post-it-note-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, quam.</p>
-                </a>
-            </li>
-            <li class="post-it-note">
-                <a href="#">
-                    <h2 class="post-it-note-title">Title 8</h2>
-                    <p class="post-it-note-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, quam.</p>
-                </a>
-            </li>
-            <li class="post-it-note">
-                <a href="#">
-                    <h2 class="post-it-note-title">Title 9</h2>
-                    <p class="post-it-note-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, quam.</p>
-                </a>
-            </li>
+            {% endfor %}
         </ul>
     </div>
+    
 </section>
 
 {% endblock %}

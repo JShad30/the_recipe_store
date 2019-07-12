@@ -6,7 +6,7 @@
         "description": "For quick to make lunches, such as sandwiches see the light bite recipes.",
         "image_source": "../images/sandwich.jpg",
         "introduction": "See great recipes below, uploaded to the site by our members for light bites. Whether you're looking for something small for lunch, or a salad for dinner, you're sure to find a great variety here!",
-        "url": "light-bites"
+        "url": "light_bites"
     },
     {
         "id": "snacks",
@@ -24,7 +24,7 @@
         "description": "Find recipes for great meals, whether for yourself or an evening with friends.",
         "image_source": "../images/dinner.jpg",
         "introduction": "See great recipes below, uploaded to the site by our members for main meals. Whether you're looking for something new for yourself, or to impress your friends at your next dinner party, you'll find it here!",
-        "url": "main-meals"
+        "url": "main_meals"
     },
     {
         "id": "desserts",
@@ -37,7 +37,7 @@
     },
     {
         "id": "vegetarian",
-        "mealtype": "Vegetarian Meals",
+        "mealtype": "Vegetarian",
         "section": "preference",
         "description": "Find great recipes that do not contain meat or fish.",
         "image_source": "../images/vegetarian.jpg",
@@ -46,7 +46,7 @@
     },
     {
         "id": "vegan",
-        "mealtype": "Vegan Meals",
+        "mealtype": "Vegan",
         "section": "preference",
         "description": "Great recipes that do not contain animal products.",
         "image_source": "../images/vegan.jpg",
@@ -55,7 +55,7 @@
     },
     {
         "id": "pescatarian",
-        "mealtype": "Pescatarian Meals",
+        "mealtype": "Pescatarian",
         "section": "preference",
         "description": "Find great pescatarian fish recipes",
         "image_source": "../images/pescatarian.jpg",
@@ -64,12 +64,12 @@
     },
     {
         "id": "raw-vegetarian",
-        "mealtype": "Raw Vegetarian Meals",
+        "mealtype": "Raw Vegetarian",
         "section": "preference",
         "description": "Find great raw vegetarian recipes here!",
         "image_source": "../images/raw-vegetarian.jpg",
         "introduction": "Raw vegetarian meals do not contain animal products, and the food is not cooked or cooked at very low temperatures. Great for vegans or those that follow this raw vegetarian diet.",
-        "url": "raw-vegetarian"
+        "url": "raw_vegetarian"
     },
     {
         "id": "nut-free",
@@ -78,7 +78,7 @@
         "description": "Find great nut-free recipes here.",
         "image_source": "../images/nut-free.jpg",
         "introduction": "Whether you have an allergy to nuts or don't like them, there are plenty of great meals that can be found here!",
-        "url": "nut-free"
+        "url": "nut_free"
     },
     {
         "id": "lactose-free",
@@ -87,7 +87,7 @@
         "description": "Find great lactose-free meals on this page!",
         "image_source": "../images/lactose-free.jpg",
         "introduction": "If you are looking for recipe ideas for meals that are free of lactose (dairy), then you're sure to find them on this page.",
-        "url": "lactose-free"
+        "url": "lactose_free"
     },
     {
         "id": "gluten-free",
@@ -96,6 +96,6 @@
         "description": "Find great gluten-free meals on this page!",
         "image_source": "../images/gluten-free.jpg",
         "introduction": "If you're looking for great recipes free of gluten then see great meal ideas below.",
-        "url": "gluten-free"
+        "url": "gluten_free"
     }
 ]

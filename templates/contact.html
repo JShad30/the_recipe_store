@@ -7,8 +7,15 @@
     <div class="contact-form-container">
         
         <!--Heading and introduction paragraph-->
-        <h3 class="contact-title">Contact Us</h3>
-        <p class="contact-form-message">If you would like to contact us for any more information about this site, including the benefits of singing up, please do not hesitate to contact us by filling in the form below. If you would like to <a href="{{ url_for('signup') }}">sign up</a> or <a href="{{ url_for('login') }}">log in</a>, please visit the pages.</p>
+        {% if current_user.is_authenticated %}
+            <h3 class="contact-title">Contact Us</h3>
+            <p class="contact-form-message">If you would like to contact us for any more information about this site, including the benefits of singing up, please do not hesitate to contact us by filling in the form below.</p>
+        {% else %}
+            <h3 class="contact-title">Contact Us</h3>
+            <p class="contact-form-message">If you would like to contact us for any more information about this site, including the benefits of singing up, please do not hesitate to contact us by filling in the form below.</p>
+            <!--The following paragraph with links to sign up and login will only appear if the user is not currently logged in-->
+            <p class="contact-form-message">If you would like to <a href="{{ url_for('signup') }}">sign up</a> or <a href="{{ url_for('login') }}">log in</a>, please visit the pages.</p>
+        {% endif %}
         
         <!--Form-->
         <form method="POST" class="contact-form" onsubmit="return sendMail(this);">

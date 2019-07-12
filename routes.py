@@ -1,9 +1,10 @@
 import json
-from flask import render_template, request, flash, redirect, url_for
+from flask import render_template, request, flash, redirect, url_for, abort
 from therecipestore import app, db, bcrypt
-from therecipestore.forms import Signup, Login, UpdatePersonalHome, CreateRecipe, RateRecipe
+from therecipestore.forms import Signup, Login, UpdatePersonalHome, RecipeForm
 from therecipestore.models import User, Recipe, Ingredient, Instruction
 from flask_login import login_user, current_user, logout_user, login_required
+from sqlalchemy.orm import lazyload
 
 
 
@@ -12,24 +13,64 @@ from flask_login import login_user, current_user, logout_user, login_required
 @app.route("/")
 @app.route("/home")
 def index():
+    recipes_dated = Recipe.query.order_by(Recipe.recipe_added.desc())[:12]
     data = []
     with open("therecipestore/static/data/meal-type-homepage.json", "r") as json_data:
         data = json.load(json_data)
-    return render_template("index.html", meal_type_statements=data)
+    return render_template("index.html", meal_type_statements=data, recipes_dated=recipes_dated)
     
-    
-    
+
+
+"""Specific meal type pages to show recipes on chosen meal type"""    
 @app.route("/<meal_type>")
 def meal_type_page(meal_type):
+    print(meal_type)
     mealtype = {}
-    
     with open("therecipestore/static/data/meal-type-homepage.json", "r") as json_data:
         data = json.load(json_data)
         for obj in data:
             if obj["url"] == meal_type:
                 mealtype = obj
+                
+    recipes = Recipe.query.filter_by(meal_type=meal_type).order_by(Recipe.recipe_added.desc())
+
+    return render_template("mealtype.html", mealtype=mealtype, recipes=recipes)
+    
+    
+
+"""Specific preference pages to show recipes on chosen preference"""    
+@app.route("/<preference>")
+def preference_page(preference):
+    print(preference)
+    meal_preference = {}
+    with open("therecipestore/static/data/meal-type-homepage.json", "r") as json_data:
+        data = json.load(json_data)
+        for obj in data:
+            if obj["url"] == preference:
+                meal_preference = obj
+                
+    recipes = Recipe.query.filter_by(preference=preference).order_by(Recipe.recipe_added.desc())
+    print(obj['url'])
+    print(obj)
+    print(data)
         
-    return render_template("mealtype.html", mealtype=mealtype)
+    return render_template("mealtype.html", meal_preference=meal_preference, recipes=recipes)
+    
+    
+    
+"""Specific allerge pages to show recipes on chosen allergen"""    
+@app.route("/<allergen>")
+def allergen_page(allergen):
+    meal_allergen = {}
+    with open("therecipestore/static/data/meal-type-homepage.json", "r") as json_data:
+        data = json.load(json_data)
+        for obj in data:
+            if obj["url"] == allergen:
+                meal_allergen = obj
+                
+    recipes = Recipe.query.filter_by(allergen=allergen).order_by(Recipe.recipe_added.desc())
+        
+    return render_template("mealtype.html", meal_allergen=meal_allergen, recipes=recipes)
     
     
         
@@ -56,6 +97,7 @@ def signup():
     return render_template('signup.html', title='Sign Up', form=form)
 
 
+
 """Rendering the login page and dealing with the form"""
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -74,6 +116,7 @@ def login():
     return render_template('login.html', title='Log In', form=form)
 
 
+
 """Execute when the user clicks the logout button"""    
 @app.route("/logout")
 def logout():
@@ -87,6 +130,7 @@ def logout():
 @app.route("/personal_home", methods=['GET', 'POST'])
 @login_required
 def personal_home():
+    recipes = Recipe.query.order_by(Recipe.recipe_added.desc())
     form = UpdatePersonalHome()
     if form.validate_on_submit():
         current_user.firstname = form.firstname.data
@@ -101,26 +145,99 @@ def personal_home():
         form.lastname.data = current_user.lastname
         form.username.data = current_user.username
         form.email.data = current_user.email
-    return render_template("userhome.html", title="Personal Page", form=form)
+    return render_template("userhome.html", title="Personal Page", form=form, recipes=recipes)
     
 
-
+    
 """Rendering the page where a user will build a new recipe"""
 @app.route("/create_recipe", methods=["GET", "POST"])
 @login_required
 def create_recipe():
-    form = CreateRecipe()
+    form = RecipeForm()
     if form.validate_on_submit():
-        recipe = Recipe(recipe_name=form.recipe_name.data, recipe_description=form.recipe_description.data, recipe_difficulty=form.recipe_difficulty.data, recipe_prep_time=form.recipe_prep_time.data, recipe_cook_time=form.recipe_cook_time.data, recipe_score=0, author=current_user)
-        ingredient = Ingredient(ingredient_name=form.ingredient_name.data)
-        instruction = Instruction(instruction_name=form.instruction_name.data)
+        print('****************************')
+        print(form.ingredients)
+        print(form.ingredients.data)
+        print(form.instructions.data)
+        print('****************************')
+        recipe = Recipe(
+            recipe_name=form.recipe_name.data,
+            recipe_description=form.recipe_description.data,
+            recipe_difficulty=form.recipe_difficulty.data,
+            recipe_prep_time=form.recipe_prep_time.data,
+            recipe_cook_time=form.recipe_cook_time.data,
+            meal_type=form.meal_type.data,
+            preference=form.preference.data,
+            allergen=form.allergen.data,
+            author=current_user,
+            ingredients=[],
+            instructions=[])
+        for ingredient in form.ingredients.data:
+            recipe.ingredients.append(Ingredient(ingredient_name=ingredient))
+        for instruction in form.instructions.data:
+            recipe.instructions.append(Instruction(instruction_name=instruction))
         db.session.add(recipe)
-        db.session.add(ingredient)
-        db.session.add(instruction)
         db.session.commit()
         flash("Your recipe has been created")
         return redirect(url_for("personal_home"))
-    return render_template("createrecipe.html", form=form)
+    return render_template("createrecipe.html", form=form, legend='Create Recipe')
+    
+    
+
+"""Rendering each of the individual recipe pages"""
+@app.route("/recipe/<int:id>", methods=["GET", "POST"])
+def recipe(id):
+    """recipe = Recipe.query.get_or_404(id).options(lazyload(Recipe.ingredients))"""
+    recipe = Recipe.query.filter_by(id=id).options(lazyload(Recipe.ingredients)).first()
+    print(recipe)
+    return render_template('recipe.html', title=recipe.recipe_name, recipe=recipe)
+    
+    
+    
+"""Updating a recipe if the current user has added this recipe"""
+@app.route("/recipe/<int:id>/update", methods=['GET', 'POST'])
+@login_required
+def update_recipe(id):
+    recipe = Recipe.query.get_or_404(id)
+    # Print an error if the user trying to access the update page is not the owner of that recipe
+    if recipe.author != current_user:
+        abort(403)
+    form = RecipeForm()
+    if form.validate_on_submit():
+        recipe.recipe_name = form.recipe_name.data
+        recipe.recipe_description = form.recipe_description.data
+        recipe.recipe_difficulty = form.recipe_difficulty.data
+        recipe.recipe_prep_time = form.recipe_prep_time.data
+        recipe.recipe_cook_time = form.recipe_cook_time.data
+        recipe.meal_type = form.meal_type.data
+        recipe.preference = form.preference.data
+        recipe.allergen = form.allergen.data
+        db.session.commit()
+        flash('Your recipe has been updated')
+        return redirect(url_for('recipe', id=recipe.id))
+    elif request.method == 'GET':
+        form.recipe_name.data = recipe.recipe_name
+        form.recipe_description.data = recipe.recipe_description
+        form.recipe_difficulty.data = recipe.recipe_difficulty
+        form.recipe_prep_time.data = recipe.recipe_prep_time
+        form.recipe_cook_time.data = recipe.recipe_cook_time
+        form.meal_type.data = recipe.meal_type
+        form.preference.data = recipe.preference
+        form.allergen.data = recipe.allergen
+    return render_template('createrecipe.html', form=form, legend='Update Recipe')
+    
+    
+    
+@app.route("/recipe/<int:id>/delete", methods=['POST'])
+@login_required
+def delete_recipe(id):
+	recipe = Recipe.query.get_or_404(id)
+	if recipe.author != current_user:
+		abort(403)
+	db.session.delete(recipe)
+	db.session.commit()
+	flash('Your recipe has been deleted')
+	return redirect(url_for('personal_home'))
 
 
 
@@ -128,39 +245,3 @@ def create_recipe():
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
     return render_template("contact.html")
-    
-    
-    
-"""Page to be redirected to when message received"""  
-@app.route("/message_received")
-def message_received():
-    return render_template("messagereceived.html")
-    
-    
-    
-"""Rendering the Meal types Pages"""
-@app.route("/meal_type")
-def meal_type():
-    return render_template("mealtype.html")
-    
-    
-    
-"""Rendering the Allergen Pages"""
-@app.route("/preference")
-def preference():
-    return render_template("mealtype.html")
-
-
-
-"""Rendering the Allergen Pages"""
-@app.route("/allergen")
-def allergen():
-    return render_template("mealtype.html")
-    
-    
-    
-"""Rendering each of the individual recipe pages"""
-@app.route("/recipe", methods=["GET", "POST"])
-def recipe():
-    form = RateRecipe()
-    return render_template("recipe.html", form=form)
