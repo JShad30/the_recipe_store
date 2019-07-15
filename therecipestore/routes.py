@@ -31,6 +31,7 @@ def meal_type_page(meal_type):
         for obj in data:
             if obj["url"] == meal_type:
                 mealtype = obj
+    print(mealtype)
                 
     recipes = Recipe.query.filter_by(meal_type=meal_type).order_by(Recipe.recipe_added.desc())
 
@@ -48,11 +49,8 @@ def preference_page(preference):
         for obj in data:
             if obj["url"] == preference:
                 meal_preference = obj
-                
+
     recipes = Recipe.query.filter_by(preference=preference).order_by(Recipe.recipe_added.desc())
-    print(obj['url'])
-    print(obj)
-    print(data)
         
     return render_template("mealtype.html", meal_preference=meal_preference, recipes=recipes)
     
