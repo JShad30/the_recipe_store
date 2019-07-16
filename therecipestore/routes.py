@@ -22,7 +22,7 @@ def index():
 
 
 """Specific meal type pages to show recipes on chosen meal type"""    
-@app.route("/<meal_type>")
+@app.route("/meal_type/<meal_type>")
 def meal_type_page(meal_type):
     print(meal_type)
     mealtype = {}
@@ -40,35 +40,35 @@ def meal_type_page(meal_type):
     
 
 """Specific preference pages to show recipes on chosen preference"""    
-@app.route("/<preference>")
+@app.route("/preference/<preference>")
 def preference_page(preference):
     print(preference)
-    meal_preference = {}
+    mealtype = {}
     with open("therecipestore/static/data/meal-type-homepage.json", "r") as json_data:
         data = json.load(json_data)
         for obj in data:
             if obj["url"] == preference:
-                meal_preference = obj
-
+                mealtype = obj
+    
     recipes = Recipe.query.filter_by(preference=preference).order_by(Recipe.recipe_added.desc())
         
-    return render_template("mealtype.html", meal_preference=meal_preference, recipes=recipes)
+    return render_template("mealtype.html", mealtype=mealtype, recipes=recipes)
     
     
     
 """Specific allerge pages to show recipes on chosen allergen"""    
-@app.route("/<allergen>")
+@app.route("/allergen/<allergen>")
 def allergen_page(allergen):
-    meal_allergen = {}
+    mealtype = {}
     with open("therecipestore/static/data/meal-type-homepage.json", "r") as json_data:
         data = json.load(json_data)
         for obj in data:
             if obj["url"] == allergen:
-                meal_allergen = obj
+                mealtype = obj
                 
     recipes = Recipe.query.filter_by(allergen=allergen).order_by(Recipe.recipe_added.desc())
         
-    return render_template("mealtype.html", meal_allergen=meal_allergen, recipes=recipes)
+    return render_template("mealtype.html", mealtype=mealtype, recipes=recipes)
     
     
         
@@ -165,8 +165,13 @@ def create_recipe():
             recipe_prep_time=form.recipe_prep_time.data,
             recipe_cook_time=form.recipe_cook_time.data,
             meal_type=form.meal_type.data,
-            preference=form.preference.data,
-            allergen=form.allergen.data,
+            meal_preference_vegetarian=form.meal_preference_vegetarian.data,
+            meal_preference_vegan=form.meal_preference_vegan.data,
+            meal_preference_pescatarian=form.meal_preference_pescatarian.data,
+            meal_preference_raw_vegetarian=form.meal_preference_raw_vegetarian.data,
+            meal_allergen_nut_free=form.meal_allergen_nut_free.data,
+            meal_allergen_lactose_free=form.meal_allergen_lactose_free.data,
+            meal_allergen_gluten_free=form.meal_allergen_gluten_free.data,
             author=current_user,
             ingredients=[],
             instructions=[])
@@ -208,8 +213,13 @@ def update_recipe(id):
         recipe.recipe_prep_time = form.recipe_prep_time.data
         recipe.recipe_cook_time = form.recipe_cook_time.data
         recipe.meal_type = form.meal_type.data
-        recipe.preference = form.preference.data
-        recipe.allergen = form.allergen.data
+        recipe.meal_preference_vegetarian = form.meal_preference_vegetarian.data
+        recipe.meal_preference_vegan = form.meal_preference_vegan.data
+        recipe.meal_preference_pescatarian = form.meal_preference_pescatarian.data
+        recipe.meal_preference_raw_vegetarian = form.meal_preference_raw_vegetarian.data
+        recipe.meal_allergen_nut_free = form.meal_allergen_nut_free.data
+        recipe.meal_allergen_lactose_free = form.meal_allergen_lactose_free.data
+        recipe.meal_allergen_gluten_free = form.meal_allergen_gluten_free.data
         db.session.commit()
         flash('Your recipe has been updated')
         return redirect(url_for('recipe', id=recipe.id))
@@ -220,8 +230,13 @@ def update_recipe(id):
         form.recipe_prep_time.data = recipe.recipe_prep_time
         form.recipe_cook_time.data = recipe.recipe_cook_time
         form.meal_type.data = recipe.meal_type
-        form.preference.data = recipe.preference
-        form.allergen.data = recipe.allergen
+        form.meal_preference_vegetarian.data = recipe.meal_preference_vegetarian
+        form.meal_preference_vegan.data = recipe.meal_preference_vegan
+        form.meal_preference_pescatarian.data = recipe.meal_preference_pescatarian
+        form.meal_preference_raw_vegetarian.data = recipe.meal_preference_raw_vegetarian
+        form.meal_allergen_nut_free.data = recipe.meal_allergen_nut_free
+        form.meal_allergen_lactose_free.data = recipe.meal_allergen_lactose_free
+        form.meal_allergen_gluten_free.data = recipe.meal_allergen_gluten_free
     return render_template('createrecipe.html', form=form, legend='Update Recipe')
     
     

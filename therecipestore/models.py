@@ -31,8 +31,18 @@ class Recipe(db.Model):
     recipe_prep_time = db.Column(db.String(20))
     recipe_cook_time = db.Column(db.String(20))
     meal_type = db.Column(db.String(15))
-    preference = db.Column(db.String(25))
-    allergen = db.Column(db.String(25))
+    """preference = db.Column(db.String(25))
+    allergen = db.Column(db.String(25))"""
+    
+    meal_preference_vegetarian = db.Column(db.Boolean)
+    meal_preference_vegan = db.Column(db.Boolean)
+    meal_preference_pescatarian = db.Column(db.Boolean)
+    meal_preference_raw_vegetarian = db.Column(db.Boolean)
+
+    meal_allergen_nut_free = db.Column(db.Boolean)
+    meal_allergen_lactose_free = db.Column(db.Boolean)
+    meal_allergen_gluten_free = db.Column(db.Boolean)
+
     recipe_added = db.Column(db.DateTime, default=datetime.utcnow)
     recipe_score = db.Column(db.Integer)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
@@ -40,7 +50,7 @@ class Recipe(db.Model):
     instructions = db.relationship('Instruction', backref="recipe", lazy=True)
     
     def __repr__(self):
-        return 'Recipe({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})'.format(self.recipe_name, self.recipe_description, self.meal_type, self.preference, self.allergen, self.recipe_added, self.ingredients, self.instructions)
+        return 'Recipe({0}, {1}, {2}, {3}, {4}, {5})'.format(self.recipe_name, self.recipe_description, self.meal_type, self.recipe_added, self.ingredients, self.instructions)
         
 #Ingredients table
 class Ingredient(db.Model):

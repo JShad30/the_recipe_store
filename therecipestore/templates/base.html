@@ -52,29 +52,29 @@
 	            <div class="navbar-link">
 	                <a id="meal-type" class="dropdown-content-button">Meal Types</a>
 	                <div id="meal-type-dropdown" class="dropdown-content">
-	                	<a class="dropdown-content-link" href="/snacks">Snacks</a>
-	                	<a class="dropdown-content-link" href="/light_bites">Light Bites</a>
-	                	<a class="dropdown-content-link" href="/main_meals">Main Meals</a>
-	                	<a class="dropdown-content-link" href="/desserts">Desserts</a>
+	                	<a class="dropdown-content-link" href="{{ url_for('meal_type_page', meal_type='snacks') }}">Snacks</a>
+	                	<a class="dropdown-content-link" href="{{ url_for('meal_type_page', meal_type='light_bites') }}">Light Bites</a>
+	                	<a class="dropdown-content-link" href="{{ url_for('meal_type_page', meal_type='main_meals') }}">Main Meals</a>
+	                	<a class="dropdown-content-link" href="{{ url_for('meal_type_page', meal_type='desserts') }}">Desserts</a>
 	                </div>
 	            </div>
 	            <!--Allow user to search for menu by allergen preference-->
 	            <div class="navbar-link">             
                 	<a id="allergens" class="dropdown-content-button">Allergens</a>
                 	<div id="allergens-dropdown" class="dropdown-content">
-	                	<a class="dropdown-content-link" href="/nut_free">Nut Free</a>
-	                	<a class="dropdown-content-link" href="/lactose_free">Lactose Free</a>
-	                	<a class="dropdown-content-link" href="/gluten_free">Gluten Free</a>
+	                	<a class="dropdown-content-link" href="{{ url_for('allergen_page', allergen='nut_free') }}">Nut Free</a>
+	                	<a class="dropdown-content-link" href="{{ url_for('allergen_page', allergen='lactose_free') }}">Lactose Free</a>
+	                	<a class="dropdown-content-link" href="{{ url_for('allergen_page', allergen='gluten_free') }}">Gluten Free</a>
 	                </div>
                 </div> 
                 <!--Allow user to search for menu by meal preference-->
                 <div class="navbar-link">
 	                <a id="search-link" class="dropdown-content-button">Preference</a>
 	                <div id="search-link-dropdown" class="dropdown-content">
-	                	<a class="dropdown-content-link" href="/vegetarian">Vegetarian</a>
-	                	<a class="dropdown-content-link" href="/pescatarian">Pescatarian</a>
-	                	<a class="dropdown-content-link" href="/vegan">Vegan</a>
-	                	<a class="dropdown-content-link" href="/raw_vegetarian">Raw Vegetarian</a>
+	                	<a class="dropdown-content-link" href="{{ url_for('preference_page', preference='vegetarian') }}">Vegetarian</a>
+	                	<a class="dropdown-content-link" href="{{ url_for('preference_page', preference='pescatarian') }}">Pescatarian</a>
+	                	<a class="dropdown-content-link" href="{{ url_for('preference_page', preference='vegan') }}">Vegan</a>
+	                	<a class="dropdown-content-link" href="{{ url_for('preference_page', preference='raw_vegetarian') }}">Raw Vegetarian</a>
 	                </div>
 	            </div>
 	            

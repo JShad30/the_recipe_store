@@ -40,7 +40,7 @@
                     <div class="meal-type-description-area">
                         <h3 class="meal-type-heading">{{ meal_type.mealtype }}</h3>
                         <p class="meal-type-paragraph">{{ meal_type.description }}</p>
-                        <a class="meal-type-button-shadow" href="{{ meal_type.url }}">click here</a>
+                        <a class="meal-type-button-shadow" href="/meal_type/{{ meal_type.url }}">click here</a>
                     </div>
                 </div>
                 {% endif %}
@@ -76,7 +76,7 @@
                     <div class="meal-type-description-area">
                         <h3 class="meal-type-heading">{{ meal_type.mealtype }}</h3>
                         <p class="meal-type-paragraph">{{ meal_type.description }}</p>
-                        <a class="meal-type-button-shadow" href="{{ meal_type.url }}">click here</a>
+                        <a class="meal-type-button-shadow" href="/preference/{{ meal_type.url }}">click here</a>
                     </div>
                 </div>
                 {% endif %}
@@ -111,7 +111,7 @@
                     <div class="meal-type-description-area">
                         <h3 class="meal-type-heading">{{ meal_type.mealtype }}</h3>
                         <p class="meal-type-paragraph">{{ meal_type.description }}</p>
-                        <a class="meal-type-button-shadow" href="{{ meal_type.url }}">click here</a>
+                        <a class="meal-type-button-shadow" href="/allergen/{{ meal_type.url }}">click here</a>
                     </div>
                 </div>
                 {% endif %}

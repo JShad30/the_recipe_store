@@ -87,8 +87,15 @@
                                     <p class="recipe-info-intro-paragraph" id="recipe-specifics-preference-paragraph">What meal preferences is your recipe most suitable for? Select the most relevent.</p>
                                 </div>
                                 <!--These Radio buttons will allow the creator to select which meal type the recipe is for-->
-                                <fieldset class="recipe-meal-type-options">
-                                    {{ form.preference(id="meal-type") }}
+                                <fieldset class="recipe-preference-options">
+                                    {{ form.meal_preference_vegetarian() }}
+                                    {{ form.meal_preference_vegetarian.label() }}<br>
+                                    {{ form.meal_preference_vegan() }}
+                                    {{ form.meal_preference_vegan.label() }}<br>
+                                    {{ form.meal_preference_pescatarian() }}
+                                    {{ form.meal_preference_pescatarian.label() }}<br>
+                                    {{ form.meal_preference_raw_vegetarian() }}
+                                    {{ form.meal_preference_raw_vegetarian.label() }}<br>
                                 </fieldset>
                             </div>
                         </div>
@@ -102,8 +109,13 @@
                                     <p class="recipe-info-intro-paragraph" id="recipe-specifics-allergens-paragraph">Let us know what your recipe is in terms of allergens</p>
                                 </div>
                                 <!--These Radio buttons will allow the creator to select which meal type the recipe is for-->
-                                <fieldset class="recipe-meal-type-options">
-                                    {{ form.allergen(id="meal-type") }}
+                                <fieldset class="recipe-allergen-options">
+                                    {{ form.meal_allergen_nut_free() }}
+                                    {{ form.meal_allergen_nut_free.label() }}<br>
+                                    {{ form.meal_allergen_lactose_free() }}
+                                    {{ form.meal_allergen_lactose_free.label() }}<br>
+                                    {{ form.meal_allergen_gluten_free() }}
+                                    {{ form.meal_allergen_gluten_free.label() }}<br>
                                 </fieldset>
                             </div>
                         </div>
