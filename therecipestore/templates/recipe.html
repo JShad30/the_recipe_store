@@ -65,7 +65,9 @@
                 <!--The list from the database-->
                 <ul class="recipe-ingredients-list">
                     {% for ingredient in recipe.ingredients %}
-                    <li class="recipe-ingredient">{{ ingredient.ingredient_name }}</li>
+                        {% if ingredient != " " %}
+                            <li class="recipe-ingredient">{{ ingredient.ingredient_name }}</li>
+                        {% endif %}
                     {% endfor %}
                 </ul>
                 
@@ -83,7 +85,9 @@
                 <!--Instructions for the recipe-->
                 <ol class="recipe-instruction-list">
                     {% for instruction in recipe.instructions %}
-                    <li class="recipe-instruction">{{ instruction.instruction_name }}</li>
+                        {% if instruction != " " %}
+                            <li class="recipe-instruction">{{ instruction.instruction_name }}</li>
+                        {% endif %}
                     {% endfor %}
                 </ol>
                 

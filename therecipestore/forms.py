@@ -68,8 +68,7 @@ class RecipeForm(FlaskForm):
     recipe_prep_time = StringField('Preparation Time', validators=[DataRequired()])
     recipe_cook_time = StringField('Cooking Time', validators=[DataRequired()])
     meal_type = RadioField('Meal Type', choices=[('light_bites','Light Bites'),('snacks','snacks'),('main_meals','Main Meals'),('desserts','desserts')], validators=[DataRequired()])
-    """preference = RadioField('Preference', choices=[('vegetarian','Vegetarian'),('vegan','Vegan'),('pescatarian','Pescatarian'),('raw_vegetarian','Raw Vegetarian')])
-    allergen = RadioField('Allergen', choices=[('lactose_free','Lactose Free'),('nut_free','Nut Free'),('gluten_free','Gluten Free')])"""
+
     meal_preference_vegetarian = BooleanField('Vegetarian')
     meal_preference_vegan = BooleanField('Vegan')
     meal_preference_pescatarian = BooleanField('Pescatarian')

@@ -62,19 +62,19 @@
                 <div class="navbar-link">
 	                <a id="search-link" class="dropdown-content-button">Preference</a>
 	                <div id="search-link-dropdown" class="dropdown-content">
-	                	<a class="dropdown-content-link" href="{{ url_for('vegetarian_page', meal_preference_vegetarian='vegetarian') }}">Vegetarian</a>
-	                	<a class="dropdown-content-link" href="{{ url_for('pescatarian_page', meal_preference_pescatarian='pescatarian') }}">Pescatarian</a>
-	                	<a class="dropdown-content-link" href="{{ url_for('vegan_page', meal_preference_vegan='vegan') }}">Vegan</a>
-	                	<a class="dropdown-content-link" href="{{ url_for('raw_vegetarian_page', meal_preference_raw_vegetarian='raw_vegetarian') }}">Raw Vegetarian</a>
+	                	<a class="dropdown-content-link" href="{{ url_for('preference', meal_type='vegetarian') }}">Vegetarian</a>
+	                	<a class="dropdown-content-link" href="{{ url_for('preference', meal_type='pescatarian') }}">Pescatarian</a>
+	                	<a class="dropdown-content-link" href="{{ url_for('preference', meal_type='vegan') }}">Vegan</a>
+	                	<a class="dropdown-content-link" href="{{ url_for('preference', meal_type='raw_vegetarian') }}">Raw Vegetarian</a>
 	                </div>
 	            </div>
 	            <!--Allow user to search for menu by allergen preference-->
 	            <div class="navbar-link">             
                 	<a id="allergens" class="dropdown-content-button">Allergens</a>
                 	<div id="allergens-dropdown" class="dropdown-content">
-	                	<a class="dropdown-content-link" href="{{ url_for('nut_free_page', meal_allergen_nut_free='nut_free') }}">Nut Free</a>
-	                	<a class="dropdown-content-link" href="{{ url_for('lactose_free_page', meal_allergen_lactose_free='lactose_free') }}">Lactose Free</a>
-	                	<a class="dropdown-content-link" href="{{ url_for('gluten_free_page', meal_allergen_gluten_free='gluten_free') }}">Gluten Free</a>
+	                	<a class="dropdown-content-link" href="{{ url_for('allergen', meal_type='nut_free') }}">Nut Free</a>
+	                	<a class="dropdown-content-link" href="{{ url_for('allergen', meal_type='lactose_free') }}">Lactose Free</a>
+	                	<a class="dropdown-content-link" href="{{ url_for('allergen', meal_type='gluten_free') }}">Gluten Free</a>
 	                </div>
                 </div> 
 	            
