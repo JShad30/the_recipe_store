@@ -24,51 +24,126 @@ def index():
 """Specific meal type pages to show recipes on chosen meal type"""    
 @app.route("/meal_type/<meal_type>")
 def meal_type_page(meal_type):
-    print(meal_type)
     mealtype = {}
     with open("therecipestore/static/data/meal-type-homepage.json", "r") as json_data:
         data = json.load(json_data)
         for obj in data:
             if obj["url"] == meal_type:
                 mealtype = obj
-    print(mealtype)
                 
     recipes = Recipe.query.filter_by(meal_type=meal_type).order_by(Recipe.recipe_added.desc())
 
     return render_template("mealtype.html", mealtype=mealtype, recipes=recipes)
     
     
+    
+    
+    
 
 """Specific preference pages to show recipes on chosen preference"""    
-@app.route("/preference/<preference>")
-def preference_page(preference):
-    print(preference)
+@app.route("/preference/<meal_preference_vegetarian>")
+def vegetarian_page(meal_preference_vegetarian):
     mealtype = {}
     with open("therecipestore/static/data/meal-type-homepage.json", "r") as json_data:
         data = json.load(json_data)
         for obj in data:
-            if obj["url"] == preference:
+            if obj["url"] == meal_preference_vegetarian:
                 mealtype = obj
+
+    recipes = Recipe.query.filter_by(meal_preference_vegetarian=True).order_by(Recipe.recipe_added.desc())
+
+    return render_template("mealtype.html", mealtype=mealtype, recipes=recipes)
     
-    recipes = Recipe.query.filter_by(preference=preference).order_by(Recipe.recipe_added.desc())
+"""Specific preference pages to show recipes on chosen preference"""    
+@app.route("/preference/<meal_preference_vegan>")
+def vegan_page(meal_preference_vegan):
+    mealtype = {}
+    with open("therecipestore/static/data/meal-type-homepage.json", "r") as json_data:
+        data = json.load(json_data)
+        for obj in data:
+            if obj["url"] == meal_preference_vegan:
+                mealtype = obj
+
+    recipes = Recipe.query.filter_by(meal_preference_vegan=True).order_by(Recipe.recipe_added.desc())
+
+    return render_template("mealtype.html", mealtype=mealtype, recipes=recipes)
+    
+"""Specific preference pages to show recipes on chosen preference"""    
+@app.route("/preference/<meal_preference_pescatarian>")
+def pescatarian_page(meal_preference_pescatarian):
+    mealtype = {}
+    with open("therecipestore/static/data/meal-type-homepage.json", "r") as json_data:
+        data = json.load(json_data)
+        for obj in data:
+            if obj["url"] == meal_preference_pescatarian:
+                mealtype = obj
+
+    recipes = Recipe.query.filter_by(meal_preference_pescatarian=True).order_by(Recipe.recipe_added.desc())
+
+    return render_template("mealtype.html", mealtype=mealtype, recipes=recipes)
+    
+"""Specific preference pages to show recipes on chosen preference"""    
+@app.route("/preference/<meal_preference_raw_vegetarian>")
+def raw_vegetarian_page(meal_preference_raw_vegetarian):
+    mealtype = {}
+    with open("therecipestore/static/data/meal-type-homepage.json", "r") as json_data:
+        data = json.load(json_data)
+        for obj in data:
+            if obj["url"] == meal_preference_raw_vegetarian:
+                mealtype = obj
+
+    recipes = Recipe.query.filter_by(meal_preference_raw_vegetarian=True).order_by(Recipe.recipe_added.desc())
         
     return render_template("mealtype.html", mealtype=mealtype, recipes=recipes)
+    
+    
+    
+    
     
     
     
 """Specific allerge pages to show recipes on chosen allergen"""    
-@app.route("/allergen/<allergen>")
-def allergen_page(allergen):
+@app.route("/allergen/<meal_allergen_nut_free>")
+def nut_free_page(meal_allergen_nut_free):
     mealtype = {}
     with open("therecipestore/static/data/meal-type-homepage.json", "r") as json_data:
         data = json.load(json_data)
         for obj in data:
-            if obj["url"] == allergen:
+            if obj["url"] == meal_allergen_nut_free:
                 mealtype = obj
-                
-    recipes = Recipe.query.filter_by(allergen=allergen).order_by(Recipe.recipe_added.desc())
+
+    recipes = Recipe.query.filter_by(meal_allergen_nut_free=True).order_by(Recipe.recipe_added.desc())
         
     return render_template("mealtype.html", mealtype=mealtype, recipes=recipes)
+    
+
+@app.route("/allergen/<meal_allergen_lactose_free>")
+def lactose_free_page(meal_allergen_lactose_free):
+    mealtype = {}
+    with open("therecipestore/static/data/meal-type-homepage.json", "r") as json_data:
+        data = json.load(json_data)
+        for obj in data:
+            if obj["url"] == meal_allergen_lactose_free:
+                mealtype = obj
+
+    recipes = Recipe.query.filter_by(meal_allergen_lactose_free=True).order_by(Recipe.recipe_added.desc())
+        
+    return render_template("mealtype.html", mealtype=mealtype, recipes=recipes)
+    
+    
+@app.route("/allergen/<meal_allergen_gluten_free>")
+def gluten_free_page(meal_allergen_gluten_free):
+    mealtype = {}
+    with open("therecipestore/static/data/meal-type-homepage.json", "r") as json_data:
+        data = json.load(json_data)
+        for obj in data:
+            if obj["url"] == meal_allergen_gluten_free:
+                mealtype = obj
+
+    recipes = Recipe.query.filter_by(meal_allergen_gluten_free=True).order_by(Recipe.recipe_added.desc())
+        
+    return render_template("mealtype.html", mealtype=mealtype, recipes=recipes)
+    
     
     
         
@@ -220,6 +295,10 @@ def update_recipe(id):
         recipe.meal_allergen_nut_free = form.meal_allergen_nut_free.data
         recipe.meal_allergen_lactose_free = form.meal_allergen_lactose_free.data
         recipe.meal_allergen_gluten_free = form.meal_allergen_gluten_free.data
+        for ingredient in form.ingredients.data:
+            recipe.ingredients = form.ingredients.data
+        for instruction in form.instructions.data:
+            recipe.instructions = form.instruction.data
         db.session.commit()
         flash('Your recipe has been updated')
         return redirect(url_for('recipe', id=recipe.id))
@@ -237,6 +316,10 @@ def update_recipe(id):
         form.meal_allergen_nut_free.data = recipe.meal_allergen_nut_free
         form.meal_allergen_lactose_free.data = recipe.meal_allergen_lactose_free
         form.meal_allergen_gluten_free.data = recipe.meal_allergen_gluten_free
+        for ingredient in form.ingredients.data:
+            form.ingredients.data = recipe.ingredients
+        for instruction in form.instructions.data:
+            form.instructions.data = recipe.instructions
     return render_template('createrecipe.html', form=form, legend='Update Recipe')
     
     

@@ -79,7 +79,7 @@ class RecipeForm(FlaskForm):
     meal_allergen_lactose_free = BooleanField('Lactose Free')
     meal_allergen_gluten_free = BooleanField('Gluten Free')
     
-    ingredients = FieldList(StringField('Recipe Ingredient'), min_entries=3, max_entries=15)
-    instructions = FieldList(TextAreaField('Recipe Instruction'), min_entries=3, max_entries=15)
+    ingredients = FieldList(StringField('Recipe Ingredient'), min_entries=5)
+    instructions = FieldList(TextAreaField('Recipe Instruction'), min_entries=3)
     
     submit = SubmitField('Create Recipe')

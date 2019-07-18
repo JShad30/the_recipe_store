@@ -44,7 +44,6 @@ class Recipe(db.Model):
     meal_allergen_gluten_free = db.Column(db.Boolean)
 
     recipe_added = db.Column(db.DateTime, default=datetime.utcnow)
-    recipe_score = db.Column(db.Integer)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     ingredients = db.relationship('Ingredient', backref="recipe", lazy=True)
     instructions = db.relationship('Instruction', backref="recipe", lazy=True)
