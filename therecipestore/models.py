@@ -31,8 +31,6 @@ class Recipe(db.Model):
     recipe_prep_time = db.Column(db.String(20))
     recipe_cook_time = db.Column(db.String(20))
     meal_type = db.Column(db.String(15))
-    """preference = db.Column(db.String(25))
-    allergen = db.Column(db.String(25))"""
     
     meal_preference_vegetarian = db.Column(db.Boolean)
     meal_preference_vegan = db.Column(db.Boolean)

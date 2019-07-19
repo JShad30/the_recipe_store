@@ -19,9 +19,10 @@ def index():
     with open("therecipestore/static/data/meal-type-homepage.json", "r") as json_data:
         data = json.load(json_data)
     return render_template("index.html", meal_type_statements=data, recipes_dated=recipes_dated)
-    
 
 
+
+"""Function to download the data from the json file to be used in the meal_type, preference and allergen routes"""
 def load_data(meal_type):
     mealtype = {}
     with open("therecipestore/static/data/meal-type-homepage.json", "r") as json_data:
@@ -39,8 +40,6 @@ def meal_type_page(meal_type):
 
     return render_template("mealtype.html", mealtype=mealtype, recipes=recipes)
     
-    
-    
 """Specific preference pages to show recipes on chosen preference"""    
 @app.route("/preference/<meal_type>")
 def preference(meal_type):
@@ -55,8 +54,6 @@ def preference(meal_type):
         recipes = Recipe.query.filter_by(meal_preference_raw_vegetarian=true()).order_by(Recipe.recipe_added.desc())
 
     return render_template("mealtype.html", mealtype=mealtype, recipes=recipes)
-    
-    
     
 """Specific allerge pages to show recipes on chosen allergen"""    
 @app.route("/allergen/<meal_type>")
@@ -73,8 +70,6 @@ def allergen(meal_type):
 
     
     
-    
-        
 """Rendering the about page with form"""
 @app.route("/about")
 def about():
@@ -156,11 +151,6 @@ def personal_home():
 def create_recipe():
     form = RecipeForm()
     if form.validate_on_submit():
-        print('****************************')
-        print(form.ingredients)
-        print(form.ingredients.data)
-        print(form.instructions.data)
-        print('****************************')
         recipe = Recipe(
             recipe_name=form.recipe_name.data,
             recipe_description=form.recipe_description.data,
@@ -193,14 +183,13 @@ def create_recipe():
 """Rendering each of the individual recipe pages"""
 @app.route("/recipe/<int:id>", methods=["GET", "POST"])
 def recipe(id):
-    """recipe = Recipe.query.get_or_404(id).options(lazyload(Recipe.ingredients))"""
     recipe = Recipe.query.filter_by(id=id).options(lazyload(Recipe.ingredients)).first()
     print(recipe)
     return render_template('recipe.html', title=recipe.recipe_name, recipe=recipe)
     
     
     
-"""Updating a recipe if the current user has added this recipe"""
+"""Updating a recipe. Only available to the user who uploaded the recipe"""
 @app.route("/recipe/<int:id>/update", methods=['GET', 'POST'])
 @login_required
 def update_recipe(id):
@@ -251,7 +240,7 @@ def update_recipe(id):
     return render_template('createrecipe.html', form=form, legend='Update Recipe')
     
     
-    
+"""Delete button - when the user clicks this button the recipe is deleted from the database"""   
 @app.route("/recipe/<int:id>/delete", methods=['POST'])
 @login_required
 def delete_recipe(id):

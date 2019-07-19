@@ -1,9 +1,5 @@
 # Recipes - Data Centric Milestone Project
 
-This is my Milestone Project for the Data Centric Module of the Full Stack Development Course. This site has been developed to allow users to upload and find recipes with like minded people. There is an option for the user to become a member of the site, although they do not need to to be able to find and use recipes.
-
-I have designed the site to have a good presentation and consistent feel throughout. The home page has an introduction with scrolling images for visual effect. Cursive writing fonts have been used on the recipes and a post it note look for recipe titles, to give the website a personal feel.
-
 ## User Experience
 
 Every page has the same Navbar, Footer and Social Icons (displayed on the left of the screen in desktop views, and within the navbar in mobile views), which are styled depending on the screen size the user is viewing the site in.
