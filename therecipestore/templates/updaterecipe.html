@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!--Header section containing image of recipe with intro to section-->
+<header class="header-images" id="create-recipe-image">
+    <!--Images introducing the meal type section-->
+    <div class="background-image">
+        <!--Introduction image to the create recipe section-->
+        <div class="image-container">
+            <div class="image-text">
+                <h2 class="image-text-header">Update Recipe</h2>
+                <p class="image-text-paragraph">Update the recipe you previously created below.</p>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="create-recipe-section">
+    
+    <!--Section that contains the form-->
+    <div class="create-recipe-container">
+        
+        <!--Form to submit the recipe-->
+        <form method="POST" class="recipe-form" action="">
+            {{ form.hidden_tag() }}
+            <div class="create-recipe-form-section">
+                
+                <!--Div to allow the following two sections to appear horizontally in tablet views and above-->
+                <div class="recipe-name-info">
+                
+                    <!--This section asks the user to name and describe their recipe. This is what will then appear as part -->
+                    <div class="create-recipe-info-section" id="create-recipe-name-description">
+                        <div class="recipe-info-intro">
+                            <h4 class="recipe-info-intro-title" id="recipe-name-description-title">Recipe Name and Description</h4>
+                            <p class="recipe-info-intro-paragraph" id="recipe-name-description-paragraph">Start by telling us the name of your recipe and give a brief description. This is how your recipe will be introduced to other users.</p>
+                        </div>
+                        <fieldset class="recipe-name-description-textboxes">
+                            {{ form.recipe_name(class="create-recipe-name", type="text", id="recipe-name", placeholder="Recipe Name") }}
+                            {{ form.recipe_description(class="create-recipe-description", id="recipe-description", placeholder="Recipe Description") }}
+                        </fieldset>
+                    </div>
+                    
+                    <!--These textboxes are for the creator of the recipe to tell the user about the basics of the recipe in terms of preparation time, ease and cooking time-->
+                    <div class="create-recipe-info-section" id="create-recipe-prep-cook-section">
+                        <div class="recipe-info-intro">
+                            <h4 class="recipe-info-intro-title" id="cooking-info-title">Recipe cooking information</h4>
+                            <p class="recipe-info-intro-paragraph" id="cooking-info-paragraph">Tell us how you would rate your recipe in terms of the following:</p>
+                        </div>
+                        <fieldset class="recipe-info-textboxes">
+                            {{ form.recipe_difficulty(class="create-recipe-info-textbox", id="difficulty-level") }}
+                            {{ form.recipe_prep_time(class="create-recipe-info-textbox", type="text", id="preparation-time", placeholder="Preparation Time") }}
+                            {{ form.recipe_cook_time(class="create-recipe-info-textbox", type="text", id="cooking-time", placeholder="Cooking Time") }}
+                        </fieldset>
+                    </div>
+                </div>
+                
+                <!--This section contains radio buttons and checkboxes which asks a user to select the meal type, preference and allergen suitability of their recipe-->
+                <div class="create-recipe-info-section" id="create-recipe-suitability-section">
+                    <div class="recipe-info-intro">
+                        <h4 class="recipe-info-intro-title" id="recipe-specifics-title">Recipe Specifics</h4>
+                        <p class="recipe-info-intro-paragraph" id="recipe-specifics-paragraph">Tell us who your meal is most suitable for. This will help your recipe appear in the correct section, and make it easier to find for those who are looking for it.</p>
+                    </div>
+                    
+                    <div class="meal-type-preference-allergen">
+                        <!--Meal type options section-->
+                        <div class="meal-type-preference-allergen-section" id="create-recipe-meal-type-section">
+                            <img src="static/images/dinner.jpg" height="auto" width="100%"></img>
+                            
+                            <div class="recipe-options-content">
+                                <div class="recipe-info-intro">
+                                    <h4 class="recipe-info-intro-title" id="recipe-specifics-meal-type-title">Meal Type</h4>
+                                    <p class="recipe-info-intro-paragraph" id="recipe-specifics-meal-type-paragraph">What type of meal type is your recipe for? You can only select one.</p>
+                                </div>
+                                <!--These Radio buttons will allow the creator to select which meal type the recipe is for-->
+                                <fieldset class="recipe-meal-type-options">
+                                    {{ form.meal_type(id="meal-type") }}
+                                </fieldset>
+                            </div>
+                        </div>
+                        
+                        <!--Preferences options section-->
+                        <div class="meal-type-preference-allergen-section" id="create-recipe-preferences-section">
+                            <img src="static/images/vegetarian.jpg" height="auto" width="100%"></img>
+                            <div class="recipe-options-content">
+                                <div class="recipe-info-intro">
+                                    <h4 class="recipe-info-intro-title" id="recipe-specifics-preference-title">Preferences</h4>
+                                    <p class="recipe-info-intro-paragraph" id="recipe-specifics-preference-paragraph">What meal preferences is your recipe most suitable for? Select the most relevent.</p>
+                                </div>
+                                <!--These Radio buttons will allow the creator to select which meal type the recipe is for-->
+                                <fieldset class="recipe-preference-options">
+                                    {{ form.meal_preference_vegetarian() }}
+                                    {{ form.meal_preference_vegetarian.label() }}<br>
+                                    {{ form.meal_preference_vegan() }}
+                                    {{ form.meal_preference_vegan.label() }}<br>
+                                    {{ form.meal_preference_pescatarian() }}
+                                    {{ form.meal_preference_pescatarian.label() }}<br>
+                                    {{ form.meal_preference_raw_vegetarian() }}
+                                    {{ form.meal_preference_raw_vegetarian.label() }}<br>
+                                </fieldset>
+                            </div>
+                        </div>
+                        
+                        <!--Alergen options section-->
+                        <div class="meal-type-preference-allergen-section" id="create-recipe-allergens-section">
+                            <img src="static/images/lactose-free.jpg" height="auto" width="100%"></img>
+                            <div class="recipe-options-content">
+                                <div class="recipe-info-intro">
+                                    <h4 class="recipe-info-intro-title" id="recipe-specifics-allergens-title">Allergens</h4>
+                                    <p class="recipe-info-intro-paragraph" id="recipe-specifics-allergens-paragraph">Let us know what your recipe is in terms of allergens</p>
+                                </div>
+                                <!--These Radio buttons will allow the creator to select which meal type the recipe is for-->
+                                <fieldset class="recipe-allergen-options">
+                                    {{ form.meal_allergen_nut_free() }}
+                                    {{ form.meal_allergen_nut_free.label() }}<br>
+                                    {{ form.meal_allergen_lactose_free() }}
+                                    {{ form.meal_allergen_lactose_free.label() }}<br>
+                                    {{ form.meal_allergen_gluten_free() }}
+                                    {{ form.meal_allergen_gluten_free.label() }}<br>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!--Display the ingredients and instructions as a row in tablet screens and above-->
+                <div class="recipe-ingredients-instructions">
+                    <!--Ingredient textboxes. The information filled out in these textboxes will be added to the ingredients database -->
+                    <div class="create-recipe-info-section" id="create-recipe-ingredients-section">
+                        <div class="recipe-info-intro">
+                            <h4 class="recipe-info-intro-title" id="ingredients-info-title">Ingredients</h4>
+                            <p class="recipe-info-intro-paragraph" id="ingredients-info-paragraph">Please fill out the ingredients of your recipe below.</p>
+                        </div>
+                        <fieldset class="ingredient-textboxes">
+                            {% for ingredient in form.ingredients %}
+                                {{ ingredient(class="create-recipe-ingredient", type="text", placeholder="Ingredient") }}
+                            {% endfor %}
+                        </fieldset>
+                        <!--Add ingredient button-->
+                        <div class="add-button-container">
+                            <div class="add-button" value="Submit Recipe" id="add-ingredient-button">+</div>
+                        </div>
+                    </div>
+                    
+                    <!--Instruction textboxes. The information filled out in these textboxes will be added to the instructions database -->
+                    <div class="create-recipe-info-section" id="create-recipe-instructions-section">
+                        <div class="recipe-info-intro">
+                            <h4 class="recipe-info-intro-title" id="instructions-info-title">Instructions</h4>
+                            <p class="recipe-info-intro-paragraph" id="instructions-info-paragraph">Please fill out the instructions of your recipe below. Be sure they are easy to follow.</p>
+                        </div>
+                        <fieldset class="instruction-textboxes">
+                            {% for instruction in form.instructions %}
+                                {{ instruction(class="create-recipe-instruction", placeholder="Instruction") }}
+                            {% endfor %}
+                        </fieldset>
+                        
+                        <!--Add ingredient button-->
+                        <div class="add-button-container">
+                            <div class="add-button" value="Submit Recipe" id="add-instruction-button">+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!--Submit button-->
+            <div class="submit-button-container">
+                {{ form.submit(class="submit-recipe-button", type="submit", value="Update Recipe") }}
+            </div>
+            
+        </form>
+    </div>
+</section>
+{% endblock %}

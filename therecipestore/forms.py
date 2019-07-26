@@ -6,7 +6,7 @@ from flask_login import current_user
 from therecipestore.models import User, Recipe, Ingredient, Instruction
 
 
-
+"""Sign up form to be used. Data used to fill the database table created in models.py"""
 class Signup(FlaskForm):
     firstname = StringField('Firstname', validators=[DataRequired()])
     lastname = StringField('Lastname', validators=[DataRequired()])
@@ -16,20 +16,21 @@ class Signup(FlaskForm):
     confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Sign Up')
     
-    """Check whether the username has been used before, if it has return an error to tell the user they must choose a different username"""
+    #Check whether the username has been used before, if it has return an error to tell the user they must choose a different username
     def validate_username(self, username):
         user = User.query.filter_by(username=username.data).first()
         if user:
             raise ValidationError('An account with that username already exists, please try another.')
 
-    """Check whether the email has been used before, if it has return an error to ask the user whether they already have an account"""
+    #Check whether the email has been used before, if it has return an error to ask the user whether they already have an account
     def validate_email(self, email):
         user = User.query.filter_by(email=email.data).first()
         if user:
             raise ValidationError('That email is already taken by a member. Do you already have an account?')
 
 
-    
+
+"""Log in form"""    
 class Login(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
@@ -38,6 +39,7 @@ class Login(FlaskForm):
 
 
 
+"""Form in the personal home page to enable the user to update their information"""
 class UpdatePersonalHome(FlaskForm):
     firstname = StringField('Firstname', validators=[DataRequired()])
     lastname = StringField('Lastname', validators=[DataRequired()])
@@ -45,14 +47,14 @@ class UpdatePersonalHome(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     submit = SubmitField('Update Details')
     
-    """Ensure that the username has not been taken by another user previously, unless it is the current, logged in user"""
+    #Ensure that the username has not been taken by another user previously, unless it is the current, logged in user"""
     def validate_username(self, username):
         if username.data != current_user.username:
             user = User.query.filter_by(username=username.data).first()
             if user:
                 raise ValidationError('An account with that username already exists, please try another.')
                 
-    """Ensure that the email has not been taken by another user previously, unless it is the current, logged in user"""
+    #Ensure that the email has not been taken by another user previously, unless it is the current, logged in user"""
     def validate_email(self, email):
         if email.data != current_user.email:
             user = User.query.filter_by(email=email.data).first()
@@ -60,7 +62,7 @@ class UpdatePersonalHome(FlaskForm):
                 raise ValidationError('That email is already taken by a member. Do you already have an account?')
                 
                 
-
+"""Form to be used to create and update a recipe"""
 class RecipeForm(FlaskForm):
     recipe_name = StringField('Recipe Name', validators=[DataRequired(), Length(min=2, max=40)])
     recipe_description = TextAreaField('Recipe Description', validators=[DataRequired()])
@@ -69,11 +71,13 @@ class RecipeForm(FlaskForm):
     recipe_cook_time = StringField('Cooking Time', validators=[DataRequired()])
     meal_type = RadioField('Meal Type', choices=[('light_bites','Light Bites'),('snacks','snacks'),('main_meals','Main Meals'),('desserts','desserts')], validators=[DataRequired()])
 
+    # Meal preferences to be used as check boxes
     meal_preference_vegetarian = BooleanField('Vegetarian')
     meal_preference_vegan = BooleanField('Vegan')
     meal_preference_pescatarian = BooleanField('Pescatarian')
     meal_preference_raw_vegetarian = BooleanField('Raw Vegetarian')
 
+    # Meal allergens to be used as check boxes
     meal_allergen_nut_free = BooleanField('Nut Free')
     meal_allergen_lactose_free = BooleanField('Lactose Free')
     meal_allergen_gluten_free = BooleanField('Gluten Free')

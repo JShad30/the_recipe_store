@@ -44,6 +44,7 @@ def meal_type_page(meal_type):
 @app.route("/preference/<meal_type>")
 def preference(meal_type):
     mealtype = load_data(meal_type)
+    # If statements created with the mentor. Created separately for each preference types to only show recipes in that page if the checkbox was checked when the recipe was created.
     if meal_type == 'vegetarian':
         recipes = Recipe.query.filter_by(meal_preference_vegetarian=true()).order_by(Recipe.recipe_added.desc())
     if meal_type == 'vegan':
@@ -59,6 +60,7 @@ def preference(meal_type):
 @app.route("/allergen/<meal_type>")
 def allergen(meal_type):
     mealtype = load_data(meal_type)
+    # Same as with the preferences, these if statements were created for each allergen types to only show recipes in that page if the checkbox was checked.
     if meal_type == 'nut_free':
         recipes = Recipe.query.filter_by(meal_allergen_nut_free=true()).order_by(Recipe.recipe_added.desc())
     if meal_type == 'lactose_free':
@@ -80,6 +82,7 @@ def about():
 """Rendering the signup page and dealing with the form"""
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
+    # If statement to ensure the user cannot access the sign up page if they are already logged in
     if current_user.is_authenticated:
     	return redirect(url_for('index'))
     form = Signup()
@@ -97,6 +100,7 @@ def signup():
 """Rendering the login page and dealing with the form"""
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    # If statement to ensure the user cannot access the log in page if they are already logged in
     if current_user.is_authenticated:
     	return redirect(url_for('personal_home'))
     form = Login()
@@ -136,6 +140,7 @@ def personal_home():
         db.session.commit()
         flash("Your personal details have now been updated")
         return redirect(url_for("personal_home"))
+    # Form filled in with the users existing info which they can update
     elif request.method == 'GET':
         form.firstname.data = current_user.firstname
         form.lastname.data = current_user.lastname
@@ -184,7 +189,6 @@ def create_recipe():
 @app.route("/recipe/<int:id>", methods=["GET", "POST"])
 def recipe(id):
     recipe = Recipe.query.filter_by(id=id).options(lazyload(Recipe.ingredients)).first()
-    print(recipe)
     return render_template('recipe.html', title=recipe.recipe_name, recipe=recipe)
     
     
@@ -197,7 +201,7 @@ def update_recipe(id):
     # Print an error if the user trying to access the update page is not the owner of that recipe
     if recipe.author != current_user:
         abort(403)
-    form = RecipeForm()
+    form = RecipeForm(obj=recipe)
     if form.validate_on_submit():
         recipe.recipe_name = form.recipe_name.data
         recipe.recipe_description = form.recipe_description.data
@@ -212,14 +216,11 @@ def update_recipe(id):
         recipe.meal_allergen_nut_free = form.meal_allergen_nut_free.data
         recipe.meal_allergen_lactose_free = form.meal_allergen_lactose_free.data
         recipe.meal_allergen_gluten_free = form.meal_allergen_gluten_free.data
-        """for ingredient in form.ingredients.data:
-            recipe.ingredients = form.ingredients.data
-        for instruction in form.instructions.data:
-            recipe.instructions = form.instruction.data"""
         db.session.commit()
         flash('Your recipe has been updated')
-        return redirect(url_for('recipe', id=recipe.id))
-    elif request.method == 'GET':
+        return redirect(url_for('personal_home'))
+    if request.method == 'GET':
+        # Populate the form with the recipes existing information
         form.recipe_name.data = recipe.recipe_name
         form.recipe_description.data = recipe.recipe_description
         form.recipe_difficulty.data = recipe.recipe_difficulty
@@ -233,11 +234,7 @@ def update_recipe(id):
         form.meal_allergen_nut_free.data = recipe.meal_allergen_nut_free
         form.meal_allergen_lactose_free.data = recipe.meal_allergen_lactose_free
         form.meal_allergen_gluten_free.data = recipe.meal_allergen_gluten_free
-        """for ingredient in form.ingredients.data:
-            form.ingredients.data = recipe.ingredients
-        for instruction in form.instructions.data:
-            form.instructions.data = recipe.instructions"""
-    return render_template('createrecipe.html', form=form, legend='Update Recipe')
+    return render_template('updaterecipe.html', form=form, legend='Update Recipe')
     
     
 """Delete button - when the user clicks this button the recipe is deleted from the database"""   
@@ -245,6 +242,7 @@ def update_recipe(id):
 @login_required
 def delete_recipe(id):
 	recipe = Recipe.query.get_or_404(id)
+	# If statement to ensure that only the current user can delete the recipe
 	if recipe.author != current_user:
 		abort(403)
 	db.session.delete(recipe)

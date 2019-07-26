@@ -1,6 +1,6 @@
 # Recipes - Data Centric Milestone Project
 
-## User Experience
+## User Experience and features
 
 Every page has the same Navbar, Footer and Social Icons (displayed on the left of the screen in desktop views, and within the navbar in mobile views), which are styled depending on the screen size the user is viewing the site in.
 
@@ -34,8 +34,6 @@ The create recipe page is only accessible by users that are logged in. When a us
 
 If the user is looking for a meal of a particular type, they can either click the navbar menu, or, from the home page, the meal type options. This then takes them through to the individual pages for these options. They are then presented with recipes which they can click for meals of this type. If the user is signed in and they are on the page of a recipe they have created, they are presented with two buttons: update and delete. If they press the delete button the recipe is removed from the database. If they press update, they are redirected to the create recipe page but with the initial information pre filled out.
 
-## Features
-
 ## Technology Used
 
 This project was built using different languages, libraries and frameworks. 
@@ -50,7 +48,11 @@ The contact form on the 'contact.html' page was created using HTML forms. An acc
 
 ### Python
 
-The site has been built using the Python based Flask framework (http://flask.pocoo.org/) and is run from the 'run.py' file. All the pages are routed from here, and contain the fuctions and logic. Python has been used to create the logic within the 'run.py' file (https://www.python.org/). The 'jinja template engine' (http://jinja.pocoo.org/) has been used within the html template pages already described.
+The site has been built using the Python based Flask framework (http://flask.pocoo.org/) and is run from the 'run.py' file which is stored in the outer folder. 
+
+Within therecipestore folder, there are four more python files. The '__init__.py' file is where the project are configurations variables are stored, including the database. The database tables are created within the 'models.py file. The data for these are often collected from forms, which are created in 'forms.py'. Finally the 'routes.py' file contains all the routing for the templates, and also deals with the collection and display of the information.
+
+Python has been used to create the logic within the 'run.py', '__init__.py', 'forms.py', 'models.py' and 'routes.py' files (https://www.python.org/). The 'jinja template engine' (http://jinja.pocoo.org/) has been used within the html template pages already described.
 
 ### Data Storage
 
@@ -61,6 +63,8 @@ The database was created using SQLAlchemy. The database was created in the 'mode
 ### Version Control
 
 Git was used throughout the project for version control.
+
+## Issues While Building the Project
 
 ## Testing
 
@@ -78,7 +82,7 @@ The navbar on all pages works well generally. However, on screen sizes such as m
 
 ### Database and displaying recipes
 
-There are many ways in which the database can be used to give the user more options. Currently the database is used on the home page to allow the user to select meal types, preference or allergen. More functionality can be provided through sql and a search form to allow the user to search for desserts for people who are lactose intolerent, or nut free snacks etc. This could be achieved by having drop down box on the pages, or checkboxes to enable the user to specify their search while on the page.
+There are many ways in which the database can be used to give the user more options. Currently the database is used on the home page to allow the user to select meal types, preference or allergen. More functionality can be provided to allow the user to search for desserts for people who are lactose intolerent, or nut free snacks etc. This could be achieved by having drop down box on the pages, or checkboxes to enable the user to specify their search while on the page.
 
 ## Deployment
 

@@ -1190,6 +1190,7 @@ light blue - 80C0B8
 }
 
 .login-form-container,
+.signup-form-container,
 .contact-form-container,
 .about-us-container {
     width: 90%;
@@ -1199,9 +1200,7 @@ light blue - 80C0B8
     margin-bottom: 150px;
 }
 
-.signup-form-container {
-    width: 100%;
-    height: auto;
+#userhome-signup-form {
     margin-top: 20px;
     margin-bottom: 20px;
 }
@@ -1267,7 +1266,7 @@ light blue - 80C0B8
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    margin: 15px 0;
+    /*margin: 15px 0;*/
 }
 
 .signup-textbox-label,
@@ -1291,6 +1290,7 @@ light blue - 80C0B8
     padding-left: 10px;
     font-size: 0.9em;
     color: #333333;
+    margin-bottom: 15px;
 }
 
 .signup-error-message {
@@ -1395,7 +1395,7 @@ light blue - 80C0B8
     border: solid 1px #80C0B8;
     padding-top: 10px;
     padding-left: 10px;
-    margin-top: 10px
+    margin-bottom: 25px;
 }
 
 /*----------End of the login and sign up pages ----------*/
@@ -1467,6 +1467,7 @@ light blue - 80C0B8
     background-color: #C09380;
     width: 100%;
     box-shadow: 5px 5px 10px #333333;
+    margin-bottom: 15px;
 }
 
 .recipe-overview-box-text {
@@ -1806,6 +1807,9 @@ light blue - 80C0B8
 
 .userhome-details {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .account-details-text {
@@ -2091,7 +2095,7 @@ light blue - 80C0B8
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        margin: 15px 0;
+        /*margin: 15px 0;*/
     }
     
     .form-group-errors {
@@ -2102,14 +2106,6 @@ light blue - 80C0B8
     .signup-textbox-label,
     .login-textbox-label {
         width: 30%;
-    }
-    
-    .login-textbox,
-    .signup-textbox,
-    #firstname,
-    #lastname,
-    #email {
-        width: 70%;
     }
     
     .invalid-feedback {
@@ -2157,6 +2153,7 @@ light blue - 80C0B8
     
     .recipe-overview-box {
         width: 32%;
+        margin-bottom: 0px;
     }
     /*----------End of Recipe boxes -----------*/
     
@@ -2182,13 +2179,7 @@ light blue - 80C0B8
 
 /*tablet screens*/
 @media(min-width: 768px) {
-    /*----------Navbar----------*/
-    
-    
-    
-    
-    
-    
+
     /*----------Post it note section on the home page----------*/
     
     .post-it-notes-section-container {
