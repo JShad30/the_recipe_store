@@ -64,8 +64,7 @@
                     <div class="meal-type-preference-allergen">
                         <!--Meal type options section-->
                         <div class="meal-type-preference-allergen-section" id="create-recipe-meal-type-section">
-                            <img src="static/images/dinner.jpg" height="auto" width="100%"></img>
-                            
+                            <img src="{{ url_for('static', filename='images/dinner.jpg') }}" height="auto" width="100%"></img>
                             <div class="recipe-options-content">
                                 <div class="recipe-info-intro">
                                     <h4 class="recipe-info-intro-title" id="recipe-specifics-meal-type-title">Meal Type</h4>
@@ -80,7 +79,7 @@
                         
                         <!--Preferences options section-->
                         <div class="meal-type-preference-allergen-section" id="create-recipe-preferences-section">
-                            <img src="static/images/vegetarian.jpg" height="auto" width="100%"></img>
+                            <img src="{{ url_for('static', filename='images/vegetarian.jpg') }}" height="auto" width="100%"></img>
                             <div class="recipe-options-content">
                                 <div class="recipe-info-intro">
                                     <h4 class="recipe-info-intro-title" id="recipe-specifics-preference-title">Preferences</h4>
@@ -102,7 +101,7 @@
                         
                         <!--Alergen options section-->
                         <div class="meal-type-preference-allergen-section" id="create-recipe-allergens-section">
-                            <img src="static/images/lactose-free.jpg" height="auto" width="100%"></img>
+                            <img src="{{ url_for('static', filename='images/lactose-free.jpg') }}" height="auto" width="100%"></img>
                             <div class="recipe-options-content">
                                 <div class="recipe-info-intro">
                                     <h4 class="recipe-info-intro-title" id="recipe-specifics-allergens-title">Allergens</h4>

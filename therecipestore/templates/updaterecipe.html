@@ -64,8 +64,7 @@
                     <div class="meal-type-preference-allergen">
                         <!--Meal type options section-->
                         <div class="meal-type-preference-allergen-section" id="create-recipe-meal-type-section">
-                            <img src="static/images/dinner.jpg" height="auto" width="100%"></img>
-                            
+                            <img src="{{ url_for('static', filename='images/dinner.jpg') }}" height="auto" width="100%"></img>
                             <div class="recipe-options-content">
                                 <div class="recipe-info-intro">
                                     <h4 class="recipe-info-intro-title" id="recipe-specifics-meal-type-title">Meal Type</h4>
@@ -80,7 +79,7 @@
                         
                         <!--Preferences options section-->
                         <div class="meal-type-preference-allergen-section" id="create-recipe-preferences-section">
-                            <img src="static/images/vegetarian.jpg" height="auto" width="100%"></img>
+                            <img src="{{ url_for('static', filename='images/vegetarian.jpg') }}" height="auto" width="100%"></img>
                             <div class="recipe-options-content">
                                 <div class="recipe-info-intro">
                                     <h4 class="recipe-info-intro-title" id="recipe-specifics-preference-title">Preferences</h4>
@@ -102,7 +101,7 @@
                         
                         <!--Alergen options section-->
                         <div class="meal-type-preference-allergen-section" id="create-recipe-allergens-section">
-                            <img src="static/images/lactose-free.jpg" height="auto" width="100%"></img>
+                            <img src="{{ url_for('static', filename='images/lactose-free.jpg') }}" height="auto" width="100%"></img>
                             <div class="recipe-options-content">
                                 <div class="recipe-info-intro">
                                     <h4 class="recipe-info-intro-title" id="recipe-specifics-allergens-title">Allergens</h4>
@@ -121,45 +120,7 @@
                         </div>
                     </div>
                 </div>
-                
-                <!--Display the ingredients and instructions as a row in tablet screens and above-->
-                <div class="recipe-ingredients-instructions">
-                    <!--Ingredient textboxes. The information filled out in these textboxes will be added to the ingredients database -->
-                    <div class="create-recipe-info-section" id="create-recipe-ingredients-section">
-                        <div class="recipe-info-intro">
-                            <h4 class="recipe-info-intro-title" id="ingredients-info-title">Ingredients</h4>
-                            <p class="recipe-info-intro-paragraph" id="ingredients-info-paragraph">Please fill out the ingredients of your recipe below.</p>
-                        </div>
-                        <fieldset class="ingredient-textboxes">
-                            {% for ingredient in form.ingredients %}
-                                {{ ingredient(class="create-recipe-ingredient", type="text", placeholder="Ingredient") }}
-                            {% endfor %}
-                        </fieldset>
-                        <!--Add ingredient button-->
-                        <div class="add-button-container">
-                            <div class="add-button" value="Submit Recipe" id="add-ingredient-button">+</div>
-                        </div>
-                    </div>
-                    
-                    <!--Instruction textboxes. The information filled out in these textboxes will be added to the instructions database -->
-                    <div class="create-recipe-info-section" id="create-recipe-instructions-section">
-                        <div class="recipe-info-intro">
-                            <h4 class="recipe-info-intro-title" id="instructions-info-title">Instructions</h4>
-                            <p class="recipe-info-intro-paragraph" id="instructions-info-paragraph">Please fill out the instructions of your recipe below. Be sure they are easy to follow.</p>
-                        </div>
-                        <fieldset class="instruction-textboxes">
-                            {% for instruction in form.instructions %}
-                                {{ instruction(class="create-recipe-instruction", placeholder="Instruction") }}
-                            {% endfor %}
-                        </fieldset>
-                        
-                        <!--Add ingredient button-->
-                        <div class="add-button-container">
-                            <div class="add-button" value="Submit Recipe" id="add-instruction-button">+</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </div>   
             
             <!--Submit button-->
             <div class="submit-button-container">
