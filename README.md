@@ -32,7 +32,9 @@ The create recipe page is only accessible by users that are logged in. When a us
 
 ### Individual Recipe Pages
 
-If the user is looking for a meal of a particular type, they can either click the navbar menu, or, from the home page, the meal type options. This then takes them through to the individual pages for these options. They are then presented with recipes which they can click for meals of this type. If the user is signed in and they are on the page of a recipe they have created, they are presented with two buttons: update and delete. If they press the delete button the recipe is removed from the database. If they press update, they are redirected to the create recipe page but with the initial information pre filled out.
+If the user is looking for a meal of a particular type, they can either click the navbar menu, or, from the home page, the meal type options. This then takes them through to the individual pages for these options. They are then presented with recipes which they can click for meals of this type. 
+
+If the user is signed in and they are on the page of a recipe they have created, they are presented with two buttons: update and delete. If they press the delete button the recipe is removed from the database. If they press update, they are redirected to the create recipe page but with the initial information pre filled out.
 
 ## Technology Used
 
@@ -84,13 +86,17 @@ The navbar on all pages works well generally. However, on screen sizes such as m
 
 There are many ways in which the database can be used to give the user more options. Currently the database is used on the home page to allow the user to select meal types, preference or allergen. More functionality can be provided to allow the user to search for desserts for people who are lactose intolerent, or nut free snacks etc. This could be achieved by having drop down box on the pages, or checkboxes to enable the user to specify their search while on the page.
 
+### Update Page
+
+If the user is logged in and clicks on a recipe they have created they will have the option to update a recipe. This takes them to a page that allows them to update the basics of the recipe. To complete this page I would allow the users to be able to update or add ingredients and recipes. The functionality for this would be handled within the update_recipe route in the 'routes.py' file.
+
 ## Deployment
 
 This project has been deployed to both Github and Heroku by using the push command in the terminal.
 
 If you would like to contribute to the project can be cloned or downloaded from the Github link provided below. 
 
-The individual files on Github can be found via https://github.com/JShad30/the_recipe_store, and the website can be viewed via ...............https://solar-system-quiz.herokuapp.com/...............
+The individual files on Github can be found via https://github.com/JShad30/the_recipe_store, and the website can be viewed at https://recipes-data-centric-milestone.herokuapp.com/
 
 ## Credits
 
