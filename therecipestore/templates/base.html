@@ -153,29 +153,29 @@
 				<div class="footer-section">
 					<div class="meal-types-footer-links footer-list-title" id="meal-types-footer-dropdown">Meal Types:</div>
 					<ul class="meal-types-subject-links footer-list" id="meal-types-list">
-						<li class="footer-list-item"><a class="footer-list-link" href="/snacks">Snacks</a></li>
-						<li class="footer-list-item"><a class="footer-list-link" href="/light_bites">Light Bites</a></li>
-						<li class="footer-list-item"><a class="footer-list-link" href="/main_meals">Main Meals</a></li>
-						<li class="footer-list-item"><a class="footer-list-link" href="/desserts">Desserts</a></li>
+						<li class="footer-list-item"><a class="footer-list-link" href="{{ url_for('meal_type_page', meal_type='snacks') }}">Snacks</a></li>
+						<li class="footer-list-item"><a class="footer-list-link" href="{{ url_for('meal_type_page', meal_type='light_bites') }}">Light Bites</a></li>
+						<li class="footer-list-item"><a class="footer-list-link" href="{{ url_for('meal_type_page', meal_type='main_meals') }}">Main Meals</a></li>
+						<li class="footer-list-item"><a class="footer-list-link" href="{{ url_for('meal_type_page', meal_type='desserts') }}">Desserts</a></li>
 					</ul>
 				</div>
 				<!--Select recipes by allergen requirements-->
 				<div class="footer-section">
 					<div class="allergens-footer-links footer-list-title" id="allergens-footer-dropdown">Allergens:</div>
 					<ul class="allergens-subject-links footer-list" id="allergens-list">
-						<li class="footer-list-item"><a class="footer-list-link" href="/nut_free">Nut Free</a></li>
-						<li class="footer-list-item"><a class="footer-list-link" href="/lactose_free">Lactose Free</a></li>
-						<li class="footer-list-item"><a class="footer-list-link" href="/gluten_free">Gluten Free</a></li>
+						<li class="footer-list-item"><a class="footer-list-link" href="{{ url_for('allergen', meal_type='nut_free') }}">Nut Free</a></li>
+						<li class="footer-list-item"><a class="footer-list-link" href="{{ url_for('allergen', meal_type='lactose_free') }}">Lactose Free</a></li>
+						<li class="footer-list-item"><a class="footer-list-link" href="{{ url_for('allergen', meal_type='gluten_free') }}">Gluten Free</a></li>
 					</ul>
 				</div>
 				<!--Allow the user to select the pages that show the most recent and the most popular recipes-->
 				<div class="footer-section">
 					<div class="search-footer-links footer-list-title" id="search-footer-dropdown">Preference:</div>
 					<ul class="search-subject-links footer-list" id="search-list">
-						<li class="footer-list-item"><a class="footer-list-link" href="/vegetarian">Vegetarian</a></li>
-						<li class="footer-list-item"><a class="footer-list-link" href="/pescatarian">Pescatarian</a></li>
-						<li class="footer-list-item"><a class="footer-list-link" href="/vegan">Vegan</a></li>
-						<li class="footer-list-item"><a class="footer-list-link" href="/raw_vegetarian">Raw Vegetarian</a></li>
+						<li class="footer-list-item"><a class="footer-list-link" href="{{ url_for('preference', meal_type='vegetarian') }}">Vegetarian</a></li>
+						<li class="footer-list-item"><a class="footer-list-link" href="{{ url_for('preference', meal_type='pescatarian') }}">Pescatarian</a></li>
+						<li class="footer-list-item"><a class="footer-list-link" href="{{ url_for('preference', meal_type='vegan') }}">Vegan</a></li>
+						<li class="footer-list-item"><a class="footer-list-link" href="{{ url_for('preference', meal_type='raw_vegetarian') }}">Raw Vegetarian</a></li>
 					</ul>
 				</div>
 			</div>
