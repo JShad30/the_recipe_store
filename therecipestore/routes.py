@@ -234,7 +234,7 @@ def update_recipe(id):
         form.meal_allergen_nut_free.data = recipe.meal_allergen_nut_free
         form.meal_allergen_lactose_free.data = recipe.meal_allergen_lactose_free
         form.meal_allergen_gluten_free.data = recipe.meal_allergen_gluten_free
-    return render_template('updaterecipe.html', form=form, legend='Update Recipe')
+    return render_template('createrecipe.html', form=form, legend='Update Recipe')
     
     
 """Delete button - when the user clicks this button the recipe is deleted from the database"""   
