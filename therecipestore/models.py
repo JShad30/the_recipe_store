@@ -52,7 +52,7 @@ class Recipe(db.Model):
 #Ingredients table
 class Ingredient(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    ingredient_name = db.Column(db.String(30))
+    ingredient_name = db.Column(db.String(100))
     recipe_id = db.Column(db.Integer, db.ForeignKey('recipe.id'))
     
     def __repr__(self):
@@ -61,7 +61,7 @@ class Ingredient(db.Model):
 #Instructions table
 class Instruction(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    instruction_name = db.Column(db.String(200))
+    instruction_name = db.Column(db.String(250))
     recipe_id = db.Column(db.Integer, db.ForeignKey('recipe.id'))
     
     def __repr__(self):

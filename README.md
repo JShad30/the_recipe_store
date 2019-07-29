@@ -92,7 +92,7 @@ If the user is logged in and clicks on a recipe they have created they will have
 
 ## Deployment
 
-This project has been deployed to both Github and Heroku by using the push command in the terminal.
+This project has been deployed to both Github and Heroku by using the push command in the terminal. Once in Heroku the database needed to be created separately using Postgres.
 
 If you would like to contribute to the project can be cloned or downloaded from the Github link provided below. 
 
