@@ -9,6 +9,6 @@ $(document).ready(function() {
 });
 
 // Reset page when window size changes
-$(window).resize(function() {
-    location.reload(true)
-});
+//$(window).resize(function() {
+    //location.reload(true)
+//});
