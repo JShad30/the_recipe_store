@@ -90,6 +90,10 @@ There are many ways in which the database can be used to give the user more opti
 
 If the user is logged in and clicks on a recipe they have created they will have the option to update a recipe. This takes them to a page that allows them to update the basics of the recipe. To complete this page I would allow the users to be able to update or add ingredients and recipes. The functionality for this would be handled within the update_recipe route in the 'routes.py' file.
 
+### Character limits on recipes
+
+Currently there are character limits on the title, ingredients and instructions within the recipe creation pages. Currently an error is thrown if the user exceeds this. I would adjust this to give the user an error message on the page to allow them to adjust their recipe accordingly. I would also increase the number of characters available for the recipe title from 20 to 40.
+
 ## Deployment
 
 This project has been deployed to both Github and Heroku by using the push command in the terminal. Once in Heroku the database needed to be created separately using Postgres.
