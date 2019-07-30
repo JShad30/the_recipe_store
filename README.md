@@ -96,7 +96,7 @@ Currently there are character limits on the title, ingredients and instructions 
 
 ## Deployment
 
-This project has been deployed to both Github and Heroku by using the push command in the terminal. Once in Heroku the database needed to be created separately using Postgres.
+This project has been deployed to both Github and Heroku by using the push command in the terminal. Once in Heroku the database needed to be created separately using Postgres. The debug was turned to false in the run.py file prior to being commited to Heroku.
 
 If you would like to contribute to the project can be cloned or downloaded from the Github link provided below. 
 
