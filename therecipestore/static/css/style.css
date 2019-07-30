@@ -1002,11 +1002,12 @@ body {
     padding: 0;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .post-it-note {
-    height: 280px;
-    width: 100%;
+    min-height: 100px;
+    max-width: 250px;
     box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.3);
     background-color: #D2DBF5;
     padding: 10px;
@@ -2190,7 +2191,7 @@ body {
     }
     
     .post-it-note {
-        height: 180px;
+        height: 150px;
         width: 180px;
     }
 
