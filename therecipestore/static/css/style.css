@@ -22,7 +22,10 @@ light blue - 80C0B8
     font-family: "Roboto", sans-serif;
 }
 
-
+body {
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
 
 /*---------Navbar----------*/
 .navbar {
